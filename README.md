@@ -4,6 +4,7 @@
 > **Write Once. Run Everywhere (Web, Desktop, Android, iOS).**
 
 [![Version](https://img.shields.io/badge/version-1.2.0%20GA-blue.svg)](STAR_SPEC.md)
+[![Telegram](https://img.shields.io/badge/Telegram-Join_Community-24A1DE.svg?logo=telegram)](https://t.me/opendigitalcontinuity)
 [![Tests](https://img.shields.io/badge/tests-183%2F183%20passing%20(100%25)-brightgreen.svg)](tests/)
 [![Distribution](https://img.shields.io/badge/distribution-Zero--Installer%20Portable%20ZIP-orange.svg)](dist/)
 [![WebGPU](https://img.shields.io/badge/rendering-WebGPU%20SDF%2060%20FPS-purple.svg)](STAR_WEBGPU.md)
