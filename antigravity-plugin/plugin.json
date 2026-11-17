@@ -1,0 +1,14 @@
+{
+  "name": "star-language",
+  "displayName": "Star Programming Language",
+  "version": "1.2.0",
+  "description": "Star language ecosystem: build, run, test, and preview universal Flutter apps, native Android wallpaper services, and Google Play billing in Star.",
+  "logo": "assets/logo.svg",
+  "author": "Star Language Project",
+  "homepage": "https://www.shreeshop.in/star",
+  "suggestedPrompts": [
+    "Write a Flutter Material 3 screen in Star Language",
+    "Run syntax diagnostics with Star Doctor on my project",
+    "Build and deploy Star Android wallpaper app to connected phone"
+  ]
+}

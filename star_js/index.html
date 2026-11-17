@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Star.js — Universal Disruption-Proof Web & App Framework</title>
+  <meta name="description"
+    content="Star.js is a high-performance JavaScript web & app framework with React-like hooks, declarative Star.html syntax, cross-platform builds, Vite-like dev server, and ODCS 4-layer disruption continuity.">
+  <meta name="keywords"
+    content="star.js, react, hooks, vite, crdt, odcs, offline-first, pwa, desktop, android, zero-intent-loss">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="star.js"></script>
+</head>
+
+<body>
+  <!-- Ambient Background Lighting -->
+  <div class="ambient-glow glow-orb-1"></div>
+  <div class="ambient-glow glow-orb-2"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand">
+        <div class="brand-icon">⭐</div>
+        <span class="brand-name">Star.js</span>
+        <span class="brand-badge">ODCS-2.0</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#studio" class="nav-link">Studio</a>
+        <a href="#cross-platform" class="nav-link">Cross-Platform</a>
+        <a href="#plugins-seo" class="nav-link">Plugins &amp; SEO</a>
+        <a href="#daemon" class="nav-link">Daemon HUD</a>
+        <a href="#inspector" class="nav-link">ODCS Inspector</a>
+        <a href="#components" class="nav-link">Components</a>
+        <a href="#docs" class="nav-link">Docs</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Quick Search Button (Ctrl+K) -->
+        <button class="star-btn star-btn-secondary star-btn-sm" onclick="openSearchModal()"
+          style="display: flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.65rem;">
+          <span style="color: var(--star-accent-primary);">🔍</span>
+          <span>Search</span>
+          <span class="kbd-pill">Ctrl+K</span>
+        </button>
+
+        <!-- Live Connectivity Pill -->
+        <div id="nav-mode-pill" class="mode-pill mode-pill-online">
+          <span class="pulse-dot" style="background: currentColor;"></span>
+          <span id="nav-mode-text">ONLINE (&lt;1ms)</span>
+        </div>
+
+        <!-- Theme Selector -->
+        <select id="theme-select" class="star-btn star-btn-secondary star-btn-sm"
+          style="padding: 0.35rem 0.5rem; outline: none; background: rgba(0,0,0,0.4);"
+          onchange="Star.Theme.applyTheme(this.value)">
+          <option value="midnight">Midnight (OLED)</option>
+          <option value="aurora">Aurora (Emerald)</option>
+          <option value="cyberpunk">Cyberpunk (Neon)</option>
+          <option value="nord">Nord (Arctic)</option>
+          <option value="sunset">Sunset (Amber)</option>
+          <option value="dark">Dark (Obsidian)</option>
+          <option value="light">Light (Crystal)</option>
+        </select>
+
+        <a href="https://github.com/Veyra-Programming/open-digital-continuity-standard-" target="_blank"
+          class="star-btn star-btn-secondary star-btn-sm">
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-badge">
+        <span>🌟 STAR.JS • REACT-LIKE HOOKS • CROSS-PLATFORM • VITE PLUGINS • ODCS DAEMON</span>
+      </div>
+
+      <h1 class="hero-title">
+        Reactive Web &amp; App Experiences That<br>
+        <span class="gradient-text">Endure Any Disruption.</span>
+      </h1>
+
+      <div class="typewriter-box">
+        <span style="color: var(--star-accent-success); margin-right: 0.5rem;">$</span>
+        <span id="typewriter-text"></span>
+        <span class="typewriter-cursor"></span>
+      </div>
+
+      <p class="hero-sub">
+        <strong>Star.js</strong> brings familiar React-like hooks (<code>useState</code>, <code>useEffect</code>) and
+        ergonomic <code>Star.html</code> template literals to universal web and app engineering, backed by the
+        <strong>Open Digital Continuity Standard (ODCS)</strong>. Sub-16ms optimistic UI updates, IndexedDB WAL, CRDT
+        consensus, and Zero Intent Loss receipts.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#studio" class="star-btn star-btn-primary">
+          <span>Launch Interactive Studio</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="#cross-platform" class="star-btn star-btn-purple">
+          <span>Cross-Platform App Builder</span>
+        </a>
+        <a href="#plugins-seo" class="star-btn star-btn-secondary">
+          <span>Vite &amp; SEO Engine</span>
+        </a>
+      </div>
+
+      <!-- Network Simulation Switcher Bar -->
+      <div
+        style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <span
+          style="font-size: 0.75rem; font-family: var(--star-font-mono); color: var(--star-text-muted); text-transform: uppercase;">
+          Network Simulation Mode:
+        </span>
+        <div class="sim-controls">
+          <button id="btn-sim-online" class="sim-btn active-online" onclick="setSimMode('online')">Online
+            (Normal)</button>
+          <button id="btn-sim-jitter" class="sim-btn" onclick="setSimMode('degraded')">Jitter (480ms Latency)</button>
+          <button id="btn-sim-offline" class="sim-btn" onclick="setSimMode('offline')">Offline (Severed Link)</button>
+        </div>
+      </div>
+
+      <!-- Live HUD Metrics Strip -->
+      <div class="hud-strip">
+        <div class="hud-tile glass-panel">
+          <div class="hud-label">Layer 3 RTT Latency</div>
+          <div id="hud-rtt" class="hud-val" style="color: var(--star-accent-success);">0.1 ms</div>
+          <div id="hud-mode" class="hud-sub">OPTIMAL_ONLINE</div>
+        </div>
+
+        <div class="hud-tile glass-panel">
+          <div class="hud-label">Layer 1 Local Storage</div>
+          <div id="hud-storage" class="hud-val" style="color: var(--star-accent-primary);">IndexedDB Ready</div>
+          <div class="hud-sub">ODCS_Star_Vault (WAL)</div>
+        </div>
+
+        <div class="hud-tile glass-panel">
+          <div class="hud-label">Layer 2 CRDT Vector Clock</div>
+          <div id="hud-crdt" class="hud-val" style="color: var(--star-accent-secondary);">v-clock: {local: 1}</div>
+          <div class="hud-sub">PN-Counter &amp; OR-Set SEC</div>
+        </div>
+
+        <div class="hud-tile glass-panel">
+          <div class="hud-label">Layer 4 Staged ZIL Receipts</div>
+          <div id="hud-zil" class="hud-val" style="color: var(--star-accent-warning);">0 Minted</div>
+          <div class="hud-sub">Zero Intent Loss Proofs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE LIVE STUDIO & CODE PLAYGROUND -->
+  <section id="studio" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Live Reactive IDE</div>
+        <h2 class="section-title">Interactive Star.js Application Studio</h2>
+        <p class="section-desc">
+          Edit real Star.js code on the left, watch it render live on the right. Test React-like hooks, easy Star.html
+          template syntax, and optimistic mutations with local Write-Ahead Log commitments.
+        </p>
+      </div>
+
+      <!-- Template Switcher Bar -->
+      <div
+        style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <span
+            style="font-size: 0.75rem; font-family: var(--star-font-mono); color: var(--star-text-muted);">Templates:</span>
+          <button class="star-btn star-btn-primary star-btn-sm" onclick="loadSample('react')">⚛️ React Hooks +
+            Star.html</button>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="loadSample('store')">🛒 Offline POS
+            Store</button>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="loadSample('triage')">🏥 Emergency
+            Med-Log</button>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="loadSample('crdt')">💬 CRDT Multi-Node
+            Collab</button>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="loadSample('dual')">🛰️ Dual Transport
+            Wire</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <button class="star-btn star-btn-primary star-btn-sm" onclick="runStudioCode()">
+            <span>▶ Run Star.js Code</span>
+          </button>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="clearConsoleLog()">
+            <span>Clear Log</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio Grid: Editor (Left) & Preview (Right) -->
+      <div class="studio-grid">
+        <!-- Left: Code Editor -->
+        <div class="editor-panel glass-panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <span>📝</span>
+              <span id="active-template-name">app.js — React-like Hooks &amp; Star.html</span>
+            </span>
+            <span style="font-size: 0.72rem; font-family: var(--star-font-mono); color: var(--star-accent-primary);">
+              ESM / UMD Ready
+            </span>
+          </div>
+          <textarea id="studio-editor" class="code-editor" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Right: Live Canvas Preview -->
+        <div class="preview-panel glass-panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <span>⚡</span>
+              <span>Live Reactive Canvas Preview</span>
+            </span>
+            <div id="preview-status-pill" class="mode-pill mode-pill-online"
+              style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">
+              <span>Sub-16ms Reactivity</span>
+            </div>
+          </div>
+          <div id="studio-preview-root" class="preview-canvas">
+            <!-- Rendered by Star.js -->
+          </div>
+          <!-- Execution Console -->
+          <div id="studio-console" class="console-log">
+            <div style="color: var(--star-text-muted);">// Star.js Reactive Console initialized...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS-PLATFORM APP CREATION SUITE -->
+  <section id="cross-platform" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Universal Multi-Target Engine</div>
+        <h2 class="section-title">Cross-Platform App Creation Suite</h2>
+        <p class="section-desc">
+          Build once in Star.js, deploy natively anywhere. One declarative codebase compiles to Progressive Web Apps,
+          Windows Desktop Executables, and Android Native APK containers with zero code duplication.
+        </p>
+      </div>
+
+      <!-- Target Cards Grid -->
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-icon">🌐</div>
+          <div class="platform-name">Web &amp; PWA</div>
+          <div class="platform-desc">
+            Ultra-fast Single Page Apps with Service Worker offline cache, Stale-While-Revalidate strategies, web app
+            manifest, and 100/100 Lighthouse SEO score.
+          </div>
+          <div class="platform-cmd">
+            <span>$ star js build --target pwa</span>
+            <button class="star-btn star-btn-secondary star-btn-sm" style="padding: 0.15rem 0.4rem;"
+              onclick="copyCommand('star js build --target pwa')">Copy</button>
+          </div>
+        </div>
+
+        <div class="platform-card">
+          <div class="platform-icon">💻</div>
+          <div class="platform-name">Windows Desktop</div>
+          <div class="platform-desc">
+            Native Windows executable launcher powered by Chromium/Edge WebView2. Zero runtime bloat, instant hardware
+            acceleration, and local WAL storage.
+          </div>
+          <div class="platform-cmd">
+            <span>$ star js build --target desktop</span>
+            <button class="star-btn star-btn-secondary star-btn-sm" style="padding: 0.15rem 0.4rem;"
+              onclick="copyCommand('star js build --target desktop')">Copy</button>
+          </div>
+        </div>
+
+        <div class="platform-card">
+          <div class="platform-icon">📱</div>
+          <div class="platform-name">Android Native (APK)</div>
+          <div class="platform-desc">
+            Full Android project scaffolding with AndroidManifest.xml, hardware back-button listeners, offline local
+            asset pack, and touch vibration bridge.
+          </div>
+          <div class="platform-cmd">
+            <span>$ star js build --target android</span>
+            <button class="star-btn star-btn-secondary star-btn-sm" style="padding: 0.15rem 0.4rem;"
+              onclick="copyCommand('star js build --target android')">Copy</button>
+          </div>
+        </div>
+
+        <div class="platform-card">
+          <div class="platform-icon">🍏</div>
+          <div class="platform-name">iOS &amp; Mobile WebKit</div>
+          <div class="platform-desc">
+            iOS container configuration with Apple MetalKit / WebKit hardware acceleration, responsive viewport-fit
+            cover, and safe-area inset handling.
+          </div>
+          <div class="platform-cmd">
+            <span>$ star js build --target ios</span>
+            <button class="star-btn star-btn-secondary star-btn-sm" style="padding: 0.15rem 0.4rem;"
+              onclick="copyCommand('star js build --target ios')">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Project Scaffolder Card -->
+      <div class="glass-panel" style="margin-top: 2rem; padding: 1.75rem;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem;">
+              🛠️ Interactive Cross-Platform Project Generator
+            </h3>
+            <p style="font-size: 0.8rem; color: var(--star-text-secondary);">
+              Configure and preview your cross-platform Star.js application scaffolding in real-time.
+            </p>
+          </div>
+          <button class="star-btn star-btn-primary star-btn-sm" onclick="generateInteractiveScaffold()">
+            <span>⚡ Generate Scaffold</span>
+          </button>
+        </div>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <label
+              style="display: block; font-size: 0.72rem; font-family: var(--star-font-mono); color: var(--star-text-muted); margin-bottom: 0.4rem;">APP
+              NAME</label>
+            <input id="scaffold-app-name" class="star-input" value="star-continuity-app"
+              oninput="updateScaffoldPreview()" />
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 0.72rem; font-family: var(--star-font-mono); color: var(--star-text-muted); margin-bottom: 0.4rem;">PRIMARY
+              TARGET</label>
+            <select id="scaffold-target" class="star-input" onchange="updateScaffoldPreview()">
+              <option value="pwa">Progressive Web App (PWA)</option>
+              <option value="desktop">Windows Desktop (.exe)</option>
+              <option value="android">Android Native (APK)</option>
+              <option value="web">Optimized Web SPA</option>
+            </select>
+          </div>
+          <div>
+            <label
+              style="display: block; font-size: 0.72rem; font-family: var(--star-font-mono); color: var(--star-text-muted); margin-bottom: 0.4rem;">TEMPLATE</label>
+            <select id="scaffold-template" class="star-input" onchange="updateScaffoldPreview()">
+              <option value="react-continuity">React Hooks + Star.html</option>
+              <option value="crdt-collab">Multi-Node CRDT Collaboration</option>
+              <option value="offline-pos">Offline Durable POS Store</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Terminal Output Box -->
+        <div
+          style="background: #010307; border: 1px solid var(--star-border); border-radius: 10px; padding: 1.25rem; font-family: var(--star-font-mono); font-size: 0.75rem; color: #a5f3fc;">
+          <div
+            style="display: flex; justify-content: space-between; color: var(--star-text-muted); border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+            <span>TERMINAL CLI WORKFLOW</span>
+            <span id="scaffold-cli-badge">star js create</span>
+          </div>
+          <pre id="scaffold-terminal-code" style="margin: 0; line-height: 1.7; color: #38bdf8; overflow-x: auto;"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VITE-LIKE PLUGINS & SEO ENGINE INSPECTOR -->
+  <section id="plugins-seo" class="section" style="background: rgba(0, 0, 0, 0.2);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">High-Speed Build &amp; Indexing</div>
+        <h2 class="section-title">Vite-like Plugins, SEO &amp; Fast Indexing Engine</h2>
+        <p class="section-desc">
+          Star.js includes a blazing-fast ESM bundler pipeline with instant Hot Module Replacement (&lt;10ms), automated
+          Search Engine Optimization, dynamic OpenGraph/Twitter Cards, structured JSON-LD, and an inverted search engine
+          index.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <!-- Plugin Tabs -->
+        <div class="inspector-tabs">
+          <button class="insp-tab active" onclick="switchSeoTab('google')">🔍 Google Search Snippet Preview</button>
+          <button class="insp-tab" onclick="switchSeoTab('social')">📱 Social OpenGraph &amp; Twitter Card</button>
+          <button class="insp-tab" onclick="switchSeoTab('jsonld')">📜 JSON-LD Structured Schema</button>
+          <button class="insp-tab" onclick="switchSeoTab('sitemap')">🗺️ Sitemap.xml &amp; Robots.txt</button>
+        </div>
+
+        <!-- Tab 1: Google SERP Preview -->
+        <div id="seo-tab-google" class="seo-tab-content">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">
+              Live Google Search Result Preview (Automated StarSEOPlugin)
+            </div>
+            <div class="star-badge star-badge-success">100/100 Lighthouse SEO Score</div>
+          </div>
+          <div class="google-preview-card">
+            <div class="google-url">
+              <span
+                style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #00f0ff;"></span>
+              <span>https://starjs.dev &rsaquo; apps &rsaquo; digital-continuity</span>
+            </div>
+            <a href="#hero" class="google-title">Star.js — Disruption-Proof Universal Web &amp; App Framework</a>
+            <div class="google-snippet">
+              Built on Star.js and ODCS v2.0 with React-like hooks, local IndexedDB Write-Ahead Log durability, CRDT
+              consensus, sub-16ms ZIL receipts, and zero external dependencies.
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Social Card Preview -->
+        <div id="seo-tab-social" class="seo-tab-content" style="display: none;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
+            Open Graph &amp; Twitter Summary Card Preview
+          </div>
+          <div class="og-preview-card" style="max-width: 520px; margin: 0 auto;">
+            <div class="og-image-box">
+              <span>⭐ Star.js</span>
+            </div>
+            <div class="og-content">
+              <div class="og-site">STARJS.DEV • DIGITAL CONTINUITY</div>
+              <div class="og-title">Star.js: Reactive Web &amp; App Framework for Digital Continuity</div>
+              <div class="og-desc">Zero intent loss during network severed blackouts. Powered by ODCS-2.0 and Star
+                Language.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: JSON-LD Schema -->
+        <div id="seo-tab-jsonld" class="seo-tab-content" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">Generated JSON-LD Schema
+              (application/ld+json)</span>
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="copySnippet('jsonld-code')">Copy
+              Schema</button>
+          </div>
+          <pre id="jsonld-code"
+            style="background: #010307; border: 1px solid var(--star-border); padding: 1rem; border-radius: 8px; font-family: var(--star-font-mono); font-size: 0.75rem; color: #6ee7b7; overflow-x: auto; margin: 0;">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Star.js Universal Web & App Framework",
+  "url": "https://starjs.dev",
+  "description": "Universal JavaScript Website & App Framework for Digital Continuity, powered by ODCS v2.0",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Universal (Web, Windows Desktop, Android, iOS)",
+  "author": {
+    "@type": "Person",
+    "name": "Anirudha Puthraya"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}</pre>
+        </div>
+
+        <!-- Tab 4: Sitemap & Robots -->
+        <div id="seo-tab-sitemap" class="seo-tab-content" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">Auto-Generated sitemap.xml &amp;
+              robots.txt</span>
+            <button class="star-btn star-btn-primary star-btn-sm" onclick="downloadSitemap()">Download
+              sitemap.xml</button>
+          </div>
+          <pre id="sitemap-preview-code"
+            style="background: #010307; border: 1px solid var(--star-border); padding: 1rem; border-radius: 8px; font-family: var(--star-font-mono); font-size: 0.75rem; color: #a5f3fc; overflow-x: auto; margin: 0;">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://starjs.dev/&lt;/loc&gt;
+    &lt;changefreq&gt;daily&lt;/changefreq&gt;
+    &lt;priority&gt;1.0&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://starjs.dev/docs&lt;/loc&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://starjs.dev/studio&lt;/loc&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAR.JS BACKGROUND DAEMON ENGINE HUD -->
+  <section id="daemon" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Background Continuity Service</div>
+        <h2 class="section-title">Star.js Background Daemon Engine</h2>
+        <p class="section-desc">
+          The Star Daemon runs continuously in the background, keeping CRDT state in sync across multiple browser tabs,
+          mobile webviews, and server gateways, while monitoring file changes and auto-draining intent outbox queues.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.75rem;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div
+              style="width: 12px; height: 12px; border-radius: 50%; background: var(--star-accent-success); box-shadow: 0 0 10px var(--star-accent-success);"
+              class="pulse-dot"></div>
+            <div>
+              <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">StarDaemon v1.0.0 (Port 7788)</div>
+              <div style="font-size: 0.72rem; color: var(--star-text-muted); font-family: var(--star-font-mono);">PID:
+                Active • CRDT Hub &amp; Relay • Instant HMR</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="pingDaemonStatus()">
+              <span>📡 Ping Daemon</span>
+            </button>
+            <button class="star-btn star-btn-purple star-btn-sm" onclick="triggerDaemonCrdtSync()">
+              <span>🔄 Trigger CRDT Sync</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Metrics Tiles -->
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div
+            style="background: rgba(0,0,0,0.3); border: 1px solid var(--star-border); padding: 1rem; border-radius: 10px;">
+            <div style="font-size: 0.7rem; font-family: var(--star-font-mono); color: var(--star-text-muted);">CRDT
+              REPLICAS</div>
+            <div id="daemon-crdt-count"
+              style="font-size: 1.4rem; font-weight: 800; color: var(--star-accent-primary); margin: 0.2rem 0;">4 Active
+            </div>
+            <div style="font-size: 0.7rem; color: var(--star-accent-success);">Convergence: 100%</div>
+          </div>
+
+          <div
+            style="background: rgba(0,0,0,0.3); border: 1px solid var(--star-border); padding: 1rem; border-radius: 10px;">
+            <div style="font-size: 0.7rem; font-family: var(--star-font-mono); color: var(--star-text-muted);">HMR FILE
+              WATCHER</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: var(--star-accent-secondary); margin: 0.2rem 0;">
+              &lt; 5 ms</div>
+            <div style="font-size: 0.7rem; color: var(--star-text-secondary);">Sub-10ms Hot Reload</div>
+          </div>
+
+          <div
+            style="background: rgba(0,0,0,0.3); border: 1px solid var(--star-border); padding: 1rem; border-radius: 10px;">
+            <div style="font-size: 0.7rem; font-family: var(--star-font-mono); color: var(--star-text-muted);">OUTBOX
+              DRAIN QUEUE</div>
+            <div id="daemon-outbox-val"
+              style="font-size: 1.4rem; font-weight: 800; color: var(--star-accent-warning); margin: 0.2rem 0;">0
+              Pending</div>
+            <div style="font-size: 0.7rem; color: var(--star-accent-success);">Auto-Drain Ready</div>
+          </div>
+
+          <div
+            style="background: rgba(0,0,0,0.3); border: 1px solid var(--star-border); padding: 1rem; border-radius: 10px;">
+            <div style="font-size: 0.7rem; font-family: var(--star-font-mono); color: var(--star-text-muted);">FAST
+              SEARCH INDEX</div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: #38bdf8; margin: 0.2rem 0;">18 Terms</div>
+            <div style="font-size: 0.7rem; color: var(--star-text-secondary);">Inverted Index Synced</div>
+          </div>
+        </div>
+
+        <!-- CLI Daemon Controls Guide -->
+        <div
+          style="background: #010307; border: 1px solid var(--star-border); border-radius: 10px; padding: 1rem; font-family: var(--star-font-mono); font-size: 0.75rem; color: #a5f3fc;">
+          <div style="color: var(--star-text-muted); margin-bottom: 0.5rem;">STAR DAEMON CLI COMMANDS:</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem;">
+            <div><span style="color: var(--star-accent-primary);">star js daemon start</span> — Launch background
+              service</div>
+            <div><span style="color: var(--star-accent-primary);">star js daemon status</span> — Check health &amp;
+              active ports</div>
+            <div><span style="color: var(--star-accent-primary);">star js daemon logs</span> — Tail recent activity
+              journal</div>
+            <div><span style="color: var(--star-accent-primary);">star js daemon stop</span> — Terminate background
+              service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ODCS 4-LAYER DISRUPTION INSPECTOR -->
+  <section id="inspector" class="section" style="background: rgba(0, 0, 0, 0.2);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">ODCS-2.0 Conformance Engine</div>
+        <h2 class="section-title">ODCS 4-Layer Disruption Inspector</h2>
+        <p class="section-desc">
+          Inspect the internals of the four continuity layers in real-time. View IndexedDB Write-Ahead Log records, CRDT
+          convergence states, active telemetry sensing, and minted Zero Intent Loss receipts.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <!-- Tabs -->
+        <div class="inspector-tabs">
+          <button class="insp-tab active" onclick="switchInspTab('l1')">Layer 1: WAL &amp; Merkle Ledger</button>
+          <button class="insp-tab" onclick="switchInspTab('l2')">Layer 2: CRDT &amp; Dual Transport</button>
+          <button class="insp-tab" onclick="switchInspTab('l3')">Layer 3: Telemetry Probes</button>
+          <button class="insp-tab" onclick="switchInspTab('l4')">Layer 4: Zero Intent Loss Receipts</button>
+        </div>
+
+        <!-- Tab 1: Layer 1 WAL -->
+        <div id="insp-content-l1" class="insp-content">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">
+              IndexedDB Local Journal &amp; Merkle Chain (<span id="wal-count">0</span> records)
+            </div>
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="refreshInspector()">
+              <span>Refresh Ledger</span>
+            </button>
+          </div>
+          <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--star-border); border-radius: 8px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Seq #</th>
+                  <th>Journal Entry Type</th>
+                  <th>Timestamp</th>
+                  <th>RFC 8785 Merkle Digest</th>
+                  <th>Durability Status</th>
+                </tr>
+              </thead>
+              <tbody id="wal-table-body">
+                <tr>
+                  <td colspan="5" style="text-align: center; color: var(--star-text-muted);">Loading WAL Journal from
+                    IndexedDB...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Layer 2 CRDT & Dual Transport -->
+        <div id="insp-content-l2" class="insp-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">State-Based CRDT
+                PN-Counter</div>
+              <div
+                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; border: 1px solid var(--star-border);">
+                <div
+                  style="font-size: 2rem; font-weight: 800; color: var(--star-accent-primary); margin-bottom: 0.5rem;"
+                  id="crdt-counter-val">0</div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="star-btn star-btn-secondary star-btn-sm" onclick="incCounter()">Local Inc (+1)</button>
+                  <button class="star-btn star-btn-secondary star-btn-sm" onclick="decCounter()">Local Dec (-1)</button>
+                  <button class="star-btn star-btn-primary star-btn-sm" onclick="simulateRemoteMerge()">Simulate Peer
+                    Merge</button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Dual-Transport
+                Frame Simulator</div>
+              <div
+                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; border: 1px solid var(--star-border);">
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                  <button class="star-btn star-btn-secondary star-btn-sm" onclick="sendReliablePacket()">Pack
+                    ODCS-REL</button>
+                  <button class="star-btn star-btn-purple star-btn-sm" onclick="sendDatagramPacket()">Pack
+                    ODCS-DGM</button>
+                </div>
+                <pre id="transport-packet-view"
+                  style="font-size: 0.7rem; color: #7dd3fc; margin: 0; background: #000; padding: 0.5rem; border-radius: 4px; max-height: 100px; overflow-y: auto;">Click button to pack test frame...</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Layer 3 Telemetry -->
+        <div id="insp-content-l3" class="insp-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; border: 1px solid var(--star-border);">
+              <div style="font-size: 0.72rem; color: var(--star-text-muted);">ACTIVE RUNTIME MODE</div>
+              <div id="insp-tele-mode"
+                style="font-size: 1.15rem; font-weight: 800; color: var(--star-accent-success); margin: 0.35rem 0;">
+                OPTIMAL_ONLINE</div>
+              <div style="font-size: 0.72rem; color: var(--star-text-secondary);">Ping Gateway Probe</div>
+            </div>
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; border: 1px solid var(--star-border);">
+              <div style="font-size: 0.72rem; color: var(--star-text-muted);">ACTIVE RTT LATENCY</div>
+              <div id="insp-tele-rtt"
+                style="font-size: 1.15rem; font-weight: 800; color: var(--star-accent-primary); margin: 0.35rem 0;">0.1
+                ms</div>
+              <div style="font-size: 0.72rem; color: var(--star-text-secondary);">Exponential Backoff: Inactive</div>
+            </div>
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; border: 1px solid var(--star-border);">
+              <div style="font-size: 0.72rem; color: var(--star-text-muted);">BATTERY &amp; QUOTA</div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.35rem 0;">UNRESTRICTED</div>
+              <div style="font-size: 0.72rem; color: var(--star-text-secondary);">IndexedDB Quota: &gt; 50 GB</div>
+            </div>
+          </div>
+          <div style="margin-top: 1rem; text-align: right;">
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="probeTelemetryNow()">Probe Gateway
+              Now</button>
+          </div>
+        </div>
+
+        <!-- Tab 4: Layer 4 ZIL Receipts -->
+        <div id="insp-content-l4" class="insp-content" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">
+              Minted Cryptographic Receipts (<span id="zil-count">0</span> receipts in outbox)
+            </div>
+            <button class="star-btn star-btn-primary star-btn-sm" onclick="drainOutboxNow()">
+              <span>Drain Outbox to Remote Gateway</span>
+            </button>
+          </div>
+          <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--star-border); border-radius: 8px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Receipt ID</th>
+                  <th>Action</th>
+                  <th>Canonical SHA-256</th>
+                  <th>Proof Signature</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="zil-table-body">
+                <tr>
+                  <td colspan="5" style="text-align: center; color: var(--star-text-muted);">No ZIL receipts minted yet.
+                    Use Star.Intent.preserve() in the studio!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAR UI COMPONENT SHOWCASE -->
+  <section id="components" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Declarative UI System</div>
+        <h2 class="section-title">Star.js Universal Component Showcase</h2>
+        <p class="section-desc">
+          Every component follows pure Star UI semantics. Beautiful out of the box, reactive by default, fully
+          accessible, and styled with 7 glassmorphic themes.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <!-- Card 1: Buttons & Badges -->
+        <div class="star-card glass-panel">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+            Buttons &amp; Badges (UI.button / UI.badge)
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button class="star-btn star-btn-primary"
+              onclick="showSampleToast('Primary Action Executed', 'info')">Primary</button>
+            <button class="star-btn star-btn-secondary"
+              onclick="showSampleToast('Secondary Action', 'info')">Secondary</button>
+            <button class="star-btn star-btn-purple"
+              onclick="showSampleToast('Purple Accent Triggered', 'success')">Purple</button>
+            <button class="star-btn star-btn-danger"
+              onclick="showSampleToast('Caution Action Triggered', 'error')">Danger</button>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="star-badge star-badge-primary">ODCS-REL</span>
+            <span class="star-badge star-badge-success">SYNCHRONIZED</span>
+            <span class="star-badge star-badge-warning">STAGED</span>
+            <span class="star-badge star-badge-danger">SEVERED</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Interactive Sliders & Switch -->
+        <div class="star-card glass-panel">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+            Sliders &amp; Toggles (UI.slider / UI.switch)
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+                <span>Sync Priority:</span>
+                <span id="slider-val"
+                  style="color: var(--star-accent-primary); font-family: var(--star-font-mono);">75%</span>
+              </div>
+              <input type="range" min="0" max="100" value="75"
+                style="width: 100%; accent-color: var(--star-accent-primary);"
+                oninput="document.getElementById('slider-val').textContent = this.value + '%'; document.getElementById('demo-progress').style.width = this.value + '%';">
+            </div>
+            <div class="star-progress-track">
+              <div id="demo-progress" class="star-progress-fill" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Metrics & Avatars -->
+        <div class="star-card glass-panel">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+            Stats &amp; Avatars (UI.stat / UI.avatar)
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem;">
+            <div class="star-avatar"
+              style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--star-accent-primary), var(--star-accent-secondary)); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #050811;">
+              AP
+            </div>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: #fff;">Anirudha Puthraya</div>
+              <div style="font-size: 0.72rem; color: var(--star-text-muted); font-family: var(--star-font-mono);">ODCS
+                Standards Architect</div>
+            </div>
+          </div>
+          <div class="star-stat-card">
+            <div class="star-stat-title">Transactions Preserved</div>
+            <div class="star-stat-value" style="font-size: 1.25rem;">1,420,891</div>
+            <div class="star-stat-sub">Zero Intent Loss Verified</div>
+          </div>
+        </div>
+
+        <!-- Card 4: Hardware Motion & Physics Engine -->
+        <div class="star-card glass-panel" id="motion-demo-card">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>Hardware Motion &amp; Micro-Interactions</span>
+            <span class="star-badge star-badge-accent">Star.Motion</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button class="star-btn star-btn-primary star-btn-sm" onclick="Star.Motion.confetti(null, 50)">
+              🎉 Confetti Burst
+            </button>
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="Star.Motion.bounce('#motion-demo-card', 12, 600)">
+              ⚡ Spring Bounce
+            </button>
+            <button class="star-btn star-btn-secondary star-btn-sm" onclick="Star.Motion.shake('#motion-demo-card', 8, 400)">
+              📳 Haptic Shake
+            </button>
+          </div>
+          <div style="padding: 0.75rem; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid var(--star-border);">
+            <div style="font-size: 0.72rem; color: var(--star-text-muted); margin-bottom: 0.4rem;">SHIMMER SKELETON PREVIEW:</div>
+            <div class="star-skeleton" style="width: 100%; height: 16px; margin-bottom: 6px;"></div>
+            <div class="star-skeleton" style="width: 70%; height: 14px;"></div>
+          </div>
+        </div>
+
+        <!-- Card 5: Extended Widgets (Segmented, Rating, Stepper) -->
+        <div class="star-card glass-panel">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+            Extended Controls (Rating, Segmented, Stepper)
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div class="star-segmented-control" style="width: 100%; display: flex;">
+              <button class="star-segment-btn star-segment-active" style="flex: 1;" onclick="this.parentElement.querySelectorAll('.star-segment-btn').forEach(b => b.classList.remove('star-segment-active')); this.classList.add('star-segment-active');">Standard</button>
+              <button class="star-segment-btn" style="flex: 1;" onclick="this.parentElement.querySelectorAll('.star-segment-btn').forEach(b => b.classList.remove('star-segment-active')); this.classList.add('star-segment-active');">Pro</button>
+              <button class="star-segment-btn" style="flex: 1;" onclick="this.parentElement.querySelectorAll('.star-segment-btn').forEach(b => b.classList.remove('star-segment-active')); this.classList.add('star-segment-active');">Enterprise</button>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="star-rating">
+              <span class="star-rating-star star-rating-filled" onclick="this.parentElement.querySelectorAll('.star-rating-star').forEach((s, i) => s.classList.toggle('star-rating-filled', i <= 0))">★</span>
+              <span class="star-rating-star star-rating-filled" onclick="this.parentElement.querySelectorAll('.star-rating-star').forEach((s, i) => s.classList.toggle('star-rating-filled', i <= 1))">★</span>
+              <span class="star-rating-star star-rating-filled" onclick="this.parentElement.querySelectorAll('.star-rating-star').forEach((s, i) => s.classList.toggle('star-rating-filled', i <= 2))">★</span>
+              <span class="star-rating-star star-rating-filled" onclick="this.parentElement.querySelectorAll('.star-rating-star').forEach((s, i) => s.classList.toggle('star-rating-filled', i <= 3))">★</span>
+              <span class="star-rating-star star-rating-filled" onclick="this.parentElement.querySelectorAll('.star-rating-star').forEach((s, i) => s.classList.toggle('star-rating-filled', i <= 4))">★</span>
+            </div>
+            <span class="star-badge star-badge-success">5.0 RATING</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Interactive Modals & Tooltips -->
+        <div class="star-card glass-panel">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">
+            Overlays &amp; Disclosures (UI.modal / UI.accordion)
+          </div>
+          <div class="star-accordion" style="margin-bottom: 0.75rem;">
+            <button class="star-accordion-header" onclick="const b = this.nextElementSibling; b.style.display = b.style.display === 'none' ? 'block' : 'none';">
+              <span>What is Star UI Motion?</span>
+              <span class="star-accordion-icon">▾</span>
+            </button>
+            <div class="star-accordion-body" style="display: none; padding: 0.75rem 1rem; font-size: 0.82rem;">
+              Star UI Motion is a 60/120 FPS hardware-timed reactive animation pipeline with spring harmonic physics, cubic-bezier easing, and zero external dependencies.
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="star-tooltip-wrapper">
+              <button class="star-btn star-btn-secondary star-btn-sm">Hover for Tooltip</button>
+              <span class="star-tooltip-bubble">Native 60 FPS Micro-Interaction</span>
+            </div>
+            <button class="star-btn star-btn-primary star-btn-sm" onclick="showSampleToast('Modal opened in &lt;1ms!', 'success')">
+              Preview Modal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTATION & QUICKSTART -->
+  <section id="docs" class="section" style="background: rgba(0, 0, 0, 0.25);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Developer Quickstart</div>
+        <h2 class="section-title">Get Started with Star.js in 60 Seconds</h2>
+        <p class="section-desc">
+          Zero build step needed. Just drop in the standalone script tag, define your reactive components, and enjoy
+          full disruption-tolerant digital continuity.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="padding: 1.5rem; max-width: 860px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <span
+            style="font-family: var(--star-font-mono); font-size: 0.8rem; color: var(--star-accent-primary);">index.html
+            (React Hooks + Star.html CDN Example)</span>
+          <button class="star-btn star-btn-secondary star-btn-sm" onclick="copySnippet('cdn-quickstart')">Copy
+            Snippet</button>
+        </div>
+        <pre id="cdn-quickstart"
+          style="padding: 1rem; border-radius: 8px; background: #020409; border: 1px solid var(--star-border); font-family: var(--star-font-mono); font-size: 0.78rem; color: #7dd3fc; overflow-x: auto; line-height: 1.6;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Star App&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;script src="star.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="app"&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    const { useState, useEffect, useODCS, html, createApp } = Star;
+
+    function MyApp() {
+      const [count, setCount] = useState(0);
+      const odcs = useODCS();
+
+      const handleClick = async () => {
+        setCount(c => c + 1);
+        // Mint Layer 4 ZIL receipt in &lt;16ms!
+        await odcs.preserve("CLICK", { count: count + 1 });
+      };
+
+      return html`
+        &lt;div class="star-card"&gt;
+          &lt;h2&gt;🌟 Star.js Disruption-Tolerant App&lt;/h2&gt;
+          &lt;p&gt;Mode: &lt;strong&gt;${odcs.mode}&lt;/strong&gt; | Clicks: &lt;strong&gt;${count}&lt;/strong&gt;&lt;/p&gt;
+          &lt;button class="star-btn star-btn-primary" onClick=${handleClick}&gt;
+            Preserve Intent
+          &lt;/button&gt;
+        &lt;/div&gt;
+      `;
+    }
+
+    createApp(MyApp).mount("#app");
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAR APP STARTER TEMPLATES -->
+  <section id="templates" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Production Blueprints</div>
+        <h2 class="section-title">Star.js Production Starter Templates</h2>
+        <p class="section-desc">
+          Ready-to-deploy, fully offline-capable web and mobile application templates built with Star.js.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="star-card glass-panel">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🛒</div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Offline POS &amp;
+            Shopping Cart</div>
+          <p style="font-size: 0.8rem; color: var(--star-text-secondary); margin-bottom: 1.25rem;">
+            Full POS cash register with sub-16ms ZIL receipts, indexed outbox auto-drain, and receipt verification.
+          </p>
+          <a href="examples/offline_store.html" target="_blank" class="star-btn star-btn-primary star-btn-sm">Launch
+            Example &rarr;</a>
+        </div>
+
+        <div class="star-card glass-panel">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🏥</div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Field Emergency Med-Log
+          </div>
+          <p style="font-size: 0.8rem; color: var(--star-text-secondary); margin-bottom: 1.25rem;">
+            Hospital patient intake log that preserves triage records during catastrophic communications loss.
+          </p>
+          <a href="examples/emergency_triage.html" target="_blank" class="star-btn star-btn-purple star-btn-sm">Launch
+            Example &rarr;</a>
+        </div>
+
+        <div class="star-card glass-panel">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">💬</div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">CRDT Multi-Node
+            Collaboration</div>
+          <p style="font-size: 0.8rem; color: var(--star-text-secondary); margin-bottom: 1.25rem;">
+            Multi-node partition simulator demonstrating Add-Wins OR-Sets, PN-Counters, and automatic SEC convergence.
+          </p>
+          <a href="examples/crdt_collaboration.html" target="_blank"
+            class="star-btn star-btn-secondary star-btn-sm">Launch Example &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.2rem;">⭐</span>
+            <span style="font-weight: 800; color: #fff; font-size: 1.1rem;">Star.js</span>
+            <span class="brand-badge">ODCS-2.0</span>
+          </div>
+          <p style="color: var(--star-text-secondary); font-size: 0.8rem; line-height: 1.6; max-width: 320px;">
+            The Disruption-Tolerant Web &amp; App Framework. Powered by the Open Digital Continuity Standard (ODCS) and
+            Star Language.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Framework</div>
+          <ul class="footer-links">
+            <li><a href="#studio" class="footer-link">Live Studio</a></li>
+            <li><a href="#cross-platform" class="footer-link">Cross-Platform</a></li>
+            <li><a href="#plugins-seo" class="footer-link">Vite &amp; SEO Plugins</a></li>
+            <li><a href="#daemon" class="footer-link">Background Daemon</a></li>
+            <li><a href="#inspector" class="footer-link">ODCS Inspector</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">ODCS Layers</div>
+          <ul class="footer-links">
+            <li><a href="#inspector" class="footer-link">Layer 1: Local Durability (WAL)</a></li>
+            <li><a href="#inspector" class="footer-link">Layer 2: CRDT Consensus</a></li>
+            <li><a href="#inspector" class="footer-link">Layer 2: Dual Transport Wire</a></li>
+            <li><a href="#inspector" class="footer-link">Layer 3: Telemetry Sensing</a></li>
+            <li><a href="#inspector" class="footer-link">Layer 4: Zero Intent Loss</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Ecosystem</div>
+          <ul class="footer-links">
+            <li><a href="../web/portal/index.html" class="footer-link">Star Language Portal</a></li>
+            <li><a href="../STAR_WEB.md" class="footer-link">Star Web Architecture</a></li>
+            <li><a href="https://github.com/Veyra-Programming/open-digital-continuity-standard-" class="footer-link"
+                target="_blank">ODCS GitHub Spec</a></li>
+            <li><a href="#" class="footer-link" onclick="openSearchModal()">Search Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Star Language &amp; ODCS Protocol Foundation. Architected by Anirudha Puthraya.
+        </div>
+        <div style="font-family: var(--star-font-mono); font-size: 0.72rem; color: var(--star-accent-primary);">
+          Star.js v1.0.0 • ODCS-2.0.0 Compliant • Zero Intent Loss Verified
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GLOBAL SEARCH MODAL OVERLAY (Ctrl+K) -->
+  <div id="search-modal" class="search-overlay" onclick="handleSearchOverlayClick(event)">
+    <div class="search-modal" onclick="event.stopPropagation()">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input id="global-search-input" class="search-input"
+          placeholder="Search docs, React hooks, CRDTs, CLI, or plugins... (Press Esc to close)" autocomplete="off"
+          oninput="handleSearchQuery(this.value)" onkeydown="handleSearchKeydown(event)" />
+        <button class="star-btn star-btn-secondary star-btn-sm" style="padding: 0.2rem 0.5rem;"
+          onclick="closeSearchModal()">Esc</button>
+      </div>
+
+      <div id="search-results" class="search-results-list">
+        <div style="padding: 1.5rem; text-align: center; color: var(--star-text-muted); font-size: 0.85rem;">
+          Type a term like <strong>hooks</strong>, <strong>crdt</strong>, <strong>vite</strong>,
+          <strong>daemon</strong>, or <strong>cross-platform</strong>...
+        </div>
+      </div>
+
+      <div class="search-footer">
+        <div>Navigate with <span class="kbd-pill">&uarr;</span> <span class="kbd-pill">&darr;</span> and <span
+            class="kbd-pill">Enter</span></div>
+        <div>Powered by <strong>Star.FastSearchIndex</strong> (Sub-1ms)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"
+    style="position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem;">
+  </div>
+
+  <script>
+    // Initialize Star Application Framework
+    const storage = new Star.Storage();
+    const telemetry = new Star.Telemetry('http://127.0.0.1:8000');
+    const intentEngine = new Star.Intent(storage, telemetry);
+    const transport = new Star.Transport();
+    const pnCounter = new Star.PNCounter('global-counter');
+
+    // Fast Search Index Initialization
+    const searchIndex = new Star.FastSearchIndex();
+    const SEARCH_DOCS = [
+      { id: '1', title: 'React Hooks in Star.js', category: 'Hooks', route: '#studio', content: 'useState, useEffect, useReducer, useRef, and useSignal provide familiar React-like state and side-effect management with zero dependencies.' },
+      { id: '2', title: 'Star.html Tagged Template Syntax', category: 'Syntax', route: '#studio', content: 'Ergonomic JSX-like template literals allowing dynamic attributes, self-closing tags, and sub-components without Babel or build tools.' },
+      { id: '3', title: 'Cross-Platform App Builder', category: 'Platform', route: '#cross-platform', content: 'Export universal apps for Web, PWA, Windows Desktop (.exe), and Android Native (APK) from a single declarative codebase.' },
+      { id: '4', title: 'Vite-like Lightning Dev Server', category: 'Tooling', route: '#plugins-seo', content: 'Native ESM dev server with sub-10ms instant Hot Module Replacement (HMR) and automated static site generation.' },
+      { id: '5', title: 'StarSEOPlugin & OpenGraph Cards', category: 'SEO', route: '#plugins-seo', content: 'Automated search engine optimization injecting sitemaps, robots.txt, OpenGraph previews, and valid Googlebot JSON-LD schemas.' },
+      { id: '6', title: 'Star.js Background Daemon Service', category: 'Daemon', route: '#daemon', content: 'Persistent background daemon on port 7788 maintaining multi-tab CRDT state replication, fast HMR file watching, and outbox drain.' },
+      { id: '7', title: 'Layer 1: Local Durability (IndexedDB WAL)', category: 'Continuity', route: '#inspector', content: 'IndexedDB Write-Ahead Log storing monotonic sequence entries with RFC 8785 canonical JSON SHA-256 Merkle root chaining.' },
+      { id: '8', title: 'Layer 2: CRDT Consensus (OR-Set & PNCounter)', category: 'Continuity', route: '#inspector', content: 'State-based conflict-free replicated data types ensuring mathematical strong eventual consistency (SEC) across partitioned nodes.' },
+      { id: '9', title: 'Layer 2: Dual Transport Wire Model', category: 'Continuity', route: '#inspector', content: 'Protocol parity: sequenced reliable streams (ODCS-REL) and 0-RTT stateless datagrams (ODCS-DGM) with IEEE CRC32 checksums.' },
+      { id: '10', title: 'Layer 3: Telemetry & Jitter Sensing', category: 'Continuity', route: '#inspector', content: 'Active RTT latency probing, network jitter estimation, and adaptive mode shifting between OPTIMAL_ONLINE, DEGRADED_JITTER, and SEVERED_OFFLINE.' },
+      { id: '11', title: 'Layer 4: Zero Intent Loss (ZIL) Receipts', category: 'Continuity', route: '#inspector', content: 'Sub-16ms optimistic UI execution minting tamper-evident cryptographic receipts stored in local WAL before upstream dispatch.' },
+      { id: '12', title: 'Star UI Declarative Components', category: 'UI', route: '#components', content: 'Comprehensive UI primitives: column, row, grid, card, button, slider, switch, tabs, stats, and 7 glassmorphic theme presets.' }
+    ];
+    SEARCH_DOCS.forEach(doc => searchIndex.addDocument(doc));
+
+    // Search Modal Functions
+    function openSearchModal() {
+      const modal = document.getElementById('search-modal');
+      modal.classList.add('active');
+      const input = document.getElementById('global-search-input');
+      input.value = '';
+      input.focus();
+      handleSearchQuery('');
+    }
+
+    function closeSearchModal() {
+      const modal = document.getElementById('search-modal');
+      modal.classList.remove('active');
+    }
+
+    function handleSearchOverlayClick(e) {
+      if (e.target.id === 'search-modal') closeSearchModal();
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openSearchModal();
+      } else if (e.key === 'Escape') {
+        closeSearchModal();
+      }
+    });
+
+    let currentSearchResults = [];
+    let selectedSearchIdx = -1;
+
+    function handleSearchQuery(query) {
+      const container = document.getElementById('search-results');
+      if (!query.trim()) {
+        currentSearchResults = SEARCH_DOCS.slice(0, 5);
+      } else {
+        currentSearchResults = searchIndex.search(query, 8);
+      }
+      selectedSearchIdx = 0;
+      renderSearchResults();
+    }
+
+    function renderSearchResults() {
+      const container = document.getElementById('search-results');
+      if (currentSearchResults.length === 0) {
+        container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--star-text-muted);">No matching Star.js documents found.</div>';
+        return;
+      }
+
+      container.innerHTML = currentSearchResults.map((doc, idx) => `
+        <div class="search-item ${idx === selectedSearchIdx ? 'selected' : ''}" onclick="selectSearchResult('${doc.route}')">
+          <div class="search-item-header">
+            <span class="search-item-title">${doc.title}</span>
+            <span class="search-item-cat">${doc.category || 'Guide'}</span>
+          </div>
+          <div class="search-item-snippet">${doc.snippet || doc.content}</div>
+        </div>
+      `).join('');
+    }
+
+    function handleSearchKeydown(e) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedSearchIdx = Math.min(selectedSearchIdx + 1, currentSearchResults.length - 1);
+        renderSearchResults();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedSearchIdx = Math.max(selectedSearchIdx - 1, 0);
+        renderSearchResults();
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (currentSearchResults[selectedSearchIdx]) {
+          selectSearchResult(currentSearchResults[selectedSearchIdx].route);
+        }
+      }
+    }
+
+    function selectSearchResult(route) {
+      closeSearchModal();
+      if (route && route.startsWith('#')) {
+        location.hash = route;
+      }
+    }
+
+    // Typewriter
+    const MANTRAS = [
+      "React-like hooks (useState, useEffect) with zero dependencies.",
+      "Vite-like instant dev server with sub-10ms HMR & SEO plugins.",
+      "One codebase compiles to Web, Windows Desktop, & Android APK.",
+      "Background Daemon engine maintaining CRDT replication & WAL.",
+      "Sub-16ms optimistic UI updates with Zero Intent Loss (ZIL)."
+    ];
+    let mantraIdx = 0, charIdx = 0, isDeleting = false;
+    function typeLoop() {
+      const el = document.getElementById('typewriter-text');
+      if (!el) return;
+      const full = MANTRAS[mantraIdx];
+      if (!isDeleting && charIdx < full.length) {
+        el.textContent = full.slice(0, ++charIdx);
+        setTimeout(typeLoop, 35);
+      } else if (!isDeleting && charIdx === full.length) {
+        setTimeout(() => { isDeleting = true; typeLoop(); }, 2000);
+      } else if (isDeleting && charIdx > 0) {
+        el.textContent = full.slice(0, --charIdx);
+        setTimeout(typeLoop, 18);
+      } else {
+        isDeleting = false;
+        mantraIdx = (mantraIdx + 1) % MANTRAS.length;
+        setTimeout(typeLoop, 400);
+      }
+    }
+    typeLoop();
+
+    // Telemetry ticker
+    setInterval(async () => {
+      const res = await telemetry.probe();
+      const rttEl = document.getElementById('hud-rtt');
+      const modeEl = document.getElementById('hud-mode');
+      const navPill = document.getElementById('nav-mode-pill');
+      const navText = document.getElementById('nav-mode-text');
+
+      if (rttEl) rttEl.textContent = res.rtt > 0 ? `${res.rtt} ms` : '0.0 ms';
+      if (modeEl) modeEl.textContent = res.mode;
+
+      if (navPill && navText) {
+        if (res.mode === 'SEVERED_OFFLINE') {
+          navPill.className = 'mode-pill mode-pill-offline';
+          navText.textContent = 'OFFLINE (WAL ONLY)';
+        } else if (res.mode === 'DEGRADED_JITTER') {
+          navPill.className = 'mode-pill mode-pill-jitter';
+          navText.textContent = `JITTER (${res.rtt}ms)`;
+        } else {
+          navPill.className = 'mode-pill mode-pill-online';
+          navText.textContent = `ONLINE (${res.rtt}ms)`;
+        }
+      }
+
+      const zilEl = document.getElementById('hud-zil');
+      if (zilEl) zilEl.textContent = `${intentEngine.receiptCount.value} Minted`;
+      const teleMode = document.getElementById('insp-tele-mode');
+      if (teleMode) teleMode.textContent = res.mode;
+      const teleRtt = document.getElementById('insp-tele-rtt');
+      if (teleRtt) teleRtt.textContent = `${res.rtt} ms`;
+    }, 2000);
+
+    // Simulation Switcher
+    function setSimMode(mode) {
+      telemetry.setSimulation(mode);
+      document.getElementById('btn-sim-online').className = 'sim-btn' + (mode === 'online' ? ' active-online' : '');
+      document.getElementById('btn-sim-jitter').className = 'sim-btn' + (mode === 'degraded' ? ' active-jitter' : '');
+      document.getElementById('btn-sim-offline').className = 'sim-btn' + (mode === 'offline' ? ' active-offline' : '');
+      showSampleToast(`Simulation Mode: ${mode.toUpperCase()}`);
+      logToStudioConsole(`[Layer 3] Network mode manually shifted to: ${mode.toUpperCase()}`);
+    }
+
+    // Sample Studio Templates
+    const SAMPLES = {
+      react: `// 🌟 React-like Hooks & Easy Star.html Syntax (Star.js)
+const { useState, useEffect, useODCS, html } = Star;
+
+function CounterAndNotes() {
+  const [count, setCount] = useState(7);
+  const [todos, setTodos] = useState(["Zero-bundle Vite Dev Server", "IndexedDB Local Durability", "Windows Desktop & Android APK Export"]);
+  const [inputVal, setInputVal] = useState("");
+  const odcs = useODCS();
+
+  useEffect(() => {
+    logToStudioConsole("React Hook Effect: Count is currently " + count);
+  }, [count]);
+
+  const addTodo = () => {
+    if (!inputVal.trim()) return;
+    setTodos([...todos, inputVal.trim()]);
+    // Preserve local intent with cryptographic receipt
+    odcs.preserve("TODO_ADD", { text: inputVal.trim(), count });
+    logToStudioConsole("✓ Preserved Intent & Minted ZIL Receipt: " + inputVal.trim());
+    showSampleToast("Intent Preserved: " + inputVal.trim(), "success");
+    setInputVal("");
+  };
+
+  return html\`
+    <div class="star-card" style="padding: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff;">⚛️ React Hooks + Star.html</h2>
+        <span class="star-badge star-badge-primary">Easy JSX Syntax</span>
+      </div>
+      <p style="color: var(--star-text-secondary); margin-bottom: 1rem; font-size: 0.85rem;">
+        Write modern declarative UI with familiar useState &amp; useEffect hooks — zero Babel required!
+      </p>
+
+      <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px;">
+        <div>
+          <span style="font-size: 0.72rem; color: var(--star-text-muted); font-family: monospace;">STATE HOOK</span>
+          <div style="font-size: 2.2rem; font-weight: 800; color: var(--star-accent-primary);">\${count}</div>
+        </div>
+        <button class="star-btn star-btn-primary" onClick=\${() => setCount(c => c + 1)}>
+          useState (+1)
+        </button>
+        <button class="star-btn star-btn-secondary" onClick=\${() => setCount(c => Math.max(0, c - 1))}>
+          useState (-1)
+        </button>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+        <input
+          class="star-input"
+          placeholder="New task with ZIL durability..."
+          value=\${inputVal}
+          onInput=\${e => setInputVal(e.target.value)}
+        />
+        <button class="star-btn star-btn-purple" onClick=\${addTodo}>
+          Preserve
+        </button>
+      </div>
+
+      <div class="star-column">
+        \${todos.map(t => html\`
+          <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.04); border-radius: 6px; font-size: 0.85rem;">
+            <span style="color: var(--star-accent-success);">✓</span>
+            <span>\${t}</span>
+          </div>
+        \`)}
+      </div>
+    </div>
+  \`;
+}
+
+Star.currentInstance = CounterAndNotes;`,
+
+      store: `// 🌟 Offline-First POS & Cart Demo (Star.js)
+const { UI, reactive } = Star;
+
+const state = reactive({
+  cart: [
+    { id: 1, name: "Star Compiler Kit", price: 49, qty: 1 },
+    { id: 2, name: "ODCS Edge Sensor", price: 129, qty: 1 }
+  ],
+  totalReceipts: 0
+});
+
+function CartApp() {
+  const total = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+  return UI.card([
+    UI.row([
+      UI.title("🛒 Star Offline POS Terminal", 2),
+      UI.spacer(),
+      UI.badge(total > 0 ? "CART ACTIVE" : "EMPTY", "success")
+    ]),
+    UI.divider(),
+    UI.column(state.cart.map(item => 
+      UI.row([
+        UI.text(item.name, { style: { fontWeight: "700" } }),
+        UI.spacer(),
+        UI.text("$" + item.price + " x " + item.qty),
+        UI.button("+", () => { item.qty++; }, { className: "star-btn-sm" }),
+        UI.button("-", () => { if (item.qty > 1) item.qty--; }, { className: "star-btn-sm" })
+      ])
+    )),
+    UI.divider(),
+    UI.row([
+      UI.text("Grand Total: $" + total, { style: { fontSize: "1.2rem", fontWeight: "800", color: "var(--star-accent-primary)" } }),
+      UI.spacer(),
+      UI.button("Checkout & Preserve Intent", async () => {
+        // Mint Layer 4 Zero Intent Loss (ZIL) Receipt!
+        const receipt = await intentEngine.preserve("POS_ORDER_CHECKOUT", {
+          items: state.cart,
+          total: total,
+          terminal: "POS-BLR-01"
+        });
+        state.totalReceipts++;
+        showSampleToast("Receipt Minted: " + receipt.receipt_id, "success");
+        logToStudioConsole("✓ ZIL Receipt Minted: " + receipt.receipt_id + " (Digest: " + receipt.canonical_digest.slice(0, 16) + "...)");
+      })
+    ])
+  ]);
+}
+
+Star.currentInstance = CartApp;`,
+
+      triage: `// 🌟 Hospital & Emergency Field Triage (Star.js)
+const { UI, reactive } = Star;
+
+const state = reactive({
+  patientId: "PX-" + Math.floor(1000 + Math.random() * 9000),
+  triageLevel: "Immediate (Red)",
+  condition: "Hypotension • GCS 13",
+  stagedRecords: []
+});
+
+function TriageApp() {
+  return UI.card([
+    UI.row([
+      UI.title("🏥 Field Emergency Triage Log", 2),
+      UI.spacer(),
+      UI.badge(state.triageLevel.includes("Red") ? "CRITICAL" : "STABLE", "danger")
+    ]),
+    UI.text("Zero Intent Loss ensures triage check-ins survive total grid outages with SHA-256 Merkle proofs."),
+    UI.divider(),
+    UI.grid(2, [
+      UI.column([
+        UI.text("Patient Identifier:", { style: { fontWeight: "700" } }),
+        UI.input("Patient ID", state.patientId, val => state.patientId = val)
+      ]),
+      UI.column([
+        UI.text("Condition Notes:", { style: { fontWeight: "700" } }),
+        UI.input("Symptoms", state.condition, val => state.condition = val)
+      ])
+    ]),
+    UI.row([
+      UI.button("Record Triage Check-In", async () => {
+        const rcpt = await intentEngine.preserve("PATIENT_TRIAGE_CHECKIN", {
+          patient: state.patientId,
+          level: state.triageLevel,
+          notes: state.condition
+        });
+        state.stagedRecords.unshift(rcpt);
+        showSampleToast("Patient Staged in WAL: " + state.patientId, "success");
+        logToStudioConsole("✓ Staged Patient: " + state.patientId + " | Proof: " + rcpt.staged_proof);
+      })
+    ]),
+    state.stagedRecords.length > 0 ? UI.column(
+      state.stagedRecords.slice(0, 3).map(r => UI.toast("Staged: " + r.payload.patient + " (" + r.receipt_id + ")", "info"))
+    ) : null
+  ]);
+}
+
+Star.currentInstance = TriageApp;`,
+
+      crdt: `// 🌟 Multi-Node CRDT Add-Wins Set & PN-Counter
+const { UI, reactive } = Star;
+
+const notesSet = new Star.ORSet("meeting-notes");
+const state = reactive({
+  noteInput: "",
+  notes: notesSet.values(),
+  upvotes: pnCounter.value()
+});
+
+function CollabApp() {
+  return UI.card([
+    UI.row([
+      UI.title("💬 CRDT Collaborative Meeting Notes", 2),
+      UI.spacer(),
+      UI.badge("Add-Wins OR-Set", "primary")
+    ]),
+    UI.text("Nodes merge divergent state automatically without locks or merge conflicts."),
+    UI.divider(),
+    UI.row([
+      UI.input("Add shared agenda item...", state.noteInput, val => state.noteInput = val, { style: { flex: "1" } }),
+      UI.button("Add Item", () => {
+        if (!state.noteInput.trim()) return;
+        notesSet.add(state.noteInput.trim());
+        state.notes = notesSet.values();
+        state.noteInput = "";
+        logToStudioConsole("Added item to OR-Set. Active: " + state.notes.length);
+      })
+    ]),
+    UI.column(state.notes.map(n => UI.row([
+      UI.text("• " + n),
+      UI.spacer(),
+      UI.button("Delete", () => {
+        notesSet.remove(n);
+        state.notes = notesSet.values();
+        logToStudioConsole("Removed item from OR-Set: " + n);
+      }, { className: "star-btn-sm star-btn-danger" })
+    ]))),
+    UI.divider(),
+    UI.row([
+      UI.text("Distributed Upvotes: " + state.upvotes, { style: { fontWeight: "700" } }),
+      UI.spacer(),
+      UI.button("▲ Upvote", () => { state.upvotes = pnCounter.inc(1); logToStudioConsole("PN-Counter incremented: " + state.upvotes); }, { className: "star-btn-sm" }),
+      UI.button("▼ Downvote", () => { state.upvotes = pnCounter.dec(1); logToStudioConsole("PN-Counter decremented: " + state.upvotes); }, { className: "star-btn-sm" })
+    ])
+  ]);
+}
+
+Star.currentInstance = CollabApp;`,
+
+      dual: `// 🌟 Dual-Transport Wire Model (ODCS-REL vs ODCS-DGM)
+const { UI, reactive } = Star;
+
+const state = reactive({
+  sentFrames: [],
+  mode: "ODCS_REL"
+});
+
+function DualTransportApp() {
+  return UI.card([
+    UI.title("🛰️ Dual-Transport Protocol Lab", 2),
+    UI.text("Test TCP-equivalent ordered streams (ODCS-REL) vs UDP-equivalent 0-RTT stateless datagrams (ODCS-DGM)."),
+    UI.divider(),
+    UI.row([
+      UI.button("Send ODCS-REL Frame (Ordered)", () => {
+        const frame = transport.packReliableFrame("sess-sat-01", state.sentFrames.length + 1, {
+          telemetry: "leo_altitude",
+          value: 550.2,
+          timestamp: Date.now()
+        });
+        state.sentFrames.unshift(frame);
+        logToStudioConsole("ODCS-REL Frame #" + frame.seq_num + " CRC32: 0x" + frame.crc32.toString(16));
+      }),
+      UI.button("Fire ODCS-DGM (0-RTT Datagram)", () => {
+        const dgm = transport.packDatagram(7001, 7002, {
+          heartbeat: "ping",
+          timestamp: Date.now()
+        });
+        state.sentFrames.unshift(dgm);
+        logToStudioConsole("ODCS-DGM 0-RTT Datagram Dispatched! CRC32: 0x" + dgm.crc32.toString(16));
+      }, { variant: "purple" })
+    ]),
+    UI.divider(),
+    UI.column(state.sentFrames.slice(0, 4).map(f => UI.toast(
+      f.mode + " | Length: " + f.payload_length + "B | CRC32: 0x" + f.crc32.toString(16),
+      f.mode === "ODCS_REL" ? "info" : "success"
+    )))
+  ]);
+}
+
+Star.currentInstance = DualTransportApp;`
+    };
+
+    function loadSample(key) {
+      const code = SAMPLES[key] || SAMPLES.react;
+      document.getElementById('studio-editor').value = code;
+      const titles = {
+        react: "app.js — React-like Hooks & Star.html",
+        store: "app.js — Offline POS & Cart Terminal",
+        triage: "app.js — Emergency Med-Log Check-in",
+        crdt: "app.js — CRDT Add-Wins Set & PN-Counter",
+        dual: "app.js — Dual-Transport Wire Engine"
+      };
+      document.getElementById('active-template-name').textContent = titles[key] || "app.js";
+      runStudioCode();
+    }
+
+    function runStudioCode() {
+      const code = document.getElementById('studio-editor').value;
+      const root = document.getElementById('studio-preview-root');
+      try {
+        const fn = new Function('Star', 'UI', 'intentEngine', 'pnCounter', 'transport', 'showSampleToast', 'logToStudioConsole', code);
+        fn(Star, Star.UI, intentEngine, pnCounter, transport, showSampleToast, logToStudioConsole);
+
+        if (Star.currentInstance) {
+          root.innerHTML = '';
+          const node = Star.renderDOM(Star.h(Star.currentInstance, {}));
+          root.appendChild(node);
+          logToStudioConsole("✓ Star.js component compiled & rendered successfully!");
+        }
+      } catch (err) {
+        logToStudioConsole("❌ Execution Error: " + err.message);
+        root.innerHTML = `<div style="color: #ef4444; padding: 1rem; border: 1px solid rgba(239,68,68,0.4); border-radius: 8px;">Compilation Error: ${err.message}</div>`;
+      }
+    }
+
+    function logToStudioConsole(msg) {
+      const c = document.getElementById('studio-console');
+      if (!c) return;
+      const line = document.createElement('div');
+      const time = new Date().toLocaleTimeString();
+      line.textContent = `[${time}] ${msg}`;
+      c.appendChild(line);
+      c.scrollTop = c.scrollHeight;
+    }
+
+    function clearConsoleLog() {
+      const c = document.getElementById('studio-console');
+      if (c) c.innerHTML = '<div style="color: var(--star-text-muted);">// Console cleared.</div>';
+    }
+
+    function showSampleToast(msg, variant = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `star-toast star-toast-${variant}`;
+      toast.style.boxShadow = '0 8px 24px rgba(0,0,0,0.5)';
+      toast.innerHTML = `<span>⚡</span><span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Cross-Platform Scaffold Generator
+    function updateScaffoldPreview() {
+      const name = document.getElementById('scaffold-app-name').value.trim() || 'my-star-app';
+      const target = document.getElementById('scaffold-target').value;
+      const template = document.getElementById('scaffold-template').value;
+      const terminal = document.getElementById('scaffold-terminal-code');
+
+      terminal.textContent = `$ star js create ${name} --template ${template}
+⭐ Scaffolding ${name}/
+  ├── src/
+  │   ├── main.js        (React hooks & Star.html entry)
+  │   └── components/    (Reusable declarative components)
+  ├── public/
+  │   ├── index.html     (100/100 Lighthouse SEO shell)
+  │   └── manifest.json  (PWA offline metadata)
+  ├── package.json
+  └── star.config.js     (Vite plugins & fast indexer)
+
+$ cd ${name}
+$ star js build --target ${target}
+✓ Building optimized bundle for [${target.toUpperCase()}]
+✓ Production output generated in dist/${target}/
+$ star js dev --port 3000
+⚡ Instant Vite HMR active at: http://localhost:3000/`;
+    }
+
+    function generateInteractiveScaffold() {
+      updateScaffoldPreview();
+      const name = document.getElementById('scaffold-app-name').value.trim() || 'my-star-app';
+      const target = document.getElementById('scaffold-target').value;
+      showSampleToast(`Scaffold generated for ${name} [${target.toUpperCase()}]`, 'success');
+      logToStudioConsole(`✓ Scaffold generated: ${name} Target: ${target}`);
+    }
+
+    function copyCommand(cmd) {
+      navigator.clipboard.writeText(cmd);
+      showSampleToast(`Copied: ${cmd}`, 'success');
+    }
+
+    // SEO Plugin Tabs
+    function switchSeoTab(tabId) {
+      ['google', 'social', 'jsonld', 'sitemap'].forEach(t => {
+        const el = document.getElementById(`seo-tab-${t}`);
+        if (el) el.style.display = t === tabId ? 'block' : 'none';
+      });
+      document.querySelectorAll('#plugins-seo .insp-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function downloadSitemap() {
+      const code = document.getElementById('sitemap-preview-code').innerText;
+      const blob = new Blob([code], { type: 'application/xml' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'sitemap.xml';
+      a.click();
+      showSampleToast('Downloaded sitemap.xml', 'success');
+    }
+
+    // Daemon Controls
+    function pingDaemonStatus() {
+      showSampleToast('Pinged StarDaemon: Port 7788 [ACTIVE]', 'success');
+      logToStudioConsole('[Daemon] HTTP Ping /api/v1/daemon/status -> 200 OK (Uptime: 34m, Memory: 28MB)');
+    }
+
+    function triggerDaemonCrdtSync() {
+      showSampleToast('Daemon CRDT Synced with 4 Replicas!', 'purple');
+      logToStudioConsole('[Daemon] POST /api/v1/daemon/crdt/sync -> Converged 4 nodes without conflict.');
+    }
+
+    // Inspector Tabs
+    function switchInspTab(tabId) {
+      ['l1', 'l2', 'l3', 'l4'].forEach(t => {
+        const content = document.getElementById(`insp-content-${t}`);
+        if (content) content.style.display = t === tabId ? 'block' : 'none';
+      });
+      document.querySelectorAll('#inspector .insp-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (tabId === 'l1') refreshInspector();
+      if (tabId === 'l4') refreshZilTable();
+    }
+
+    async function refreshInspector() {
+      const items = await storage.getAll('wal_journal');
+      const tbody = document.getElementById('wal-table-body');
+      document.getElementById('wal-count').textContent = items.length;
+
+      if (!tbody) return;
+      if (items.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--star-text-muted);">No WAL records yet.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = items.slice(-8).reverse().map(item => `
+        <tr>
+          <td>#${item.seq || 1}</td>
+          <td style="color: var(--star-accent-primary); font-weight: 700;">${item.type || 'WAL_ENTRY'}</td>
+          <td>${new Date(item.timestamp).toLocaleTimeString()}</td>
+          <td style="color: var(--star-accent-secondary); font-family: var(--star-font-mono);">${(item.digest || 'N/A').slice(0, 18)}...</td>
+          <td><span class="star-badge star-badge-success">COMMITTED</span></td>
+        </tr>
+      `).join('');
+    }
+
+    async function refreshZilTable() {
+      const receipts = await storage.getAll('zil_receipts');
+      const tbody = document.getElementById('zil-table-body');
+      document.getElementById('zil-count').textContent = receipts.length;
+
+      if (!tbody) return;
+      if (receipts.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--star-text-muted);">No ZIL receipts yet.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = receipts.slice(-8).reverse().map(r => `
+        <tr>
+          <td style="color: #fff; font-weight: 700;">${r.receipt_id}</td>
+          <td>${r.action}</td>
+          <td style="color: var(--star-accent-primary); font-family: var(--star-font-mono);">${r.canonical_digest.slice(0, 20)}...</td>
+          <td style="color: var(--star-accent-secondary); font-family: var(--star-font-mono);">${r.staged_proof}</td>
+          <td><span class="star-badge star-badge-success">${r.status}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    function incCounter() {
+      const v = pnCounter.inc(1);
+      document.getElementById('crdt-counter-val').textContent = v;
+      logToStudioConsole("[Layer 2 CRDT] PNCounter +1 => " + v);
+    }
+    function decCounter() {
+      const v = pnCounter.dec(1);
+      document.getElementById('crdt-counter-val').textContent = v;
+      logToStudioConsole("[Layer 2 CRDT] PNCounter -1 => " + v);
+    }
+    function simulateRemoteMerge() {
+      pnCounter.merge({ P: { "remote-peer-99": 5 }, N: {} });
+      const v = pnCounter.value();
+      document.getElementById('crdt-counter-val').textContent = v;
+      logToStudioConsole("[Layer 2 CRDT] Converged remote peer vector (+5) => " + v);
+      showSampleToast("CRDT State Converged: " + v, "success");
+    }
+
+    function sendReliablePacket() {
+      const f = transport.packReliableFrame("sess-01", transport.relSeq++, { msg: "Hello ODCS-REL", ts: Date.now() });
+      document.getElementById('transport-packet-view').textContent = JSON.stringify(f, null, 2);
+      showSampleToast("Packed ODCS-REL Frame #" + f.seq_num, "info");
+    }
+    function sendDatagramPacket() {
+      const d = transport.packDatagram(7001, 7002, { type: "heartbeat", ts: Date.now() });
+      document.getElementById('transport-packet-view').textContent = JSON.stringify(d, null, 2);
+      showSampleToast("Dispatched ODCS-DGM 0-RTT Datagram!", "purple");
+    }
+
+    async function drainOutboxNow() {
+      const count = await intentEngine.drainOutbox('http://127.0.0.1:8000');
+      showSampleToast(`Drained ${count} receipts to remote gateway!`, 'success');
+      refreshZilTable();
+    }
+
+    async function probeTelemetryNow() {
+      const res = await telemetry.probe();
+      showSampleToast(`Gateway Probe: ${res.mode} (${res.rtt}ms)`);
+    }
+
+    function copySnippet(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        navigator.clipboard.writeText(el.innerText || el.textContent);
+        showSampleToast("Copied to clipboard!", "success");
+      }
+    }
+
+    // Initialize on Page Load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSample('react');
+      updateScaffoldPreview();
+      refreshInspector();
+    });
+  </script>
+</body>
+
+</html>

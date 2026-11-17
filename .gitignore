@@ -1,0 +1,32 @@
+# Star Programming Language .gitignore
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Build & distribution artifacts
+build/
+dist/
+temp_test/
+*.tar.gz
+*.zip
+*.exe
+*.dll
+*.obj
+*.o
+*.wasm
+!web/Star.js
+!assets/
+
+# IDE & Editor caches
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

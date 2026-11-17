@@ -1,0 +1,251 @@
+{
+  "name": "star-programming-language",
+  "displayName": "Star Programming Language",
+  "description": "Official Visual Studio Code extension for the Star Programming Language. Features rich syntax highlighting, code snippets, real-time diagnostics, Flutter declarative UI preview, interactive REPL, and Android build integration.",
+  "version": "1.3.2",
+  "publisher": "star-lang",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "icon": "assets/icon.png",
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Linters",
+    "Formatters"
+  ],
+  "keywords": [
+    "star",
+    "star-lang",
+    "flutter",
+    "mobile",
+    "android",
+    "declarative-ui",
+    "wallpaper"
+  ],
+  "main": "./extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "activationEvents": [
+    "*",
+    "onStartupFinished",
+    "onLanguage:star",
+    "onCommand:star.run",
+    "onCommand:star.preview",
+    "onCommand:star.compile",
+    "onCommand:star.check",
+    "onCommand:star.repl",
+    "onCommand:star.buildApk",
+    "onCommand:star.buildAab",
+    "onCommand:star.deployAndroid",
+    "onCommand:star.doctor",
+    "onCommand:star.format",
+    "onCommand:star.showMenu",
+    "workspaceContains:**/*.star",
+    "workspaceContains:**/*.starb"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "star",
+        "aliases": [
+          "Star",
+          "star"
+        ],
+        "extensions": [
+          ".star",
+          ".starb",
+          ".starmobile"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./assets/star_file_icon.png",
+          "dark": "./assets/star_file_icon.png"
+        }
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "star-icons",
+        "label": "Star Language Icons",
+        "path": "./assets/star-icon-theme.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "star",
+        "scopeName": "source.star",
+        "path": "./syntaxes/star.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "star",
+        "path": "./snippets/star.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "star.run",
+        "title": "Star: Run Active File",
+        "icon": "$(play)"
+      },
+      {
+        "command": "star.preview",
+        "title": "Star: Preview UI in Terminal (TUI)",
+        "icon": "$(device-mobile)"
+      },
+      {
+        "command": "star.compile",
+        "title": "Star: Compile to Bytecode (.starb)",
+        "icon": "$(zap)"
+      },
+      {
+        "command": "star.check",
+        "title": "Star: Check Syntax & Diagnostics (Star Doctor)",
+        "icon": "$(check)"
+      },
+      {
+        "command": "star.repl",
+        "title": "Star: Launch Interactive REPL",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "star.buildApk",
+        "title": "Star: Build Android APK",
+        "icon": "$(package)"
+      },
+      {
+        "command": "star.buildAab",
+        "title": "Star: Build Android AAB Bundle",
+        "icon": "$(package)"
+      },
+      {
+        "command": "star.deployAndroid",
+        "title": "Star: Deploy to Connected Device",
+        "icon": "$(radio-tower)"
+      },
+      {
+        "command": "star.doctor",
+        "title": "Star: Run Doctor Diagnostics",
+        "icon": "$(pulse)"
+      },
+      {
+        "command": "star.format",
+        "title": "Star: Format Document"
+      },
+      {
+        "command": "star.showMenu",
+        "title": "Star: Show Actions Menu"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "star.run",
+          "when": "editorLangId == star || resourceExtname == .star || resourceExtname == .starb",
+          "group": "navigation@1"
+        },
+        {
+          "command": "star.preview",
+          "when": "editorLangId == star || resourceExtname == .star",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "star.run",
+          "when": "editorLangId == star || resourceExtname == .star || resourceExtname == .starb",
+          "group": "1_star@1"
+        },
+        {
+          "command": "star.preview",
+          "when": "editorLangId == star || resourceExtname == .star",
+          "group": "1_star@2"
+        },
+        {
+          "command": "star.compile",
+          "when": "editorLangId == star || resourceExtname == .star",
+          "group": "1_star@3"
+        },
+        {
+          "command": "star.check",
+          "when": "editorLangId == star || resourceExtname == .star",
+          "group": "1_star@4"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "star.run",
+          "when": "resourceExtname == .star || resourceExtname == .starb",
+          "group": "1_star@1"
+        },
+        {
+          "command": "star.preview",
+          "when": "resourceExtname == .star",
+          "group": "1_star@2"
+        },
+        {
+          "command": "star.compile",
+          "when": "resourceExtname == .star",
+          "group": "1_star@3"
+        },
+        {
+          "command": "star.check",
+          "when": "resourceExtname == .star",
+          "group": "1_star@4"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "star.run",
+        "key": "f5",
+        "when": "editorTextFocus && (editorLangId == star || resourceExtname == .star || resourceExtname == .starb)"
+      },
+      {
+        "command": "star.preview",
+        "key": "shift+f5",
+        "when": "editorTextFocus && (editorLangId == star || resourceExtname == .star)"
+      },
+      {
+        "command": "star.check",
+        "key": "ctrl+shift+c",
+        "when": "editorTextFocus && (editorLangId == star || resourceExtname == .star)"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Star Language Tools",
+      "properties": {
+        "star.executablePath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to the Star executable (star.exe or star.bat). Leave empty for auto-discovery."
+        },
+        "star.lint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time syntax and semantic diagnostics via Star Doctor."
+        },
+        "star.format.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic document formatting with star format."
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/star-lang/star"
+  }
+}

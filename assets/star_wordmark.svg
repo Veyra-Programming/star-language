@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="wmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+
+    <!-- Star Gradients -->
+    <linearGradient id="wmStarNorth" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="wmStarEast" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#fde047"/>
+    </linearGradient>
+    <linearGradient id="wmStarSouth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="wmStarWest" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <!-- Text Gradients -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <filter id="wmGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="240" rx="24" ry="24" fill="url(#wmBg)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Left Icon Emblem: Center at (130, 120) -->
+  <g transform="translate(130, 120)">
+    <!-- Radial Aura -->
+    <circle cx="0" cy="0" r="75" fill="#6366f1" opacity="0.15" filter="url(#wmGlow)"/>
+    <circle cx="0" cy="0" r="50" fill="#38bdf8" opacity="0.12"/>
+    <circle cx="0" cy="0" r="88" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.3"/>
+
+    <!-- Diagonal sparks -->
+    <polygon points="0,0 26,-15 48,0 20,-20" fill="#fbbf24" opacity="0.8"/>
+    <polygon points="0,0 -15,-26 0,-48 -20,-20" fill="#38bdf8" opacity="0.8"/>
+    <polygon points="0,0 -26,15 -48,0 -20,20" fill="#818cf8" opacity="0.8"/>
+    <polygon points="0,0 15,26 0,48 20,20" fill="#f43f5e" opacity="0.8"/>
+
+    <!-- 4 Major Facets -->
+    <!-- North -->
+    <polygon points="0,-72 0,0 -24,0" fill="#38bdf8"/>
+    <polygon points="0,-72 24,0 0,0" fill="url(#wmStarNorth)"/>
+
+    <!-- South -->
+    <polygon points="0,72 -24,0 0,0" fill="url(#wmStarSouth)"/>
+    <polygon points="0,72 0,0 24,0" fill="#a855f7"/>
+
+    <!-- East -->
+    <polygon points="72,0 0,-24 0,0" fill="url(#wmStarEast)"/>
+    <polygon points="72,0 0,0 0,24" fill="#d97706"/>
+
+    <!-- West -->
+    <polygon points="-72,0 0,-24 0,0" fill="url(#wmStarWest)"/>
+    <polygon points="-72,0 0,0 0,24" fill="#0284c7"/>
+
+    <!-- Core Nexus -->
+    <polygon points="0,-18 18,0 0,18 -18,0" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="5" fill="#fef08a"/>
+  </g>
+
+  <!-- Typography & Wordmark Section -->
+  <!-- STAR Title -->
+  <text x="245" y="115" 
+        font-family="system-ui, -apple-system, 'SF Pro Display', 'Segoe UI', Montserrat, sans-serif" 
+        font-size="68" 
+        font-weight="900" 
+        letter-spacing="6" 
+        fill="url(#titleGrad)">STAR</text>
+
+  <!-- Extension Badge: .star -->
+  <rect x="495" y="65" width="125" height="52" rx="14" ry="14" fill="url(#pillGrad)" stroke="#818cf8" stroke-width="1.5"/>
+  <circle cx="516" cy="91" r="5" fill="#fbbf24"/>
+  <text x="562" y="100" 
+        text-anchor="middle"
+        font-family="system-ui, -apple-system, 'SF Pro Display', 'Segoe UI', monospace" 
+        font-size="26" 
+        font-weight="800" 
+        letter-spacing="1" 
+        fill="#ffffff">.star</text>
+
+  <!-- Subtitle Tagline -->
+  <text x="247" y="156" 
+        font-family="system-ui, -apple-system, 'SF Pro Text', 'Segoe UI', sans-serif" 
+        font-size="16" 
+        font-weight="600" 
+        letter-spacing="1.5" 
+        fill="#94a3b8">UNIVERSAL NATIVE LANGUAGE &amp; UI COMPONENT ENGINE</text>
+
+  <!-- Spec Pills / Badges -->
+  <g transform="translate(247, 175)">
+    <rect x="0" y="0" width="105" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+    <text x="52" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#a5b4fc">HAVEN SYNTAX</text>
+
+    <rect x="115" y="0" width="115" height="24" rx="6" fill="#0f172a" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="172" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#38bdf8">74,600+ WIDGETS</text>
+
+    <rect x="240" y="0" width="85" height="24" rx="6" fill="#022c22" stroke="#10b981" stroke-width="1"/>
+    <text x="282" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">ZERO JS</text>
+
+    <rect x="335" y="0" width="115" height="24" rx="6" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+    <text x="392" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#fbbf24">MULTI-PLATFORM</text>
+  </g>
+</svg>
+

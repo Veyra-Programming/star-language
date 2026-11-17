@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star.js Demo — CRDT Multi-Node Collaboration</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../star.js"></script>
+</head>
+<body style="padding: 2rem 1rem;">
+  <div class="container" style="max-width: 820px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+      <a href="../index.html" class="brand" style="text-decoration: none;">
+        <div class="brand-icon">💬</div>
+        <span class="brand-name">Star.js</span>
+        <span class="brand-badge">CRDT Demo</span>
+      </a>
+      <div class="mode-pill mode-pill-online">STRONG EVENTUAL CONSISTENCY</div>
+    </div>
+
+    <div id="crdt-app"></div>
+  </div>
+
+  <script>
+    const { UI, createApp, reactive, PNCounter, ORSet, VectorClock } = Star;
+
+    // Simulate 2 distinct nodes (Node Alpha & Node Beta)
+    const nodeA_Counter = new PNCounter("votes", "node-alpha");
+    const nodeB_Counter = new PNCounter("votes", "node-beta");
+
+    const nodeA_Notes = new ORSet("shared-notes");
+    const nodeB_Notes = new ORSet("shared-notes");
+
+    const state = reactive({
+      inputA: "",
+      inputB: "",
+      notesA: nodeA_Notes.values(),
+      notesB: nodeB_Notes.values(),
+      votesA: nodeA_Counter.value(),
+      votesB: nodeB_Counter.value()
+    });
+
+    function CollabDemo() {
+      return UI.column([
+        UI.card([
+          UI.title("🤝 Real-Time CRDT Dual-Node Partition & Merge", 2),
+          UI.text("Simulate two independent offline nodes (Alpha & Beta). Make edits independently on both sides with zero locks, then click Merge Nodes to converge deterministically!"),
+          UI.divider(),
+          UI.row([
+            UI.spacer(),
+            UI.button("⚡ Merge Nodes (Reconcile SEC)", () => {
+              // Merge Counters
+              nodeA_Counter.merge(nodeB_Counter.toJSON());
+              nodeB_Counter.merge(nodeA_Counter.toJSON());
+              // Merge OR-Sets
+              nodeA_Notes.merge(nodeB_Notes.toJSON());
+              nodeB_Notes.merge(nodeA_Notes.toJSON());
+
+              state.votesA = nodeA_Counter.value();
+              state.votesB = nodeB_Counter.value();
+              state.notesA = nodeA_Notes.values();
+              state.notesB = nodeB_Notes.values();
+              alert("CRDT Merge Complete! Both nodes converged identically.");
+            }, { variant: "primary" }),
+            UI.spacer()
+          ])
+        ]),
+
+        UI.grid(2, [
+          // Node Alpha View
+          UI.card([
+            UI.row([
+              UI.title("Node Alpha", 3),
+              UI.spacer(),
+              UI.badge("Votes: " + state.votesA, "primary")
+            ]),
+            UI.row([
+              UI.button("+1 Vote", () => { state.votesA = nodeA_Counter.inc(1); }, { className: "star-btn-sm" }),
+              UI.button("-1 Vote", () => { state.votesA = nodeA_Counter.dec(1); }, { className: "star-btn-sm" })
+            ]),
+            UI.divider(),
+            UI.row([
+              UI.input("Add note on Alpha...", state.inputA, val => state.inputA = val, { style: { flex: "1" } }),
+              UI.button("Add", () => {
+                if (!state.inputA.trim()) return;
+                nodeA_Notes.add(state.inputA.trim());
+                state.notesA = nodeA_Notes.values();
+                state.inputA = "";
+              }, { className: "star-btn-sm" })
+            ]),
+            UI.column(state.notesA.map(n => UI.row([
+              UI.text("• " + n),
+              UI.spacer(),
+              UI.button("Del", () => { nodeA_Notes.remove(n); state.notesA = nodeA_Notes.values(); }, { className: "star-btn-sm star-btn-danger" })
+            ])))
+          ]),
+
+          // Node Beta View
+          UI.card([
+            UI.row([
+              UI.title("Node Beta", 3),
+              UI.spacer(),
+              UI.badge("Votes: " + state.votesB, "purple")
+            ]),
+            UI.row([
+              UI.button("+1 Vote", () => { state.votesB = nodeB_Counter.inc(1); }, { className: "star-btn-sm" }),
+              UI.button("-1 Vote", () => { state.votesB = nodeB_Counter.dec(1); }, { className: "star-btn-sm" })
+            ]),
+            UI.divider(),
+            UI.row([
+              UI.input("Add note on Beta...", state.inputB, val => state.inputB = val, { style: { flex: "1" } }),
+              UI.button("Add", () => {
+                if (!state.inputB.trim()) return;
+                nodeB_Notes.add(state.inputB.trim());
+                state.notesB = nodeB_Notes.values();
+                state.inputB = "";
+              }, { className: "star-btn-sm" })
+            ]),
+            UI.column(state.notesB.map(n => UI.row([
+              UI.text("• " + n),
+              UI.spacer(),
+              UI.button("Del", () => { nodeB_Notes.remove(n); state.notesB = nodeB_Notes.values(); }, { className: "star-btn-sm star-btn-danger" })
+            ])))
+          ])
+        ])
+      ]);
+    }
+
+    createApp(CollabDemo).mount("#crdt-app");
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+{
+  "iconDefinitions": {
+    "_star_file": {
+      "iconPath": "./star_file_icon.png"
+    },
+    "_star_bytecode": {
+      "iconPath": "./star_bytecode_icon.png"
+    },
+    "_star_mobile": {
+      "iconPath": "./star_mobile_icon.png"
+    }
+  },
+  "fileExtensions": {
+    "star": "_star_file",
+    "starb": "_star_bytecode",
+    "starmobile": "_star_mobile"
+  }
+}
+

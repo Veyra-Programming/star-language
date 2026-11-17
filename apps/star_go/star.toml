@@ -1,0 +1,12 @@
+[project]
+name = "star_go"
+version = "1.3.0"
+entry = "main.star"
+target = "android"
+
+[android]
+package_id = "org.starlang.go"
+min_sdk = 24
+target_sdk = 34
+permissions = ["camera", "network", "vibrate"]
+

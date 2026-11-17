@@ -1,0 +1,225 @@
+{
+  "Star Universal App": {
+    "prefix": "star-app",
+    "body": [
+      "app ${1:MyApp}",
+      "",
+      "use Material",
+      "use Flutter",
+      "",
+      "function build()",
+      "    give back Scaffold(",
+      "        appBar = AppBar(",
+      "            title = Text(\"${2:Application Title}\"),",
+      "            backgroundColor = Colors.indigo",
+      "        ),",
+      "        body = Center(",
+      "            child = Column(",
+      "                mainAxisAlignment = MainAxisAlignment.center,",
+      "                children = [",
+      "                    Text(\"${3:Welcome to Star Language!}\", style = TextStyle(fontSize = 24.0, fontWeight = FontWeight.bold)),",
+      "                    SizedBox(height = 16.0),",
+      "                    ElevatedButton(",
+      "                        child = Text(\"${4:Get Started}\"),",
+      "                        onPressed = () -> show(\"Clicked!\")",
+      "                    )",
+      "                ]",
+      "            )",
+      "        )",
+      "    )",
+      "end",
+      "",
+      "end"
+    ],
+    "description": "Scaffold a complete Star Universal Application with Material 3"
+  },
+
+  "Flutter Scaffold": {
+    "prefix": "star-scaffold",
+    "body": [
+      "Scaffold(",
+      "    appBar = AppBar(",
+      "        title = Text(\"${1:Page Title}\"),",
+      "        backgroundColor = ${2:Colors.indigo}",
+      "    ),",
+      "    body = ${3:Container(child = Text(\"Hello World\"))},",
+      "    floatingActionButton = FloatingActionButton(",
+      "        child = Icon(Icons.add),",
+      "        onPressed = () -> ${4:show(\"Action trigger\")}",
+      "    )",
+      ")"
+    ],
+    "description": "Declarative Flutter Scaffold widget with AppBar and FAB"
+  },
+
+  "3D Parallax Hero Card": {
+    "prefix": "star-hero-card",
+    "body": [
+      "GestureDetector(",
+      "    onTap = () -> ${1:openDetails()},",
+      "    child = Container(",
+      "        margin = EdgeInsets.symmetric(horizontal = 16.0, vertical = 12.0),",
+      "        height = 360.0,",
+      "        decoration = BoxDecoration(",
+      "            borderRadius = BorderRadius.circular(24.0),",
+      "            boxShadow = [",
+      "                BoxShadow(color = Colors.black87, blurRadius = 24.0, offset = Offset(0.0, 12.0))",
+      "            ]",
+      "        ),",
+      "        child = Stack(",
+      "            children = [",
+      "                Image.network(\"${2:https://images.unsplash.com/photo-1}\", fit = BoxFit.cover),",
+      "                Container(decoration = BoxDecoration(gradient = LinearGradient(colors = [Colors.transparent, Colors.black87]))),",
+      "                Positioned(",
+      "                    bottom = 20.0,",
+      "                    left = 20.0,",
+      "                    right = 20.0,",
+      "                    child = Column(",
+      "                        crossAxisAlignment = CrossAxisAlignment.start,",
+      "                        children = [",
+      "                            Text(\"${3:Hero Title}\", style = TextStyle(fontSize = 24.0, fontWeight = FontWeight.bold, color = Colors.white)),",
+      "                            Text(\"${4:Hero Subtitle}\", style = TextStyle(fontSize = 14.0, color = Colors.grey))",
+      "                        ]",
+      "                    )",
+      "                )",
+      "            ]",
+      "        )",
+      "    )",
+      ")"
+    ],
+    "description": "3D Parallax Hero Card widget with multi-depth layers and touch detection"
+  },
+
+  "Google Play Billing Purchase": {
+    "prefix": "star-billing",
+    "body": [
+      "variable billingClient = GoogleBillingClient(",
+      "    targetPackage = \"${1:com.example.app}\",",
+      "    enablePendingPurchases = true",
+      ")",
+      "",
+      "function purchaseProduct(skuId, isSubscription)",
+      "    whenever isSubscription",
+      "        variable flowResult = billingClient.launchSubscriptionFlow(skuId)",
+      "        show(\"Subscription initiated: \" + skuId)",
+      "        give back flowResult",
+      "    otherwise",
+      "        variable flowResult = billingClient.launchPurchaseFlow(skuId)",
+      "        show(\"One-time purchase initiated: \" + skuId)",
+      "        give back flowResult",
+      "    end",
+      "end"
+    ],
+    "description": "Google Play BillingClient v7.0.0 purchase and subscription logic"
+  },
+
+  "Android WallpaperManager Bridge": {
+    "prefix": "star-wallpaper",
+    "body": [
+      "use \"android_service.star\"",
+      "",
+      "function applyWallpaper(wallpaperUrl, targetFlag)",
+      "    # targetFlag: 1 = System (Home), 2 = Lock, 3 = Both",
+      "    variable result = AndroidWallpaperService.setWallpaper(wallpaperUrl, targetFlag)",
+      "    show(\"Wallpaper applied: \" + result)",
+      "    AndroidHapticService.vibrate(30)",
+      "    give back result",
+      "end"
+    ],
+    "description": "Native Android WallpaperManager service call (FLAG_SYSTEM, FLAG_LOCK, FLAG_BOTH)"
+  },
+
+  "Gyroscope Parallax Listener": {
+    "prefix": "star-gyro",
+    "body": [
+      "variable gyroListener = Mobile.Hardware.Sensor.listenGyroscope((x, y, z) ->",
+      "    # x = pitch tilt, y = roll tilt",
+      "    variable offsetX = x * ${1:12.0}",
+      "    variable offsetY = y * ${1:12.0}",
+      "    updateParallax(offsetX, offsetY)",
+      ")"
+    ],
+    "description": "Listen to device gyroscope tilt sensor and compute 3D parallax offsets"
+  },
+
+  "Function Declaration": {
+    "prefix": "star-func",
+    "body": [
+      "function ${1:functionName}(${2:arguments})",
+      "    ${3:# body}",
+      "    give back ${4:null}",
+      "end"
+    ],
+    "description": "Define a function in Star"
+  },
+
+  "Class Declaration": {
+    "prefix": "star-class",
+    "body": [
+      "class ${1:ClassName}",
+      "",
+      "    property ${2:property1}",
+      "    property ${3:property2} = ${4:defaultValue}",
+      "",
+      "    function ${5:methodName}()",
+      "        give back self.${2:property1}",
+      "    end",
+      "",
+      "end"
+    ],
+    "description": "Define a class with properties and methods in Star"
+  },
+
+  "Whenever Conditional": {
+    "prefix": "star-whenever",
+    "body": [
+      "whenever ${1:condition}",
+      "    ${2:# code when true}",
+      "otherwise",
+      "    ${3:# code when false}",
+      "end"
+    ],
+    "description": "Natural English whenever-otherwise branch in Star"
+  },
+
+  "When Declarative Widget": {
+    "prefix": "star-when",
+    "body": [
+      "When(",
+      "    ${1:condition},",
+      "    ${2:trueWidget},",
+      "    ${3:falseWidget}",
+      ")"
+    ],
+    "description": "Functional declarative When(condition, true_widget, false_widget) widget"
+  },
+
+  "For Loop": {
+    "prefix": "star-for",
+    "body": [
+      "for ${1:item} in ${2:collection}",
+      "    ${3:# loop body}",
+      "end"
+    ],
+    "description": "For-in iteration loop in Star"
+  },
+
+  "Repeat Loop": {
+    "prefix": "star-repeat",
+    "body": [
+      "repeat ${1:count}",
+      "    ${2:# loop body}",
+      "end"
+    ],
+    "description": "Repeat block N times in Star"
+  },
+
+  "Use Module Import": {
+    "prefix": "star-use",
+    "body": [
+      "use ${1:ModuleName}"
+    ],
+    "description": "Import standard or local Star module"
+  }
+}
+

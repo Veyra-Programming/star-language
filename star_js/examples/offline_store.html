@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star.js Demo — Offline-First POS & E-Commerce Store</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../star.js"></script>
+</head>
+<body style="padding: 2rem 1rem;">
+  <div class="container" style="max-width: 760px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+      <a href="../index.html" class="brand" style="text-decoration: none;">
+        <div class="brand-icon">⭐</div>
+        <span class="brand-name">Star.js</span>
+        <span class="brand-badge">POS Demo</span>
+      </a>
+      <div id="status-pill" class="mode-pill mode-pill-online">ONLINE</div>
+    </div>
+
+    <div id="app-root"></div>
+  </div>
+
+  <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 100;"></div>
+
+  <script>
+    const { UI, createApp, reactive, Intent, Storage, Telemetry } = Star;
+
+    const storage = new Storage();
+    const telemetry = new Telemetry();
+    const intentEngine = new Intent(storage, telemetry);
+
+    const CATALOG = [
+      { id: "p1", name: "Star Native Compiler (x64/ARM64)", price: 49, icon: "⚡" },
+      { id: "p2", name: "ODCS Edge Mesh Telemetry Node", price: 129, icon: "🛰️" },
+      { id: "p3", name: "Disruption-Tolerant Satellite Gateway", price: 299, icon: "🛡️" },
+      { id: "p4", name: "WebGPU SDF Shader Pack v1.2", price: 39, icon: "🎨" }
+    ];
+
+    const state = reactive({
+      cart: {},
+      orderHistory: []
+    });
+
+    function StoreApp() {
+      const itemsInCart = Object.entries(state.cart).filter(([_, qty]) => qty > 0);
+      const totalCost = itemsInCart.reduce((sum, [id, qty]) => {
+        const prod = CATALOG.find(p => p.id === id);
+        return sum + (prod ? prod.price * qty : 0);
+      }, 0);
+
+      return UI.column([
+        UI.card([
+          UI.title("🛍️ Star.js Offline-First Product Store", 2),
+          UI.text("Add items to your cart. Disconnect your Wi-Fi and checkout — orders are guaranteed zero loss via Layer 4 ZIL."),
+          UI.divider(),
+          UI.grid(2, CATALOG.map(prod => {
+            const qty = state.cart[prod.id] || 0;
+            return UI.box([
+              UI.row([
+                UI.text(prod.icon, { style: { fontSize: "1.5rem" } }),
+                UI.column([
+                  UI.text(prod.name, { style: { fontWeight: "700", color: "#fff" } }),
+                  UI.text("$" + prod.price, { style: { color: "var(--star-accent-primary)", fontFamily: "var(--star-font-mono)" } })
+                ]),
+                UI.spacer(),
+                UI.button(qty > 0 ? `In Cart (${qty})` : "Add", () => {
+                  state.cart[prod.id] = qty + 1;
+                }, { variant: qty > 0 ? "purple" : "secondary", className: "star-btn-sm" })
+              ])
+            ], { padding: "0.75rem", background: "rgba(0,0,0,0.3)", borderRadius: "8px", border: "1px solid var(--star-border)" });
+          }))
+        ]),
+
+        UI.card([
+          UI.row([
+            UI.title("🛒 Your Order Summary", 3),
+            UI.spacer(),
+            UI.badge(itemsInCart.length + " Items", "primary")
+          ]),
+          UI.divider(),
+          itemsInCart.length === 0 ? UI.text("Your cart is currently empty.") : UI.column(
+            itemsInCart.map(([id, qty]) => {
+              const prod = CATALOG.find(p => p.id === id);
+              return UI.row([
+                UI.text(prod.name),
+                UI.spacer(),
+                UI.text(`$${prod.price} x ${qty} = $${prod.price * qty}`, { style: { fontFamily: "var(--star-font-mono)", color: "var(--star-accent-primary)" } }),
+                UI.button("+", () => { state.cart[id] = qty + 1; }, { className: "star-btn-sm" }),
+                UI.button("-", () => { state.cart[id] = Math.max(0, qty - 1); }, { className: "star-btn-sm" })
+              ]);
+            })
+          ),
+          UI.divider(),
+          UI.row([
+            UI.text("Total Payable: $" + totalCost, { style: { fontSize: "1.25rem", fontWeight: "800", color: "#fff" } }),
+            UI.spacer(),
+            UI.button("Confirm Order (Preserve ZIL)", async () => {
+              if (totalCost === 0) return;
+              const rcpt = await intentEngine.preserve("CHECKOUT_COMPLETED", {
+                items: state.cart,
+                total: totalCost,
+                currency: "USD",
+                timestamp: Date.now()
+              });
+              state.orderHistory.unshift(rcpt);
+              state.cart = {};
+              alert("Order Preserved!\nReceipt ID: " + rcpt.receipt_id + "\nDigest: " + rcpt.canonical_digest.slice(0, 24) + "...");
+            }, { variant: "primary", disabled: totalCost === 0 })
+          ])
+        ]),
+
+        state.orderHistory.length > 0 ? UI.card([
+          UI.title("📜 Staged Order Receipts (" + state.orderHistory.length + ")", 3),
+          UI.column(state.orderHistory.map(r => UI.toast(
+            `Receipt: ${r.receipt_id} ($${r.payload.total}) • Proof: ${r.staged_proof}`,
+            "success"
+          )))
+        ]) : null
+      ]);
+    }
+
+    createApp(StoreApp).mount("#app-root");
+  </script>
+</body>
+</html>
+

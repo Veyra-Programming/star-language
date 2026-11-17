@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star.js Demo — Emergency Medical Triage Check-in</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../star.js"></script>
+</head>
+<body style="padding: 2rem 1rem;">
+  <div class="container" style="max-width: 760px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+      <a href="../index.html" class="brand" style="text-decoration: none;">
+        <div class="brand-icon">🏥</div>
+        <span class="brand-name">Star.js</span>
+        <span class="brand-badge">Med-Log Demo</span>
+      </a>
+      <div class="mode-pill mode-pill-online">ODCS L4 ZIL ACTIVE</div>
+    </div>
+
+    <div id="triage-app"></div>
+  </div>
+
+  <script>
+    const { UI, createApp, reactive, Intent, Storage, Telemetry } = Star;
+
+    const storage = new Storage();
+    const telemetry = new Telemetry();
+    const intentEngine = new Intent(storage, telemetry);
+
+    const state = reactive({
+      patientName: "",
+      age: 34,
+      priority: "Immediate (Red)",
+      symptoms: "Trauma • Acute blood loss",
+      loggedPatients: []
+    });
+
+    function TriageApp() {
+      return UI.column([
+        UI.card([
+          UI.title("🏥 Field Emergency Triage Log", 2),
+          UI.text("During medical disasters or power grid loss, zero triage entries may be dropped. Entries are hashed via RFC 8785 and committed locally to IndexedDB WAL."),
+          UI.divider(),
+          UI.column([
+            UI.text("Patient Full Name / Tag ID:", { style: { fontWeight: "700" } }),
+            UI.input("e.g. Jane Doe / TAG-8812", state.patientName, val => state.patientName = val),
+            UI.grid(2, [
+              UI.column([
+                UI.text("Triage Urgency Category:", { style: { fontWeight: "700" } }),
+                UI.input("Priority", state.priority, val => state.priority = val)
+              ]),
+              UI.column([
+                UI.text("Approximate Age:", { style: { fontWeight: "700" } }),
+                UI.input("Age", state.age, val => state.age = Number(val))
+              ])
+            ]),
+            UI.text("Clinical Notes / Symptoms:", { style: { fontWeight: "700" } }),
+            UI.input("Describe triage assessment...", state.symptoms, val => state.symptoms = val),
+            UI.button("Stage Patient Entry (ZIL Proof)", async () => {
+              if (!state.patientName.trim()) {
+                alert("Please enter a patient identifier");
+                return;
+              }
+              const rcpt = await intentEngine.preserve("PATIENT_ADMITTED", {
+                patient: state.patientName,
+                priority: state.priority,
+                age: state.age,
+                symptoms: state.symptoms,
+                medic: "Medic-Alpha-09",
+                timestamp: Date.now()
+              });
+              state.loggedPatients.unshift(rcpt);
+              state.patientName = "";
+              alert("Patient Triage Recorded!\nZIL Receipt: " + rcpt.receipt_id);
+            }, { variant: "primary" })
+          ])
+        ]),
+
+        state.loggedPatients.length > 0 ? UI.card([
+          UI.title("📋 Staged Medical Triage Entries (" + state.loggedPatients.length + ")", 3),
+          UI.column(state.loggedPatients.map(p => UI.box([
+            UI.row([
+              UI.badge(p.payload.priority.includes("Red") ? "IMMEDIATE" : "ROUTINE", "danger"),
+              UI.text(p.payload.patient, { style: { fontWeight: "800", color: "#fff" } }),
+              UI.spacer(),
+              UI.text(new Date(p.timestamp).toLocaleTimeString(), { style: { fontSize: "0.75rem", color: "var(--star-text-muted)" } })
+            ]),
+            UI.text(p.payload.symptoms, { style: { fontSize: "0.8rem", marginTop: "0.3rem" } }),
+            UI.text("SHA-256 Digest: " + p.canonical_digest.slice(0, 32) + "...", { style: { fontSize: "0.7rem", fontFamily: "var(--star-font-mono)", color: "var(--star-accent-primary)" } })
+          ], { padding: "0.75rem", background: "rgba(0,0,0,0.35)", borderRadius: "8px", border: "1px solid var(--star-border)" })))
+        ]) : null
+      ]);
+    }
+
+    createApp(TriageApp).mount("#triage-app");
+  </script>
+</body>
+</html>
+

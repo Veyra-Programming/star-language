@@ -1,0 +1,261 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Star",
+  "scopeName": "source.star",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#function-declarations" },
+    { "include": "#keywords-control" },
+    { "include": "#keywords-declaration" },
+    { "include": "#builtins" },
+    { "include": "#constants" },
+    { "include": "#ui-widgets" },
+    { "include": "#ui-constants" },
+    { "include": "#hardware-apis" },
+    { "include": "#stdlib" },
+    { "include": "#function-calls" },
+    { "include": "#named-parameters" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.star",
+          "match": "#.*$"
+        },
+        {
+          "name": "comment.line.double-slash.star",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.star",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.star",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.star",
+              "match": "\\\\([nrtbfv0\\'\"\\\\]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
+            },
+            {
+              "name": "meta.template.expression.star",
+              "begin": "\\$\\{",
+              "end": "\\}",
+              "beginCaptures": {
+                "0": { "name": "punctuation.definition.template-expression.begin.star" }
+              },
+              "endCaptures": {
+                "0": { "name": "punctuation.definition.template-expression.end.star" }
+              },
+              "patterns": [
+                { "include": "$self" }
+              ]
+            },
+            {
+              "name": "meta.template.expression.star",
+              "match": "\\{[a-zA-Z_][a-zA-Z0-9_.]*\\}"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.star",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.star",
+              "match": "\\\\([nrtbfv0\\'\"\\\\]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.star",
+          "match": "\\b0[xX][0-9a-fA-F_]+\\b"
+        },
+        {
+          "name": "constant.numeric.float.star",
+          "match": "\\b[0-9]+(\\.[0-9]+)([eE][+-]?[0-9]+)?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.star",
+          "match": "\\b[0-9]+\\b"
+        }
+      ]
+    },
+    "function-declarations": {
+      "patterns": [
+        {
+          "match": "\\b(function|task|action|define)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "storage.type.function.star" },
+            "2": { "name": "entity.name.function.star" }
+          }
+        }
+      ]
+    },
+    "keywords-control": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow.star",
+          "match": "\\b(give\\s+back|return|break|continue)\\b"
+        },
+        {
+          "name": "keyword.control.star",
+          "match": "\\b(whenever|otherwise|unless|until|forever|if|else|while|for|repeat|try|catch|recover|ensure|end)\\b"
+        },
+        {
+          "name": "keyword.control.import.star",
+          "match": "\\b(use|import|export)\\b"
+        }
+      ]
+    },
+    "keywords-declaration": {
+      "patterns": [
+        {
+          "name": "storage.type.function.star",
+          "match": "\\b(function|task|action|define|method)\\b"
+        },
+        {
+          "name": "storage.type.variable.star",
+          "match": "\\b(variable|let|constant|remember|set|to|be|as|increase|decrease|by)\\b"
+        },
+        {
+          "name": "storage.type.class.star",
+          "match": "\\b(app|class|component|blueprint|record|durable|struct)\\b"
+        },
+        {
+          "name": "storage.modifier.star",
+          "match": "\\b(property|state|computed|watch|event|render|async|await)\\b"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.star",
+          "match": "\\b(show|say|input|print|echo|log|panic|assert)\\b"
+        },
+        {
+          "name": "keyword.operator.word.star",
+          "match": "\\b(is\\s+equal\\s+to|is\\s+not\\s+equal\\s+to|is\\s+greater\\s+than\\s+or\\s+equal\\s+to|is\\s+less\\s+than\\s+or\\s+equal\\s+to|is\\s+greater\\s+than|is\\s+less\\s+than|and|or|not|is|in|each|times|iteration)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.star",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.star",
+          "match": "\\b(null|nil)\\b"
+        },
+        {
+          "name": "variable.language.self.star",
+          "match": "\\bself\\b"
+        }
+      ]
+    },
+    "ui-widgets": {
+      "patterns": [
+        {
+          "name": "support.class.widget.star",
+          "match": "\\b(Scaffold|AppBar|Text|Column|Row|Container|Card|ElevatedButton|GestureDetector|Icon|Image|When|SwitchCase|Visibility|Opacity|Stack|Padding|Center|Expanded|SizedBox|MaterialApp|Theme|FloatingActionButton|ListView|GridView|ListTile|Divider|Spacer|SafeArea|SingleChildScrollView|Wrap|Positioned|ClipRRect|InkWell|AlertDialog|SnackBar|BottomNavigationBar|BottomNavigationBarItem|AnimatedContainer|Hero)\\b"
+        }
+      ]
+    },
+    "ui-constants": {
+      "patterns": [
+        {
+          "name": "support.constant.ui.star",
+          "match": "\\b(Colors|Icons|BorderRadius|EdgeInsets|BoxDecoration|TextStyle|FontWeight|Alignment|CrossAxisAlignment|MainAxisAlignment|Axis|BoxFit|Color|Key)\\b"
+        }
+      ]
+    },
+    "hardware-apis": {
+      "patterns": [
+        {
+          "name": "support.class.platform.star",
+          "match": "\\b(WallpaperManager|GoogleBilling|GoogleBillingClient|Mobile|Device|Haptics|Sensor|Gyroscope|Battery|Storage|Clipboard|Camera|Geolocation)\\b"
+        }
+      ]
+    },
+    "stdlib": {
+      "patterns": [
+        {
+          "name": "support.class.stdlib.star",
+          "match": "\\b(Math|Time|String|IO|Json|Http|Crypto|File)\\b"
+        }
+      ]
+    },
+    "function-calls": {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+          "name": "entity.name.function.star"
+        }
+      ]
+    },
+    "named-parameters": {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\=)",
+          "name": "variable.parameter.star"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.pipeline.star",
+          "match": "\\|>"
+        },
+        {
+          "name": "keyword.operator.comparison.star",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.star",
+          "match": "(\\+|-|\\*|/|%)"
+        },
+        {
+          "name": "keyword.operator.assignment.star",
+          "match": "(=)"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.star",
+          "match": "[,:]"
+        },
+        {
+          "name": "punctuation.accessor.star",
+          "match": "\\."
+        },
+        {
+          "name": "punctuation.bracket.star",
+          "match": "[\\[\\]\\{\\}\\(\\)]"
+        }
+      ]
+    }
+  }
+}

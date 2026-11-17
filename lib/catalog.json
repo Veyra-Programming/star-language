@@ -1,0 +1,1882 @@
+[
+  {
+    "name": "vector2d",
+    "category": "math",
+    "class_name": "Vector2D",
+    "description": "2D Vector arithmetic, magnitude, normalization, and geometric operations",
+    "path": "modules/math/vector2d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "vector3d",
+    "category": "math",
+    "class_name": "Vector3D",
+    "description": "3D Vector operations including cross product, dot product, and 3D distance",
+    "path": "modules/math/vector3d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "matrix",
+    "category": "math",
+    "class_name": "Matrix2x2",
+    "description": "2D Matrix transformations, determinant, and matrix addition",
+    "path": "modules/math/matrix.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "quaternion",
+    "category": "math",
+    "class_name": "Quaternion",
+    "description": "Quaternion algebra for 3D rotations and orientations",
+    "path": "modules/math/quaternion.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "complex",
+    "category": "math",
+    "class_name": "Complex",
+    "description": "Complex number representation and arithmetic",
+    "path": "modules/math/complex.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "stats",
+    "category": "math",
+    "class_name": "StatsSummary",
+    "description": "Statistical summaries including mean, variance, and standard deviation",
+    "path": "modules/math/stats.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "trig",
+    "category": "math",
+    "class_name": "Angle",
+    "description": "Trigonometric helpers, angle conversions, and hypotenuse calculations",
+    "path": "modules/math/trig.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "calculus",
+    "category": "math",
+    "class_name": "Differentiator",
+    "description": "Numerical differentiation and integration approximations",
+    "path": "modules/math/calculus.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "geometry",
+    "category": "math",
+    "class_name": "Rectangle",
+    "description": "2D Geometric shapes, area, perimeter, and bounding box checks",
+    "path": "modules/math/geometry.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "random_dist",
+    "category": "math",
+    "class_name": "RandomGenerator",
+    "description": "Pseudo-random sampling, uniform range, and sequence choice helpers",
+    "path": "modules/math/random_dist.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "combinatorics",
+    "category": "math",
+    "class_name": "PermutationCounter",
+    "description": "Combinatorial arithmetic including factorials, permutations, and combinations",
+    "path": "modules/math/combinatorics.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "linear_algebra",
+    "category": "math",
+    "class_name": "LinearSpace",
+    "description": "Linear algebra operations, dot products, vector projections, and norms",
+    "path": "modules/math/linear_algebra.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "interpolation",
+    "category": "math",
+    "class_name": "Interpolator",
+    "description": "Linear, smoothstep, and cubic interpolation functions",
+    "path": "modules/math/interpolation.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "bigint",
+    "category": "math",
+    "class_name": "BigInt",
+    "description": "Arbitrary-precision integer emulation using digit string arithmetic",
+    "path": "modules/math/bigint.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "fraction",
+    "category": "math",
+    "class_name": "Fraction",
+    "description": "Rational number fraction representations and exact arithmetic",
+    "path": "modules/math/fraction.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "stack",
+    "category": "collections",
+    "class_name": "Stack",
+    "description": "LIFO Stack implementation with push, pop, peek, and size tracking",
+    "path": "modules/collections/stack.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "queue",
+    "category": "collections",
+    "class_name": "Queue",
+    "description": "FIFO Queue implementation with enqueue, dequeue, peek, and capacity limits",
+    "path": "modules/collections/queue.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "deque",
+    "category": "collections",
+    "class_name": "Deque",
+    "description": "Double-Ended Queue supporting O(1) front and back insertions",
+    "path": "modules/collections/deque.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "linked_list",
+    "category": "collections",
+    "class_name": "LinkedList",
+    "description": "Singly Linked List node chaining and traversal container",
+    "path": "modules/collections/linked_list.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "heap",
+    "category": "collections",
+    "class_name": "MinHeap",
+    "description": "Binary Min/Max Heap structure for priority extraction",
+    "path": "modules/collections/heap.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "priority_queue",
+    "category": "collections",
+    "class_name": "PriorityQueue",
+    "description": "Priority Queue with ordered item scheduling",
+    "path": "modules/collections/priority_queue.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "binary_search_tree",
+    "category": "collections",
+    "class_name": "BST",
+    "description": "Binary Search Tree for ordered key lookup, insertion, and min/max finding",
+    "path": "modules/collections/binary_search_tree.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "trie",
+    "category": "collections",
+    "class_name": "Trie",
+    "description": "Prefix Trie for fast string lookup, autocomplete, and dictionary queries",
+    "path": "modules/collections/trie.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "hash_table",
+    "category": "collections",
+    "class_name": "HashTable",
+    "description": "Associative hash map with key hashing and bucket collision resolution",
+    "path": "modules/collections/hash_table.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "bloom_filter",
+    "category": "collections",
+    "class_name": "BloomFilter",
+    "description": "Probabilistic Bloom Filter for set membership testing with low memory overhead",
+    "path": "modules/collections/bloom_filter.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "lru_cache",
+    "category": "collections",
+    "class_name": "LRUCache",
+    "description": "Least-Recently-Used (LRU) Cache eviction policy container",
+    "path": "modules/collections/lru_cache.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "disjoint_set",
+    "category": "collections",
+    "class_name": "DisjointSet",
+    "description": "Union-Find Disjoint Set data structure with path compression",
+    "path": "modules/collections/disjoint_set.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "graph",
+    "category": "collections",
+    "class_name": "Graph",
+    "description": "Directed and undirected graph adjacency representation",
+    "path": "modules/collections/graph.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "circular_buffer",
+    "category": "collections",
+    "class_name": "CircularBuffer",
+    "description": "Fixed-capacity ring buffer for streaming data and audio buffers",
+    "path": "modules/collections/circular_buffer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "multiset",
+    "category": "collections",
+    "class_name": "Multiset",
+    "description": "Multiset (Bag) tracking item multiplicities and element counts",
+    "path": "modules/collections/multiset.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "str_utils",
+    "category": "strings",
+    "class_name": "StrUtils",
+    "description": "String manipulation helpers, padding, casing, and trimming",
+    "path": "modules/strings/str_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "regex_lite",
+    "category": "strings",
+    "class_name": "RegexLite",
+    "description": "Pattern matching and wildcard validation helpers",
+    "path": "modules/strings/regex_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "template",
+    "category": "strings",
+    "class_name": "Template",
+    "description": "Variable substitution and templating engine",
+    "path": "modules/strings/template.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "inflector",
+    "category": "strings",
+    "class_name": "Inflector",
+    "description": "Noun pluralization, singularization, and titleizing",
+    "path": "modules/strings/inflector.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "slugify",
+    "category": "strings",
+    "class_name": "Slugify",
+    "description": "URL slug generator converting text to kebab-case",
+    "path": "modules/strings/slugify.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "levenshtein",
+    "category": "strings",
+    "class_name": "Levenshtein",
+    "description": "String edit distance and similarity ratio",
+    "path": "modules/strings/levenshtein.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "diff",
+    "category": "strings",
+    "class_name": "Diff",
+    "description": "Line-by-line and character diff utilities",
+    "path": "modules/strings/diff.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "tokenizer",
+    "category": "strings",
+    "class_name": "Tokenizer",
+    "description": "Word, sentence, and lexical token scanner",
+    "path": "modules/strings/tokenizer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "formatter",
+    "category": "strings",
+    "class_name": "Formatter",
+    "description": "Data formatting for numbers, currency, and byte sizes",
+    "path": "modules/strings/formatter.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "parser_combinator",
+    "category": "strings",
+    "class_name": "ParserCombinator",
+    "description": "Parser combinators for structured text parsing",
+    "path": "modules/strings/parser_combinator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "unicode_helper",
+    "category": "strings",
+    "class_name": "UnicodeHelper",
+    "description": "Unicode code point utilities and length validation",
+    "path": "modules/strings/unicode_helper.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "ascii_table",
+    "category": "strings",
+    "class_name": "AsciiTable",
+    "description": "ASCII art table layout and border rendering",
+    "path": "modules/strings/ascii_table.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "base64_codec",
+    "category": "strings",
+    "class_name": "Base64Codec",
+    "description": "Base64 encoding and decoding helpers",
+    "path": "modules/strings/base64_codec.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "rot13",
+    "category": "strings",
+    "class_name": "Rot13",
+    "description": "ROT13 and Caesar cipher text transformations",
+    "path": "modules/strings/rot13.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "soundex",
+    "category": "strings",
+    "class_name": "Soundex",
+    "description": "Phonetic phonetic encoding algorithm",
+    "path": "modules/strings/soundex.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "url",
+    "category": "net",
+    "class_name": "Url",
+    "description": "URL parser for schemes, hosts, ports, paths, and queries",
+    "path": "modules/net/url.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "http_client",
+    "category": "net",
+    "class_name": "HttpClient",
+    "description": "HTTP client helpers, status codes, and request options",
+    "path": "modules/net/http_client.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "http_router",
+    "category": "net",
+    "class_name": "HttpRouter",
+    "description": "URL routing table and path parameter extractor",
+    "path": "modules/net/http_router.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "websocket",
+    "category": "net",
+    "class_name": "Websocket",
+    "description": "WebSocket frame builder and opcode helper",
+    "path": "modules/net/websocket.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "query_string",
+    "category": "net",
+    "class_name": "QueryString",
+    "description": "URL query parameter encoder and decoder",
+    "path": "modules/net/query_string.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "headers",
+    "category": "net",
+    "class_name": "Headers",
+    "description": "HTTP header normalization and lookup map",
+    "path": "modules/net/headers.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "ip_address",
+    "category": "net",
+    "class_name": "IpAddress",
+    "description": "IPv4 address validator, subnet matcher, and octet parser",
+    "path": "modules/net/ip_address.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "dns",
+    "category": "net",
+    "class_name": "Dns",
+    "description": "DNS record types and lookup simulator",
+    "path": "modules/net/dns.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "socket_utils",
+    "category": "net",
+    "class_name": "SocketUtils",
+    "description": "Length-prefixed packet framing and delimiter utilities",
+    "path": "modules/net/socket_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "mime",
+    "category": "net",
+    "class_name": "Mime",
+    "description": "MIME content-type mappings for web assets",
+    "path": "modules/net/mime.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "cors",
+    "category": "net",
+    "class_name": "Cors",
+    "description": "CORS security headers builder",
+    "path": "modules/net/cors.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "cookie",
+    "category": "net",
+    "class_name": "Cookie",
+    "description": "HTTP Cookie parser and Set-Cookie serializer",
+    "path": "modules/net/cookie.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sse",
+    "category": "net",
+    "class_name": "Sse",
+    "description": "Server-Sent Events message formatter",
+    "path": "modules/net/sse.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "jwt_lite",
+    "category": "net",
+    "class_name": "JwtLite",
+    "description": "JSON Web Token token payload decoder",
+    "path": "modules/net/jwt_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "oauth_lite",
+    "category": "net",
+    "class_name": "OauthLite",
+    "description": "OAuth2 authorization URL and code exchange helper",
+    "path": "modules/net/oauth_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "json_utils",
+    "category": "formats",
+    "class_name": "JsonUtils",
+    "description": "JSON pretty-printer, path accessor, and sanitizer",
+    "path": "modules/formats/json_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "csv",
+    "category": "formats",
+    "class_name": "Csv",
+    "description": "Comma-Separated Values parser and row generator",
+    "path": "modules/formats/csv.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "tsv",
+    "category": "formats",
+    "class_name": "Tsv",
+    "description": "Tab-Separated Values parser and writer",
+    "path": "modules/formats/tsv.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "yaml_lite",
+    "category": "formats",
+    "class_name": "YamlLite",
+    "description": "YAML key-value and list structure parser",
+    "path": "modules/formats/yaml_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "xml_lite",
+    "category": "formats",
+    "class_name": "XmlLite",
+    "description": "XML tag parser and element tree builder",
+    "path": "modules/formats/xml_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "toml_lite",
+    "category": "formats",
+    "class_name": "TomlLite",
+    "description": "TOML configuration reader and key extractor",
+    "path": "modules/formats/toml_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "ini",
+    "category": "formats",
+    "class_name": "Ini",
+    "description": "INI file section and property parser",
+    "path": "modules/formats/ini.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "markdown_lite",
+    "category": "formats",
+    "class_name": "MarkdownLite",
+    "description": "Markdown syntax to HTML converter",
+    "path": "modules/formats/markdown_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "binary_reader",
+    "category": "formats",
+    "class_name": "BinaryReader",
+    "description": "Binary stream reader for integer and string words",
+    "path": "modules/formats/binary_reader.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "binary_writer",
+    "category": "formats",
+    "class_name": "BinaryWriter",
+    "description": "Binary buffer writer for serialized bytes",
+    "path": "modules/formats/binary_writer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "hex_codec",
+    "category": "formats",
+    "class_name": "HexCodec",
+    "description": "Hexadecimal string and byte converter",
+    "path": "modules/formats/hex_codec.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "protobuf_lite",
+    "category": "formats",
+    "class_name": "ProtobufLite",
+    "description": "Protocol buffer varint and tag wire format utility",
+    "path": "modules/formats/protobuf_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "msgpack_lite",
+    "category": "formats",
+    "class_name": "MsgpackLite",
+    "description": "MessagePack type prefix and packing helpers",
+    "path": "modules/formats/msgpack_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "tar_lite",
+    "category": "formats",
+    "class_name": "TarLite",
+    "description": "TAR archive 512-byte block and header builder",
+    "path": "modules/formats/tar_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "zip_lite",
+    "category": "formats",
+    "class_name": "ZipLite",
+    "description": "ZIP file directory entry and header creator",
+    "path": "modules/formats/zip_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sorting",
+    "category": "algorithms",
+    "class_name": "Sorting",
+    "description": "Classic sorting algorithms (QuickSort, MergeSort, BubbleSort)",
+    "path": "modules/algorithms/sorting.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "searching",
+    "category": "algorithms",
+    "class_name": "Searching",
+    "description": "Binary search, linear search, and lookup bounds",
+    "path": "modules/algorithms/searching.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pathfinding",
+    "category": "algorithms",
+    "class_name": "Pathfinding",
+    "description": "A* search and Dijkstra shortest path finding",
+    "path": "modules/algorithms/pathfinding.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "graph_traversal",
+    "category": "algorithms",
+    "class_name": "GraphTraversal",
+    "description": "Breadth-First Search (BFS) and Depth-First Search (DFS)",
+    "path": "modules/algorithms/graph_traversal.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "dynamic_programming",
+    "category": "algorithms",
+    "class_name": "DynamicProgramming",
+    "description": "DP algorithms for LCS, Fibonacci, and knapsack",
+    "path": "modules/algorithms/dynamic_programming.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "compression_lite",
+    "category": "algorithms",
+    "class_name": "CompressionLite",
+    "description": "Run-length encoding (RLE) and frequency counting",
+    "path": "modules/algorithms/compression_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "cryptographic_sort",
+    "category": "algorithms",
+    "class_name": "CryptographicSort",
+    "description": "Timing-safe constant-time string comparisons",
+    "path": "modules/algorithms/cryptographic_sort.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "convex_hull",
+    "category": "algorithms",
+    "class_name": "ConvexHull",
+    "description": "2D Graham Scan convex hull polygon calculation",
+    "path": "modules/algorithms/convex_hull.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "clustering_lite",
+    "category": "algorithms",
+    "class_name": "ClusteringLite",
+    "description": "Centroid distance and 2D cluster assignment",
+    "path": "modules/algorithms/clustering_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "knapsack",
+    "category": "algorithms",
+    "class_name": "Knapsack",
+    "description": "0-1 Knapsack optimal item selection solver",
+    "path": "modules/algorithms/knapsack.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "backtracking",
+    "category": "algorithms",
+    "class_name": "Backtracking",
+    "description": "Backtracking search template and constraint solver",
+    "path": "modules/algorithms/backtracking.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "string_matching",
+    "category": "algorithms",
+    "class_name": "StringMatching",
+    "description": "KMP and Rabin-Karp substring search algorithms",
+    "path": "modules/algorithms/string_matching.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "topological_sort",
+    "category": "algorithms",
+    "class_name": "TopologicalSort",
+    "description": "DAG topological sorting with cycle detection",
+    "path": "modules/algorithms/topological_sort.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "interval_tree",
+    "category": "algorithms",
+    "class_name": "IntervalTree",
+    "description": "1D interval overlap detection queries",
+    "path": "modules/algorithms/interval_tree.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "quadtree",
+    "category": "algorithms",
+    "class_name": "Quadtree",
+    "description": "2D spatial partitioning QuadTree",
+    "path": "modules/algorithms/quadtree.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sha256_lite",
+    "category": "crypto",
+    "class_name": "Sha256Lite",
+    "description": "SHA-256 block hashing primitives and padding",
+    "path": "modules/crypto/sha256_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "md5_lite",
+    "category": "crypto",
+    "class_name": "Md5Lite",
+    "description": "MD5 digest simulation helper",
+    "path": "modules/crypto/md5_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "hmac_lite",
+    "category": "crypto",
+    "class_name": "HmacLite",
+    "description": "HMAC key authentication helper",
+    "path": "modules/crypto/hmac_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "aes_lite",
+    "category": "crypto",
+    "class_name": "AesLite",
+    "description": "AES block cipher transformation helpers",
+    "path": "modules/crypto/aes_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "rsa_lite",
+    "category": "crypto",
+    "class_name": "RsaLite",
+    "description": "Modular exponentiation and public-key math",
+    "path": "modules/crypto/rsa_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "uuid",
+    "category": "crypto",
+    "class_name": "Uuid",
+    "description": "UUID v4 pseudo-random identifier generator",
+    "path": "modules/crypto/uuid.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "totp",
+    "category": "crypto",
+    "class_name": "Totp",
+    "description": "Time-based One-Time Password RFC 6238 simulator",
+    "path": "modules/crypto/totp.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "checksum",
+    "category": "crypto",
+    "class_name": "Checksum",
+    "description": "CRC32 and Adler32 checksum calculators",
+    "path": "modules/crypto/checksum.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "random_bytes",
+    "category": "crypto",
+    "class_name": "RandomBytes",
+    "description": "Cryptographically sound byte array generator",
+    "path": "modules/crypto/random_bytes.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pbkdf2_lite",
+    "category": "crypto",
+    "class_name": "Pbkdf2Lite",
+    "description": "PBKDF2 key derivation parameter calculator",
+    "path": "modules/crypto/pbkdf2_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "bcrypt_lite",
+    "category": "crypto",
+    "class_name": "BcryptLite",
+    "description": "Bcrypt hash formatter with salt and cost factor",
+    "path": "modules/crypto/bcrypt_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "caesar",
+    "category": "crypto",
+    "class_name": "Caesar",
+    "description": "Caesar substitution cipher with customizable shift",
+    "path": "modules/crypto/caesar.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "vigenere",
+    "category": "crypto",
+    "class_name": "Vigenere",
+    "description": "Polyalphabetic Vigenere cipher",
+    "path": "modules/crypto/vigenere.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "xtea",
+    "category": "crypto",
+    "class_name": "Xtea",
+    "description": "XTEA 64-bit block cipher 32-round implementation",
+    "path": "modules/crypto/xtea.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "argon2_lite",
+    "category": "crypto",
+    "class_name": "Argon2Lite",
+    "description": "Argon2 memory-hard hashing parameter specifier",
+    "path": "modules/crypto/argon2_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "box_model",
+    "category": "ui",
+    "class_name": "BoxModel",
+    "description": "CSS box model margins, paddings, and borders",
+    "path": "modules/ui/box_model.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "color_palette",
+    "category": "ui",
+    "class_name": "ColorPalette",
+    "description": "RGB, HSL, Hex conversions and color contrast",
+    "path": "modules/ui/color_palette.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "gradient",
+    "category": "ui",
+    "class_name": "Gradient",
+    "description": "Linear and radial CSS gradient generators",
+    "path": "modules/ui/gradient.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "typography",
+    "category": "ui",
+    "class_name": "Typography",
+    "description": "Type scale, line height, and font hierarchy",
+    "path": "modules/ui/typography.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "grid_system",
+    "category": "ui",
+    "class_name": "GridSystem",
+    "description": "12-column responsive layout engine",
+    "path": "modules/ui/grid_system.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "responsive",
+    "category": "ui",
+    "class_name": "Responsive",
+    "description": "Device viewport breakpoint evaluator",
+    "path": "modules/ui/responsive.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "flexbox_lite",
+    "category": "ui",
+    "class_name": "FlexboxLite",
+    "description": "Flex layout direction, alignment, and justification",
+    "path": "modules/ui/flexbox_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "theme_manager",
+    "category": "ui",
+    "class_name": "ThemeManager",
+    "description": "Dark and light theme styling dictionary",
+    "path": "modules/ui/theme_manager.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "icon_set",
+    "category": "ui",
+    "class_name": "IconSet",
+    "description": "UI vector icon glyph catalogue",
+    "path": "modules/ui/icon_set.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "dialog_builder",
+    "category": "ui",
+    "class_name": "DialogBuilder",
+    "description": "Modal dialog specification and action buttons",
+    "path": "modules/ui/dialog_builder.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "toast_notifier",
+    "category": "ui",
+    "class_name": "ToastNotifier",
+    "description": "Toast alert notification dispatcher",
+    "path": "modules/ui/toast_notifier.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "badge",
+    "category": "ui",
+    "class_name": "Badge",
+    "description": "Status indicator and notification counter badge",
+    "path": "modules/ui/badge.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "avatar",
+    "category": "ui",
+    "class_name": "Avatar",
+    "description": "User profile picture and monogram avatar generator",
+    "path": "modules/ui/avatar.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "card_layout",
+    "category": "ui",
+    "class_name": "CardLayout",
+    "description": "Card component container with header, body, actions",
+    "path": "modules/ui/card_layout.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "form_builder",
+    "category": "ui",
+    "class_name": "FormBuilder",
+    "description": "Form input layout and validation state presenter",
+    "path": "modules/ui/form_builder.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "haptic",
+    "category": "mobile",
+    "class_name": "Haptic",
+    "description": "Haptic feedback vibration patterns for mobile interactions",
+    "path": "modules/mobile/haptic.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sensors",
+    "category": "mobile",
+    "class_name": "Sensors",
+    "description": "Accelerometer, gyroscope, and motion sensor mock",
+    "path": "modules/mobile/sensors.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "geolocation",
+    "category": "mobile",
+    "class_name": "Geolocation",
+    "description": "GPS coordinates and Haversine distance calculator",
+    "path": "modules/mobile/geolocation.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "battery",
+    "category": "mobile",
+    "class_name": "Battery",
+    "description": "Battery level and power state monitor",
+    "path": "modules/mobile/battery.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "device_info",
+    "category": "mobile",
+    "class_name": "DeviceInfo",
+    "description": "Platform architecture, OS version, and device name",
+    "path": "modules/mobile/device_info.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "orientation",
+    "category": "mobile",
+    "class_name": "Orientation",
+    "description": "Device screen rotation and orientation lock",
+    "path": "modules/mobile/orientation.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "clipboard",
+    "category": "mobile",
+    "class_name": "Clipboard",
+    "description": "Mobile clipboard read and write simulation",
+    "path": "modules/mobile/clipboard.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "biometrics",
+    "category": "mobile",
+    "class_name": "Biometrics",
+    "description": "Biometric face and fingerprint availability checker",
+    "path": "modules/mobile/biometrics.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "torch",
+    "category": "mobile",
+    "class_name": "Torch",
+    "description": "Flashlight hardware controller simulation",
+    "path": "modules/mobile/torch.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "network_info",
+    "category": "mobile",
+    "class_name": "NetworkInfo",
+    "description": "Cellular and WiFi connection state query",
+    "path": "modules/mobile/network_info.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "camera_mock",
+    "category": "mobile",
+    "class_name": "CameraMock",
+    "description": "Camera viewfinder preview and capture options",
+    "path": "modules/mobile/camera_mock.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "audio_player",
+    "category": "mobile",
+    "class_name": "AudioPlayer",
+    "description": "Mobile audio player playback and volume controls",
+    "path": "modules/mobile/audio_player.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "volume_control",
+    "category": "mobile",
+    "class_name": "VolumeControl",
+    "description": "Audio output channel volume manager",
+    "path": "modules/mobile/volume_control.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "shake_detector",
+    "category": "mobile",
+    "class_name": "ShakeDetector",
+    "description": "Device shake motion gesture detector",
+    "path": "modules/mobile/shake_detector.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "screen_metrics",
+    "category": "mobile",
+    "class_name": "ScreenMetrics",
+    "description": "Display PPI, pixel ratio, and safe-area insets",
+    "path": "modules/mobile/screen_metrics.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "file_utils",
+    "category": "io",
+    "class_name": "FileUtils",
+    "description": "File system read, write, append, and existence tests",
+    "path": "modules/io/file_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "path_utils",
+    "category": "io",
+    "class_name": "PathUtils",
+    "description": "File path normalization, extension, and dirname logic",
+    "path": "modules/io/path_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "stream_reader",
+    "category": "io",
+    "class_name": "StreamReader",
+    "description": "Chunked stream reading container",
+    "path": "modules/io/stream_reader.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "stream_writer",
+    "category": "io",
+    "class_name": "StreamWriter",
+    "description": "Buffered stream output sink",
+    "path": "modules/io/stream_writer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "buffer",
+    "category": "io",
+    "class_name": "Buffer",
+    "description": "Byte buffer byte manipulation and hex slicing",
+    "path": "modules/io/buffer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "file_watcher",
+    "category": "io",
+    "class_name": "FileWatcher",
+    "description": "File system change notification events",
+    "path": "modules/io/file_watcher.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "temp_file",
+    "category": "io",
+    "class_name": "TempFile",
+    "description": "Temporary file naming and directory sandbox",
+    "path": "modules/io/temp_file.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "directory_walker",
+    "category": "io",
+    "class_name": "DirectoryWalker",
+    "description": "Recursive directory tree scanner",
+    "path": "modules/io/directory_walker.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "line_reader",
+    "category": "io",
+    "class_name": "LineReader",
+    "description": "Line-by-line buffered text reader",
+    "path": "modules/io/line_reader.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "memory_stream",
+    "category": "io",
+    "class_name": "MemoryStream",
+    "description": "In-memory binary stream",
+    "path": "modules/io/memory_stream.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pipe",
+    "category": "io",
+    "class_name": "Pipe",
+    "description": "Data processing pipeline flow helper",
+    "path": "modules/io/pipe.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "env_file",
+    "category": "io",
+    "class_name": "EnvFile",
+    "description": ".env configuration file parser",
+    "path": "modules/io/env_file.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "log_rotator",
+    "category": "io",
+    "class_name": "LogRotator",
+    "description": "Log file size limit and archive rotation",
+    "path": "modules/io/log_rotator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "lockfile",
+    "category": "io",
+    "class_name": "Lockfile",
+    "description": "File-based locking and concurrency exclusion",
+    "path": "modules/io/lockfile.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "glob_match",
+    "category": "io",
+    "class_name": "GlobMatch",
+    "description": "Wildcard glob pattern matching for file searches",
+    "path": "modules/io/glob_match.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "process_utils",
+    "category": "sys",
+    "class_name": "ProcessUtils",
+    "description": "Process identification, status, and exit codes",
+    "path": "modules/sys/process_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "args_parser",
+    "category": "sys",
+    "class_name": "ArgsParser",
+    "description": "Command-line argument flag and option parser",
+    "path": "modules/sys/args_parser.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "env_vars",
+    "category": "sys",
+    "class_name": "EnvVars",
+    "description": "System environment variable reader with fallbacks",
+    "path": "modules/sys/env_vars.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "signal_handler",
+    "category": "sys",
+    "class_name": "SignalHandler",
+    "description": "POSIX signal handler registry simulation",
+    "path": "modules/sys/signal_handler.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "terminal",
+    "category": "sys",
+    "class_name": "Terminal",
+    "description": "Terminal dimension detection and cursor control",
+    "path": "modules/sys/terminal.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "ansi_colors",
+    "category": "sys",
+    "class_name": "AnsiColors",
+    "description": "ANSI 16-color and 256-color terminal escape codes",
+    "path": "modules/sys/ansi_colors.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "benchmark",
+    "category": "sys",
+    "class_name": "Benchmark",
+    "description": "Micro-benchmark timer and operations-per-second",
+    "path": "modules/sys/benchmark.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "system_info",
+    "category": "sys",
+    "class_name": "SystemInfo",
+    "description": "Host OS, processor architecture, and core counts",
+    "path": "modules/sys/system_info.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "time_utils",
+    "category": "sys",
+    "class_name": "TimeUtils",
+    "description": "Epoch timestamps, duration formatting, and dates",
+    "path": "modules/sys/time_utils.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "cron_parser",
+    "category": "sys",
+    "class_name": "CronParser",
+    "description": "Cron schedule expression parser and evaluation",
+    "path": "modules/sys/cron_parser.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "promise",
+    "category": "async_tools",
+    "class_name": "Promise",
+    "description": "Promise state machine with resolve, reject, then",
+    "path": "modules/async_tools/promise.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "task_queue",
+    "category": "async_tools",
+    "class_name": "TaskQueue",
+    "description": "Async worker queue with concurrency limits",
+    "path": "modules/async_tools/task_queue.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "event_emitter",
+    "category": "async_tools",
+    "class_name": "EventEmitter",
+    "description": "Publish/Subscribe event emitter for custom events",
+    "path": "modules/async_tools/event_emitter.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "channel",
+    "category": "async_tools",
+    "class_name": "Channel",
+    "description": "Go-style typed communication channel",
+    "path": "modules/async_tools/channel.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "semaphore",
+    "category": "async_tools",
+    "class_name": "Semaphore",
+    "description": "Counting semaphore for resource locking",
+    "path": "modules/async_tools/semaphore.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "rate_limiter",
+    "category": "async_tools",
+    "class_name": "RateLimiter",
+    "description": "Token bucket rate limiting algorithm",
+    "path": "modules/async_tools/rate_limiter.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "debounce",
+    "category": "async_tools",
+    "class_name": "Debounce",
+    "description": "Debounce event firing delay helper",
+    "path": "modules/async_tools/debounce.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "throttle",
+    "category": "async_tools",
+    "class_name": "Throttle",
+    "description": "Throttled periodic event limiter",
+    "path": "modules/async_tools/throttle.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "retry",
+    "category": "async_tools",
+    "class_name": "Retry",
+    "description": "Exponential backoff execution retry wrapper",
+    "path": "modules/async_tools/retry.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "timeout",
+    "category": "async_tools",
+    "class_name": "Timeout",
+    "description": "Async operation timeout and cancellation guard",
+    "path": "modules/async_tools/timeout.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "validator",
+    "category": "validation",
+    "class_name": "Validator",
+    "description": "Core assertions and data validation checks",
+    "path": "modules/validation/validator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "schema",
+    "category": "validation",
+    "class_name": "Schema",
+    "description": "Object schema definition and property validation",
+    "path": "modules/validation/schema.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "email_validator",
+    "category": "validation",
+    "class_name": "EmailValidator",
+    "description": "RFC 5322 compliant email syntax validator",
+    "path": "modules/validation/email_validator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "url_validator",
+    "category": "validation",
+    "class_name": "UrlValidator",
+    "description": "Web URL syntax and scheme validator",
+    "path": "modules/validation/url_validator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "phone_validator",
+    "category": "validation",
+    "class_name": "PhoneValidator",
+    "description": "International E.164 phone number checker",
+    "path": "modules/validation/phone_validator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "credit_card",
+    "category": "validation",
+    "class_name": "CreditCard",
+    "description": "Luhn algorithm payment card number validator",
+    "path": "modules/validation/credit_card.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sanitizer",
+    "category": "validation",
+    "class_name": "Sanitizer",
+    "description": "HTML tag stripping and XSS character sanitizer",
+    "path": "modules/validation/sanitizer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "type_guard",
+    "category": "validation",
+    "class_name": "TypeGuard",
+    "description": "Runtime type inspection guards",
+    "path": "modules/validation/type_guard.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "rule_engine",
+    "category": "validation",
+    "class_name": "RuleEngine",
+    "description": "Declarative business rule evaluator",
+    "path": "modules/validation/rule_engine.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "form_validator",
+    "category": "validation",
+    "class_name": "FormValidator",
+    "description": "Form input validation with error aggregation",
+    "path": "modules/validation/form_validator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "assertions",
+    "category": "test",
+    "class_name": "Assertions",
+    "description": "Unit testing assertions (equal, true, false, null)",
+    "path": "modules/test/assertions.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "test_runner",
+    "category": "test",
+    "class_name": "TestRunner",
+    "description": "Test suite collector, execution harness, and reporter",
+    "path": "modules/test/test_runner.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "mock",
+    "category": "test",
+    "class_name": "Mock",
+    "description": "Function mock with call counter and argument logging",
+    "path": "modules/test/mock.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "spy",
+    "category": "test",
+    "class_name": "Spy",
+    "description": "Spy wrapper monitoring function invocation",
+    "path": "modules/test/spy.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "fixture",
+    "category": "test",
+    "class_name": "Fixture",
+    "description": "Test setup and teardown lifecycle context",
+    "path": "modules/test/fixture.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "benchmark_runner",
+    "category": "test",
+    "class_name": "BenchmarkRunner",
+    "description": "Benchmark test runner with warmup passes",
+    "path": "modules/test/benchmark_runner.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "snapshot",
+    "category": "test",
+    "class_name": "Snapshot",
+    "description": "Snapshot testing serializer and comparator",
+    "path": "modules/test/snapshot.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "coverage_lite",
+    "category": "test",
+    "class_name": "CoverageLite",
+    "description": "Statement coverage tracker",
+    "path": "modules/test/coverage_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "test_suite",
+    "category": "test",
+    "class_name": "TestSuite",
+    "description": "Test suite group manager",
+    "path": "modules/test/test_suite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "fake_data",
+    "category": "test",
+    "class_name": "FakeData",
+    "description": "Mock dataset generator for names, emails, and numbers",
+    "path": "modules/test/fake_data.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "color_convert",
+    "category": "media",
+    "class_name": "ColorConvert",
+    "description": "Color space transformations (RGB, HSV, CMYK)",
+    "path": "modules/media/color_convert.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "pixel_buffer",
+    "category": "media",
+    "class_name": "PixelBuffer",
+    "description": "2D pixel grid manipulation and color filling",
+    "path": "modules/media/pixel_buffer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "image_filter",
+    "category": "media",
+    "class_name": "ImageFilter",
+    "description": "Image filters (grayscale, brightness, invert)",
+    "path": "modules/media/image_filter.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "audio_synth",
+    "category": "media",
+    "class_name": "AudioSynth",
+    "description": "Waveform synthesis for sine, square, and triangle waves",
+    "path": "modules/media/audio_synth.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "wav_writer",
+    "category": "media",
+    "class_name": "WavWriter",
+    "description": "WAV PCM audio file header encoder",
+    "path": "modules/media/wav_writer.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "midi_lite",
+    "category": "media",
+    "class_name": "MidiLite",
+    "description": "MIDI note-on, note-off, and controller events",
+    "path": "modules/media/midi_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "waveform",
+    "category": "media",
+    "class_name": "Waveform",
+    "description": "Audio sample peak and RMS amplitude calculator",
+    "path": "modules/media/waveform.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "bitmap_font",
+    "category": "media",
+    "class_name": "BitmapFont",
+    "description": "5x7 pixel bitmap ASCII font glyph renderer",
+    "path": "modules/media/bitmap_font.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "svg_builder",
+    "category": "media",
+    "class_name": "SvgBuilder",
+    "description": "SVG vector graphic path and shape builder",
+    "path": "modules/media/svg_builder.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "canvas_2d",
+    "category": "media",
+    "class_name": "Canvas2d",
+    "description": "2D drawing command buffer and display list",
+    "path": "modules/media/canvas_2d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "game_loop",
+    "category": "game",
+    "class_name": "GameLoop",
+    "description": "Fixed timestep physics and variable rendering game loop",
+    "path": "modules/game/game_loop.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "entity_component",
+    "category": "game",
+    "class_name": "EntityComponent",
+    "description": "Entity-Component-System (ECS) architecture",
+    "path": "modules/game/entity_component.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "collision_2d",
+    "category": "game",
+    "class_name": "Collision2d",
+    "description": "AABB and circle collision intersection tests",
+    "path": "modules/game/collision_2d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "tilemap",
+    "category": "game",
+    "class_name": "Tilemap",
+    "description": "2D tilemap grid and coordinate translation",
+    "path": "modules/game/tilemap.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "sprite_animation",
+    "category": "game",
+    "class_name": "SpriteAnimation",
+    "description": "Sprite sheet frame counter and animation sequence",
+    "path": "modules/game/sprite_animation.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "particle_system",
+    "category": "game",
+    "class_name": "ParticleSystem",
+    "description": "Particle emitter with velocity, gravity, and lifespan",
+    "path": "modules/game/particle_system.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "state_machine",
+    "category": "game",
+    "class_name": "StateMachine",
+    "description": "Finite State Machine with enter/exit transitions",
+    "path": "modules/game/state_machine.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "behavior_tree",
+    "category": "game",
+    "class_name": "BehaviorTree",
+    "description": "AI behavior tree composite nodes and execution",
+    "path": "modules/game/behavior_tree.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "physics_world",
+    "category": "game",
+    "class_name": "PhysicsWorld",
+    "description": "2D physics simulator with gravity and damping",
+    "path": "modules/game/physics_world.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "camera_2d",
+    "category": "game",
+    "class_name": "Camera2d",
+    "description": "2D viewport tracking and camera shake",
+    "path": "modules/game/camera_2d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "input_manager",
+    "category": "game",
+    "class_name": "InputManager",
+    "description": "Keyboard and gamepad button state tracker",
+    "path": "modules/game/input_manager.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "scene_manager",
+    "category": "game",
+    "class_name": "SceneManager",
+    "description": "Game scene stack and stage transition manager",
+    "path": "modules/game/scene_manager.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "spatial_hash",
+    "category": "game",
+    "class_name": "SpatialHash",
+    "description": "Spatial hashing for broadphase collision detection",
+    "path": "modules/game/spatial_hash.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "raycast_2d",
+    "category": "game",
+    "class_name": "Raycast2d",
+    "description": "2D line and ray-box intersection testing",
+    "path": "modules/game/raycast_2d.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "noise_generator",
+    "category": "game",
+    "class_name": "NoiseGenerator",
+    "description": "Perlin and Simplex gradient noise generator",
+    "path": "modules/game/noise_generator.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "key_value_store",
+    "category": "storage",
+    "class_name": "KeyValueStore",
+    "description": "Key-value persistent storage engine with serialisation",
+    "path": "modules/storage/key_value_store.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "json_db",
+    "category": "storage",
+    "class_name": "JsonDb",
+    "description": "JSON document database with query matching",
+    "path": "modules/storage/json_db.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "in_memory_db",
+    "category": "storage",
+    "class_name": "InMemoryDb",
+    "description": "Relational in-memory table with primary keys",
+    "path": "modules/storage/in_memory_db.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "cache_manager",
+    "category": "storage",
+    "class_name": "CacheManager",
+    "description": "Multi-tier cache with TTL expiry",
+    "path": "modules/storage/cache_manager.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "transaction",
+    "category": "storage",
+    "class_name": "Transaction",
+    "description": "ACID transaction boundary with commit and rollback",
+    "path": "modules/storage/transaction.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "table_storage",
+    "category": "storage",
+    "class_name": "TableStorage",
+    "description": "Tabular schema with row insertion and filtering",
+    "path": "modules/storage/table_storage.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "indexed_store",
+    "category": "storage",
+    "class_name": "IndexedStore",
+    "description": "Indexed key lookup store",
+    "path": "modules/storage/indexed_store.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "query_builder",
+    "category": "storage",
+    "class_name": "QueryBuilder",
+    "description": "SQL-like SELECT, WHERE, ORDER BY query builder",
+    "path": "modules/storage/query_builder.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "migration_runner",
+    "category": "storage",
+    "class_name": "MigrationRunner",
+    "description": "Database schema migration version tracker",
+    "path": "modules/storage/migration_runner.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "document_store",
+    "category": "storage",
+    "class_name": "DocumentStore",
+    "description": "NoSQL collection store with filter predicates",
+    "path": "modules/storage/document_store.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "neural_net_lite",
+    "category": "ai",
+    "class_name": "NeuralNetLite",
+    "description": "Feed-forward neural network perceptron layer",
+    "path": "modules/ai/neural_net_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "linear_regression",
+    "category": "ai",
+    "class_name": "LinearRegression",
+    "description": "Ordinary least squares slope and intercept calculator",
+    "path": "modules/ai/linear_regression.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "logistic_regression",
+    "category": "ai",
+    "class_name": "LogisticRegression",
+    "description": "Sigmoid probability classifier",
+    "path": "modules/ai/logistic_regression.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "decision_tree_lite",
+    "category": "ai",
+    "class_name": "DecisionTreeLite",
+    "description": "Binary decision stump classifier",
+    "path": "modules/ai/decision_tree_lite.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "kmeans",
+    "category": "ai",
+    "class_name": "Kmeans",
+    "description": "K-Means cluster centroid iterative assignment",
+    "path": "modules/ai/kmeans.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "naive_bayes",
+    "category": "ai",
+    "class_name": "NaiveBayes",
+    "description": "Naive Bayes text classification word frequency model",
+    "path": "modules/ai/naive_bayes.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "matrix_math",
+    "category": "ai",
+    "class_name": "MatrixMath",
+    "description": "Matrix dot product, transpose, and vector scaling",
+    "path": "modules/ai/matrix_math.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "activation_functions",
+    "category": "ai",
+    "class_name": "ActivationFunctions",
+    "description": "ReLU, Sigmoid, Tanh, and LeakyReLU activation functions",
+    "path": "modules/ai/activation_functions.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "vector_search",
+    "category": "ai",
+    "class_name": "VectorSearch",
+    "description": "Cosine similarity and Euclidean distance vector retrieval",
+    "path": "modules/ai/vector_search.star",
+    "version": "1.0.0"
+  },
+  {
+    "name": "loss_functions",
+    "category": "ai",
+    "class_name": "LossFunctions",
+    "description": "Mean Squared Error (MSE) and cross-entropy loss",
+    "path": "modules/ai/loss_functions.star",
+    "version": "1.0.0"
+  }
+]

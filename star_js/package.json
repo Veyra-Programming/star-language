@@ -1,0 +1,34 @@
+{
+  "name": "star.js",
+  "version": "1.0.0",
+  "description": "Universal JavaScript Website & App Framework for Digital Continuity, powered by ODCS & Star Language",
+  "main": "star.js",
+  "module": "star.js",
+  "browser": "star.js",
+  "bin": {
+    "star-js": "./cli/star_cli.js"
+  },
+  "scripts": {
+    "dev": "node ./cli/star_cli.js dev",
+    "build": "node ./cli/star_cli.js build",
+    "daemon": "node ./cli/star_cli.js daemon",
+    "search": "node ./cli/star_cli.js search",
+    "test": "node -e \"const Star = require('./star.js'); console.log('Star.js v' + Star.version + ' loaded successfully!');\""
+  },
+  "keywords": [
+    "star-language",
+    "odcs",
+    "digital-continuity",
+    "offline-first",
+    "crdt",
+    "framework",
+    "ui",
+    "reactive",
+    "signals",
+    "merkle",
+    "zero-intent-loss"
+  ],
+  "author": "Anirudha Puthraya",
+  "license": "Apache-2.0"
+}
+
