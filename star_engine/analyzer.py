@@ -71,7 +71,8 @@ class SemanticAnalyzer:
         # Builtins
         BUILTIN_NAMES = (
             "show", "type", "len", "str", "num", "Math", "Time", "String", "IO", "System",
-            "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer"
+            "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer",
+            "panic", "fail"
         )
         for b in BUILTIN_NAMES:
             global_scope.define(b, is_constant=True, type_annotation=None, location=program.location)
@@ -85,7 +86,8 @@ class SemanticAnalyzer:
     def _check_unused_symbols(self, scope: AnalyzerScope):
         BUILTIN_NAMES = (
             "show", "type", "len", "str", "num", "Math", "Time", "String", "IO", "System",
-            "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer"
+            "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer",
+            "panic", "fail"
         )
         for name, sym in scope.symbols.items():
             if not sym.is_used and not name.startswith("_") and name not in BUILTIN_NAMES:

@@ -172,6 +172,15 @@ class StarMap(StarValue):
     def __eq__(self, other: Any) -> bool:
         return isinstance(other, StarMap) and self.entries == other.entries
 
+    def get(self, key: Any, default: Any = None) -> StarValue:
+        return self.entries.get(key, default if isinstance(default, StarValue) else (to_star_value(default) if default is not None else StarNull()))
+
+    def __getitem__(self, key: Any) -> StarValue:
+        return self.entries[key]
+
+    def __contains__(self, key: Any) -> bool:
+        return key in self.entries
+
 
 class StarFunction(StarValue):
     def __init__(self, name: str, parameters: List[str], body: Any, closure_env: Any):
@@ -461,3 +470,21 @@ def to_star_value(val: Any) -> StarValue:
     if isinstance(val, StarValue):
         return val
     return StarText(str(val))
+
+
+def from_star_value(val: Any) -> Any:
+    if isinstance(val, StarNull) or val is None:
+        return None
+    if isinstance(val, StarBoolean):
+        return val.value
+    if isinstance(val, (StarInteger, StarDecimal)):
+        return val.value
+    if isinstance(val, StarText):
+        return val.value
+    if isinstance(val, StarList):
+        return [from_star_value(x) for x in val.elements]
+    if isinstance(val, StarMap):
+        return {k: from_star_value(v) for k, v in val.entries.items()}
+    if isinstance(val, StarValue):
+        return val.to_string()
+    return val

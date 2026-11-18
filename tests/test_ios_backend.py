@@ -43,7 +43,10 @@ end
 
     def tearDown(self):
         if os.path.exists(self.test_src):
-            os.remove(self.test_src)
+            try:
+                os.remove(self.test_src)
+            except OSError:
+                pass
         if os.path.exists("build/ios"):
             shutil.rmtree("build/ios", ignore_errors=True)
 

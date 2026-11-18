@@ -41,7 +41,10 @@ def print_help():
     print("  star compile <file.star>            Compile Star source to .starb binary bytecode")
     print("  star go [file.star] [--port 8088]   Launch Star Go mobile dev server with Terminal QR Code (Expo Go architecture)")
     print("  star build [web|desktop|mobile|apk|aab|android|ios|ipa|go] Build project for selected target")
-    print("  star run [web|desktop|mobile|android|ios|tui] Execute Star app on Web, Desktop, Android, iOS, or TUI")
+    print("  star run [web|desktop|mobile|android|ios|tui|server] Execute Star app on Web, Desktop, Android, iOS, TUI, or Server")
+    print("  star serve [file.star] [--port 8080] Launch Star HyperFlow server with ChronoState & live routing")
+    print("  star server:routes [file.star]       Inspect and table-display all registered server routes")
+    print("  star server:bench [url]              Built-in HTTP load tester with p50/p95/p99 latency percentiles")
     print("  star preview <file.star>            Preview Star declarative UI directly in Terminal (TUI)")
     print("  star simulate mobile <file.star>    Simulate mobile layout, gestures, and safe area in headless mode")
     print("  star release mobile [file.star]     Run full release workflow (test, build, sign, verify)")
@@ -57,6 +60,8 @@ def print_help():
     print("  star unregister                     Unregister Star file associations from Windows Explorer")
     print("  star vscode [install]               Install or update official Star VS Code extension (.vsix)")
     print("\nNatural-English & Sovereign AI Commands:")
+    print("  star ai:train [file.star]           Execute neural training pipeline with Autograd & loss convergence")
+    print("  star ai:info                        Display AI Tensor Engine, layer architectures & agent diagnostics")
     print("  star natural [\"prompt\"]             Translate real English sentence to Star UI & Backend")
     print("  star natural --ui [\"prompt\"]        Generate declarative Star UI component code")
     print("  star natural --backend [\"prompt\"]   Generate Star zero-loss backend & ledger code")
@@ -426,6 +431,114 @@ def run_file_vm(file_path: str) -> int:
         return 1
     except Exception as e:
         print(f"\nStar Runtime Error: {e}\n", file=sys.stderr)
+        return 1
+
+
+def run_server_file(file_path: str, extra_args: Optional[List[str]] = None) -> int:
+    extra_args = extra_args or []
+    if not os.path.exists(file_path):
+        print(f"\nStar Error: Server entry file not found: '{file_path}'\n", file=sys.stderr)
+        return 1
+
+    port = 8080
+    host = "0.0.0.0"
+    for idx, arg in enumerate(extra_args):
+        if arg in ("--port", "-p") and idx + 1 < len(extra_args):
+            try:
+                port = int(extra_args[idx + 1])
+            except ValueError:
+                pass
+        if arg in ("--host", "-h") and idx + 1 < len(extra_args):
+            host = extra_args[idx + 1]
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        source = f.read()
+
+    print("=" * 68)
+    print("🌟 STAR HYPERFLOW SERVER ENGINE (v1.3.0)")
+    print("=" * 68)
+    print(f"📦 Source Script:     {file_path} ({len(source)} bytes)")
+    print("⚡ Concurrency:       Thread-Pooled Non-Blocking Fibers")
+    print("🛡 ChronoState:       Time-Reversible Memory Rollback Guard ACTIVE")
+    print("📡 Reactive Mesh:     Zero-Serialization Delta Streaming ACTIVE")
+    print("🔒 Security Shield:   Path-Traversal Shield & Rate-Limiters ACTIVE")
+    print(f"🌐 Server Endpoint:   http://{host}:{port}")
+    print("--------------------------------------------------------------------")
+    print("✓ Initializing server script...")
+
+    try:
+        lexer = Lexer(source, filename=file_path)
+        tokens = lexer.tokenize()
+        parser = Parser(tokens, source_code=source, filename=file_path)
+        program = parser.parse()
+
+        interp = Interpreter(source_code=source, filename=file_path)
+        interp.interpret(program)
+
+        # Check if an app instance was created and needs listen() invoked
+        app_candidates = []
+        for name, (val, _) in interp.global_env.bindings.items():
+            if hasattr(val, "type_name") and val.type_name == "ServerApp":
+                app_candidates.append(val)
+
+        if app_candidates:
+            primary_app = app_candidates[0]
+            if not primary_app.app.is_running:
+                print(f"✓ Binding HyperFlow listener to port {port}...")
+                primary_app.app.listen(port=port, host=host)
+
+        return 0
+    except KeyboardInterrupt:
+        print("\n✓ Star HyperFlow Server gracefully shut down.")
+        return 0
+    except StarDiagnosticError as err:
+        print(err.format(source), file=sys.stderr)
+        return 1
+    except Exception as e:
+        print(f"\nStar HyperFlow Error: {e}\n", file=sys.stderr)
+        return 1
+
+
+def inspect_server_routes(file_path: str) -> int:
+    if not os.path.exists(file_path):
+        print(f"\nStar Error: Server entry file not found: '{file_path}'\n", file=sys.stderr)
+        return 1
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        source = f.read()
+
+    try:
+        lexer = Lexer(source, filename=file_path)
+        tokens = lexer.tokenize()
+        parser = Parser(tokens, source_code=source, filename=file_path)
+        program = parser.parse()
+
+        interp = Interpreter(source_code=source, filename=file_path)
+        interp.interpret(program)
+
+        apps = [val for val, _ in interp.global_env.bindings.values() if hasattr(val, "type_name") and val.type_name == "ServerApp"]
+        if not apps:
+            print("No ServerApp instances discovered in script.")
+            return 0
+
+        app = apps[0].app
+        routes = app.router.get_all_routes()
+
+        print("\n" + "=" * 68)
+        print(f"🌟 STAR HYPERFLOW — ROUTE TABLE: {file_path}")
+        print("=" * 68)
+        print(f"{'METHOD':<8} {'PATH':<35} {'MIDDLEWARE':<12} {'HANDLER'}")
+        print("-" * 68)
+        for r in routes:
+            h_str = type(r['handler']).__name__
+            if hasattr(r['handler'], 'name'):
+                h_str = r['handler'].name
+            print(f"{r['method']:<8} {r['path']:<35} {r['middleware_count']:<12} {h_str}")
+        print("=" * 68)
+        print(f"Total Registered Routes: {len(routes)}\n")
+        return 0
+    except Exception as e:
+        print(f"Error inspecting routes: {e}", file=sys.stderr)
         return 1
 
 
@@ -1061,6 +1174,11 @@ def main(args: List[str] = None):
             target = args[2] if len(args) > 2 else None
             resolved = _resolve_entry_file(target) or "main.star"
             return preview_ui_file(resolved)
+        if len(args) > 1 and args[1] == "server":
+            target = args[2] if len(args) > 2 and not args[2].startswith("-") else None
+            extra = [a for a in args[2:] if a != target]
+            resolved = _resolve_entry_file(target) or "main.star"
+            return run_server_file(resolved, extra)
         if len(args) > 1 and args[1] in ("mobile", "android", "ios", "go"):
             target = args[2] if len(args) > 2 else None
             if args[1] == "go" and not target:
@@ -1125,6 +1243,66 @@ def main(args: List[str] = None):
             target = "main.star"
         return run_file_vm(target)
 
+    if cmd in ("serve", "server"):
+        target = args[1] if len(args) > 1 and not args[1].startswith("-") else None
+        extra = [a for a in args[1:] if a != target]
+        resolved = _resolve_entry_file(target) or "main.star"
+        return run_server_file(resolved, extra)
+
+    if cmd in ("server:routes", "routes"):
+        target = args[1] if len(args) > 1 else None
+        resolved = _resolve_entry_file(target) or "main.star"
+        return inspect_server_routes(resolved)
+
+    if cmd in ("server:bench", "bench"):
+        url = args[1] if len(args) > 1 and not args[1].startswith("-") else "http://localhost:8080"
+        requests = 500
+        concurrency = 10
+        if "--requests" in args:
+            r_idx = args.index("--requests")
+            if len(args) > r_idx + 1:
+                requests = int(args[r_idx + 1])
+        elif "-n" in args:
+            r_idx = args.index("-n")
+            if len(args) > r_idx + 1:
+                requests = int(args[r_idx + 1])
+        if "--concurrency" in args:
+            c_idx = args.index("--concurrency")
+            if len(args) > c_idx + 1:
+                concurrency = int(args[c_idx + 1])
+        elif "-c" in args:
+            c_idx = args.index("-c")
+            if len(args) > c_idx + 1:
+                concurrency = int(args[c_idx + 1])
+        from star_engine.hyperflow.benchmark import run_benchmark
+        run_benchmark(url=url, requests=requests, concurrency=concurrency)
+        return 0
+
+    if cmd in ("ai:info", "ai"):
+        print("=" * 68)
+        print("🧠 STAR AI, TENSOR & NEURAL COMPUTATION ENGINE (v1.3.0)")
+        print("=" * 68)
+        print("Subsystems:")
+        print("  Tensor Math:         ✓ N-Dimensional Zero-Dependency Tensor Core")
+        print("  Autograd:            ✓ Reverse-Mode Automatic Differentiation Engine")
+        print("  Neural Layers:       ✓ Dense, Sequential, LayerNorm, SelfAttention, TransformerBlock")
+        print("  Activations:         ✓ ReLU, Sigmoid, Tanh, GELU, Softmax")
+        print("  Loss Criteria:       ✓ MSELoss, CrossEntropyLoss, BinaryCrossEntropyLoss")
+        print("  Optimizers:          ✓ SGD (Momentum), Adam, AdamW (Weight Decay)")
+        print("  Vector Database:     ✓ VectorStore (Cosine Similarity, KNN Semantic Search)")
+        print("  Agentic AI:          ✓ Autonomous AIAgent with Memory & Dynamic Tool Calling")
+        print("=" * 68)
+        print("Standard Modules:      use AI · use Tensor · use Neural · use Agent")
+        print("=" * 68)
+        return 0
+
+    if cmd == "ai:train":
+        target = args[1] if len(args) > 1 and not args[1].startswith("-") else None
+        resolved = _resolve_entry_file(target) or "main.star"
+        print("=" * 68)
+        print(f"🧠 STAR AI TRAINING RUNNER: {resolved}")
+        print("=" * 68)
+        return run_server_file(resolved, args[2:])
 
     if cmd in ("check", "lint"):
         if len(args) < 2:

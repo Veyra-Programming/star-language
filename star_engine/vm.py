@@ -205,13 +205,27 @@ class StarVM:
                     raise StarValueError(f"Cannot convert '{v.value}' to Number.")
             raise StarTypeError(f"Cannot convert '{v.type_name}' to Number.")
 
+        def _panic(*args: StarValue) -> StarValue:
+            msg = args[0].to_string() if args else "Explicit panic triggered."
+            raise StarRuntimeError(msg)
+
+        def _fail(*args: StarValue) -> StarValue:
+            msg = args[0].to_string() if args else "Explicit failure triggered."
+            raise StarRuntimeError(msg)
+
         self.builtins: Dict[str, Callable[..., StarValue]] = {
             "show": _show,
             "len": _len,
             "type": _type,
             "str": _str,
             "num": _num,
+            "panic": _panic,
+            "fail": _fail,
         }
+
+        from star_engine.types import StarBuiltinFunction
+        for b_name, b_fn in self.builtins.items():
+            self.global_env.define(b_name, StarBuiltinFunction(b_name, b_fn), is_constant=True)
 
         # Modules
         for m_name, mod in self.module_manager.loaded_modules.items():
@@ -532,6 +546,10 @@ class StarVM:
                         else:
                             res = callee.fn(*args)
                         self.stack.append(res)
+                    elif hasattr(callee, "call") and callable(getattr(callee, "call")):
+                        self.stack.append(callee.call(args))
+                    elif callable(callee):
+                        self.stack.append(to_star_value(callee(*args)))
                     else:
                         raise StarTypeError(f"Cannot call value of type '{callee.type_name}'.", inst.location)
 
@@ -573,9 +591,7 @@ class StarVM:
                 elif op == OpCode.GET_PROP:
                     prop_name = self.module.constants[inst.operands[0]]
                     target = self.stack.pop()
-                    if isinstance(target, (VMInstance, StarInstance)):
-                        self.stack.append(target.get(prop_name))
-                    elif isinstance(target, StarModule):
+                    if isinstance(target, (VMInstance, StarInstance, StarModule)) or (hasattr(target, "get") and callable(getattr(target, "get")) and not isinstance(target, (StarMap, StarList, StarText))):
                         self.stack.append(target.get(prop_name))
                     elif isinstance(target, StarVirtualNode):
                         if prop_name == "widget_type":
@@ -591,7 +607,54 @@ class StarVM:
                         else:
                             self.stack.append(StarNull())
                     elif isinstance(target, StarMap):
-                        self.stack.append(target.entries.get(prop_name, StarNull()))
+                        if prop_name in target.entries:
+                            self.stack.append(target.entries[prop_name])
+                        elif prop_name == "keys":
+                            self.stack.append(StarBuiltinFunction("keys", lambda *a: StarList([StarText(k) for k in target.entries.keys()])))
+                        elif prop_name == "values":
+                            self.stack.append(StarBuiltinFunction("values", lambda *a: StarList(list(target.entries.values()))))
+                        elif prop_name in ("has", "contains_key"):
+                            self.stack.append(StarBuiltinFunction("has", lambda *a: StarBoolean(a[0].to_string() in target.entries if a else False)))
+                        elif prop_name in ("size", "length"):
+                            self.stack.append(StarInteger(len(target.entries)))
+                        else:
+                            self.stack.append(StarNull())
+                    elif isinstance(target, StarList):
+                        if prop_name in ("length", "size"):
+                            self.stack.append(StarInteger(len(target.elements)))
+                        elif prop_name == "push":
+                            self.stack.append(StarBuiltinFunction("push", lambda *a: target.elements.append(a[0]) or a[0] if a else StarNull()))
+                        elif prop_name == "pop":
+                            self.stack.append(StarBuiltinFunction("pop", lambda *a: target.elements.pop() if target.elements else StarNull()))
+                        elif prop_name == "join":
+                            self.stack.append(StarBuiltinFunction("join", lambda *a: StarText((a[0].to_string() if a else "").join([e.to_string() for e in target.elements]))))
+                        elif prop_name == "contains":
+                            self.stack.append(StarBuiltinFunction("contains", lambda *a: StarBoolean(any(e == a[0] for e in target.elements) if a else False)))
+                        elif prop_name == "reverse":
+                            self.stack.append(StarBuiltinFunction("reverse", lambda *a: StarList(list(reversed(target.elements)))))
+                        else:
+                            self.stack.append(StarNull())
+                    elif isinstance(target, StarText):
+                        if prop_name in ("length", "size"):
+                            self.stack.append(StarInteger(len(target.value)))
+                        elif prop_name in ("uppercase", "upper"):
+                            self.stack.append(StarBuiltinFunction("uppercase", lambda *a: StarText(target.value.upper())))
+                        elif prop_name in ("lowercase", "lower"):
+                            self.stack.append(StarBuiltinFunction("lowercase", lambda *a: StarText(target.value.lower())))
+                        elif prop_name == "trim":
+                            self.stack.append(StarBuiltinFunction("trim", lambda *a: StarText(target.value.strip())))
+                        elif prop_name == "split":
+                            self.stack.append(StarBuiltinFunction("split", lambda *a: StarList([StarText(p) for p in target.value.split(a[0].to_string() if a else " ")])))
+                        elif prop_name == "contains":
+                            self.stack.append(StarBuiltinFunction("contains", lambda *a: StarBoolean((a[0].to_string() if a else "") in target.value)))
+                        elif prop_name == "replace":
+                            self.stack.append(StarBuiltinFunction("replace", lambda *a: StarText(target.value.replace(a[0].to_string(), a[1].to_string()) if len(a) >= 2 else target.value)))
+                        elif prop_name == "starts_with":
+                            self.stack.append(StarBuiltinFunction("starts_with", lambda *a: StarBoolean(target.value.startswith(a[0].to_string() if a else ""))))
+                        elif prop_name == "ends_with":
+                            self.stack.append(StarBuiltinFunction("ends_with", lambda *a: StarBoolean(target.value.endswith(a[0].to_string() if a else ""))))
+                        else:
+                            self.stack.append(StarNull())
                     else:
                         raise StarTypeError(f"Cannot get property '{prop_name}' on '{target.type_name}'.", inst.location)
 
@@ -671,12 +734,19 @@ class StarVM:
                         frame.try_stack.pop()
 
             except Exception as err:
-                if frame.try_stack:
-                    catch_ip, err_var = frame.try_stack.pop()
-                    frame.ip = catch_ip
-                    err_msg = err.message if isinstance(err, StarDiagnosticError) else str(err)
-                    frame.env.define(err_var, StarText(err_msg), is_constant=False)
-                else:
+                handled = False
+                while self.frames:
+                    current_frame = self.frames[-1]
+                    if current_frame.try_stack:
+                        catch_ip, err_var = current_frame.try_stack.pop()
+                        current_frame.ip = catch_ip
+                        err_msg = err.message if isinstance(err, StarDiagnosticError) else str(err)
+                        current_frame.env.define(err_var, StarText(err_msg), is_constant=False)
+                        handled = True
+                        break
+                    else:
+                        self.frames.pop()
+                if not handled:
                     raise err
 
         return last_val

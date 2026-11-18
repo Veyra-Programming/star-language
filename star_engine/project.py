@@ -180,6 +180,127 @@ test "Universal App State Increment"
     Testing.assert_equal(count, 1)
 end
 """
+    },
+    "server": {
+        "description": "High-performance Star HyperFlow server application with ChronoState & Reactive Mesh",
+        "target": "server",
+        "main": """use Server
+
+constant app = Server.app("StarHyperServer")
+constant store = app.chrono_store("main", {"status": "online", "visitors": 0})
+
+app.get("/", function(req, res)
+    store.set("visitors", store.get("visitors") + 1)
+    res.json({
+        "engine": "Star HyperFlow v1.3.0",
+        "status": store.get("status"),
+        "visitors": store.get("visitors"),
+        "tick": store.tick
+    })
+end)
+
+app.get("/api/health", function(req, res)
+    res.json({"healthy": true, "timestamp": Server.now_ms()})
+end)
+
+show "🚀 Starting Star HyperFlow Server on http://localhost:8080..."
+app.listen(8080)
+""",
+        "test": """use Testing
+use Server
+
+test "HyperFlow Server App Initialization"
+    constant test_app = Server.app("TestApp")
+    Testing.assert_true(test_app != null)
+end
+"""
+    },
+    "api": {
+        "description": "RESTful Microservice API with JSON routing and Token-Bucket Rate Limiting",
+        "target": "server",
+        "main": """use Server
+
+constant app = Server.app("MicroAPI")
+app.use(Server.rate_limit(100, 60))
+
+app.get("/api/v1/ping", function(req, res)
+    res.json({"ping": "pong", "time": Server.now_ms()})
+end)
+
+app.post("/api/v1/auth/token", function(req, res)
+    constant body = req.json()
+    constant token = Server.jwt_sign(body, "super-secret-key")
+    res.json({"token": token, "type": "Bearer"})
+end)
+
+app.listen(8080)
+""",
+        "test": """use Testing
+use Server
+
+test "MicroAPI JWT Sign & Verify"
+    constant payload = {"user": "admin", "role": "root"}
+    constant token = Server.jwt_sign(payload, "secret-123")
+    constant verified = Server.jwt_verify(token, "secret-123")
+    Testing.assert_equal(verified["user"], "admin")
+end
+"""
+    },
+    "ai": {
+        "description": "Universal AI, Deep Learning & Autonomous Agent application",
+        "target": "ai",
+        "main": """use AI
+
+show "🧠 Initializing Star Neural Network..."
+
+# 1. Define Deep Neural Network Architecture
+constant model = AI.Sequential([
+    AI.Dense(2, 8, "relu"),
+    AI.Dense(8, 1, "sigmoid")
+])
+
+# 2. Training Dataset (XOR Classification Problem)
+constant X = AI.tensor([[0.0, 0.0], [0.0, 1.0], [1.0, 0.0], [1.0, 1.0]])
+constant y = AI.tensor([[0.0], [1.0], [1.0], [0.0]])
+
+# 3. Setup Optimizer & Loss Function
+constant optimizer = AI.Adam(model.parameters(), 0.05)
+constant criterion = AI.MSELoss()
+
+show "⚡ Training model for 80 epochs..."
+repeat 80 times:
+    constant pred = model.forward(X)
+    constant loss = criterion.forward(pred, y)
+    model.zero_grad()
+    loss.backward()
+    optimizer.step()
+end
+
+constant final_pred = model.forward(X)
+show "✓ Training Complete! Final Predictions:"
+show final_pred.data
+
+# 4. Autonomous AI Agent Demonstration
+constant agent = AI.Agent("NovaBot", "You are an autonomous AI specialist.")
+agent.register_tool("lookup", "Search knowledge base", function(query)
+    return "Star AI Engine active with 100% autograd fidelity."
+end)
+
+constant response = agent.think("lookup latest capabilities")
+show "🤖 Agent reasoning: " + response["thought"]
+show "🤖 Agent action: " + response["response"]
+""",
+        "test": """use Testing
+use AI
+
+test "AI Tensor & Autograd Operations"
+    constant t1 = AI.tensor([2.0, 3.0], [2], true)
+    constant t2 = AI.tensor([4.0, 5.0], [2], true)
+    constant res = t1.add(t2)
+    res.backward()
+    Testing.assert_equal(res.data[0], 6.0)
+end
+"""
     }
 }
 

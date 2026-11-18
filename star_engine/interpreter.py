@@ -123,6 +123,14 @@ class Interpreter:
             import time
             return StarInteger(int(time.time() * 1000))
 
+        def _builtin_panic(*args: StarValue) -> StarValue:
+            msg = args[0].to_string() if args else "Explicit panic triggered."
+            raise StarRuntimeError(msg, None, "Handle this error using `try: ... catch err: ... end` or check program logic.", self.source_code)
+
+        def _builtin_fail(*args: StarValue) -> StarValue:
+            msg = args[0].to_string() if args else "Explicit failure triggered."
+            raise StarRuntimeError(msg, None, "Handle this error using `try: ... recover as err: ... end`.", self.source_code)
+
         def _builtin_append(*args: StarValue) -> StarValue:
             if len(args) != 2:
                 raise StarValueError("Function 'append' expects 2 arguments: list, item.")
@@ -145,6 +153,8 @@ class Interpreter:
         self.global_env.define("lowercase", StarBuiltinFunction("lowercase", _builtin_lowercase), is_constant=True)
         self.global_env.define("seal_hash", StarBuiltinFunction("seal_hash", _builtin_seal_hash), is_constant=True)
         self.global_env.define("now_ms", StarBuiltinFunction("now_ms", _builtin_now_ms), is_constant=True)
+        self.global_env.define("panic", StarBuiltinFunction("panic", _builtin_panic), is_constant=True)
+        self.global_env.define("fail", StarBuiltinFunction("fail", _builtin_fail), is_constant=True)
 
         # Standard Modules in global scope by default if used
         for mod_name, mod in self.module_manager.loaded_modules.items():
@@ -483,14 +493,7 @@ class Interpreter:
 
         if isinstance(expr, MemberAccessNode):
             target_val = self.evaluate(expr.target, env)
-            if isinstance(target_val, StarInstance):
-                try:
-                    return target_val.get(expr.member)
-                except StarNameError as e:
-                    e.location = expr.location
-                    e.source_code = self.source_code
-                    raise e
-            if isinstance(target_val, StarModule):
+            if isinstance(target_val, (StarInstance, StarModule)) or (hasattr(target_val, "get") and callable(getattr(target_val, "get")) and not isinstance(target_val, (StarMap, StarList, StarText))):
                 try:
                     return target_val.get(expr.member)
                 except StarNameError as e:
@@ -512,7 +515,47 @@ class Interpreter:
             if isinstance(target_val, StarMap):
                 if expr.member in target_val.entries:
                     return target_val.entries[expr.member]
+                if expr.member in ("keys",):
+                    return StarBuiltinFunction("keys", lambda *a: StarList([StarText(k) for k in target_val.entries.keys()]))
+                if expr.member in ("values",):
+                    return StarBuiltinFunction("values", lambda *a: StarList(list(target_val.entries.values())))
+                if expr.member in ("has", "contains_key"):
+                    return StarBuiltinFunction("has", lambda *a: StarBoolean(a[0].to_string() in target_val.entries if a else False))
+                if expr.member in ("size", "length"):
+                    return StarInteger(len(target_val.entries))
                 return StarNull()
+            if isinstance(target_val, StarList):
+                if expr.member in ("length", "size"):
+                    return StarInteger(len(target_val.elements))
+                if expr.member == "push":
+                    return StarBuiltinFunction("push", lambda *a: target_val.elements.append(a[0]) or a[0] if a else StarNull())
+                if expr.member == "pop":
+                    return StarBuiltinFunction("pop", lambda *a: target_val.elements.pop() if target_val.elements else StarNull())
+                if expr.member == "join":
+                    return StarBuiltinFunction("join", lambda *a: StarText((a[0].to_string() if a else "").join([e.to_string() for e in target_val.elements])))
+                if expr.member == "contains":
+                    return StarBuiltinFunction("contains", lambda *a: StarBoolean(any(e == a[0] for e in target_val.elements) if a else False))
+                if expr.member == "reverse":
+                    return StarBuiltinFunction("reverse", lambda *a: StarList(list(reversed(target_val.elements))))
+            if isinstance(target_val, StarText):
+                if expr.member in ("length", "size"):
+                    return StarInteger(len(target_val.value))
+                if expr.member in ("uppercase", "upper"):
+                    return StarBuiltinFunction("uppercase", lambda *a: StarText(target_val.value.upper()))
+                if expr.member in ("lowercase", "lower"):
+                    return StarBuiltinFunction("lowercase", lambda *a: StarText(target_val.value.lower()))
+                if expr.member == "trim":
+                    return StarBuiltinFunction("trim", lambda *a: StarText(target_val.value.strip()))
+                if expr.member == "split":
+                    return StarBuiltinFunction("split", lambda *a: StarList([StarText(p) for p in target_val.value.split(a[0].to_string() if a else " ")]))
+                if expr.member == "contains":
+                    return StarBuiltinFunction("contains", lambda *a: StarBoolean((a[0].to_string() if a else "") in target_val.value))
+                if expr.member == "replace":
+                    return StarBuiltinFunction("replace", lambda *a: StarText(target_val.value.replace(a[0].to_string(), a[1].to_string()) if len(a) >= 2 else target_val.value))
+                if expr.member == "starts_with":
+                    return StarBuiltinFunction("starts_with", lambda *a: StarBoolean(target_val.value.startswith(a[0].to_string() if a else "")))
+                if expr.member == "ends_with":
+                    return StarBuiltinFunction("ends_with", lambda *a: StarBoolean(target_val.value.endswith(a[0].to_string() if a else "")))
             raise StarTypeError(f"Cannot access property '{expr.member}' on type '{target_val.type_name}'.", expr.location, None, self.source_code)
 
         if isinstance(expr, CallNode):
@@ -661,6 +704,11 @@ class Interpreter:
                 except ReturnJump as r:
                     return r.value
                 return StarNull()
+
+            if hasattr(callee_val, "call") and callable(getattr(callee_val, "call")):
+                return callee_val.call(pos_args)
+            if callable(callee_val) and not isinstance(callee_val, StarValue):
+                return to_star_value(callee_val(*pos_args))
 
             raise StarTypeError(
                 f"Cannot call non-function value of type '{callee_val.type_name}'.",

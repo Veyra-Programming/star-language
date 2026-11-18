@@ -13,7 +13,7 @@ from star_engine.ast_nodes import (
     ComputedDeclNode, WatchDeclNode, EventDeclNode, RenderDeclNode, UseStmtNode,
     FunctionDefNode, VarDeclNode, ConstDeclNode,
     AssignNode, ShowNode, ReturnNode, BreakNode, ContinueNode,
-    IfNode, WhileNode, RepeatNode, ForNode, TryCatchNode, ExpressionStmtNode,
+    IfNode, WhileNode, RepeatNode, ForNode, TryCatchNode, ExpressionStmtNode, EnsureNode,
     LiteralNode, IdentifierNode, SelfNode, BinaryOpNode, UnaryOpNode,
     CallNode, CallArg, IndexNode, MemberAccessNode, ListNode, MapNode
 )
@@ -54,7 +54,7 @@ class StarCompiler:
         return idx
 
     def _patch_jump(self, jump_ip: int, target_ip: int):
-        self.current_instructions[jump_ip].operands = [target_ip]
+        self.current_instructions[jump_ip].operands[0] = target_ip
 
     # ---------------- Statement Compilation ----------------
 
@@ -147,6 +147,10 @@ class StarCompiler:
 
         if isinstance(stmt, TryCatchNode):
             self._compile_try_catch(stmt)
+            return
+
+        if isinstance(stmt, EnsureNode):
+            self._compile_ensure(stmt)
             return
 
         if isinstance(stmt, ExpressionStmtNode):
@@ -399,6 +403,21 @@ class StarCompiler:
 
         self._patch_jump(exit_jump, len(self.current_instructions))
 
+    def _compile_ensure(self, stmt: EnsureNode):
+        self._compile_expression(stmt.condition)
+        pass_jump = self._emit(OpCode.JUMP_IF_TRUE, 0, location=stmt.location)
+        
+        if stmt.message:
+            self._compile_expression(stmt.message)
+        else:
+            default_msg_idx = self.module.add_constant("Contract failed: condition not met.")
+            self._emit(OpCode.CONST, default_msg_idx, location=stmt.location)
+        panic_name_idx = self.module.add_constant("panic")
+        self._emit(OpCode.CALL_BUILTIN, panic_name_idx, 1, location=stmt.location)
+        self._emit(OpCode.POP, location=stmt.location)
+        
+        self._patch_jump(pass_jump, len(self.current_instructions))
+
     # ---------------- Expression Compilation ----------------
 
     def _compile_expression(self, expr: ExpressionNode):
@@ -468,7 +487,7 @@ class StarCompiler:
 
         if isinstance(expr, CallNode):
             # Check if calling a built-in directly by name
-            if isinstance(expr.callee, IdentifierNode) and expr.callee.name in ("show", "len", "type", "str", "num"):
+            if isinstance(expr.callee, IdentifierNode) and expr.callee.name in ("show", "len", "type", "str", "num", "panic", "fail"):
                 for arg in expr.arguments:
                     self._compile_expression(arg.value)
                 b_name_idx = self.module.add_constant(expr.callee.name)

@@ -228,6 +228,20 @@ class ModuleManager:
         self.loaded_modules["Icons"] = create_icons_module()
         self.loaded_modules["Colors"] = create_colors_module()
 
+        # 11. High-Performance HyperFlow Server & Concurrency Mesh
+        from star_sdk.server import create_server_module
+        server_mod = create_server_module()
+        self.loaded_modules["Server"] = server_mod
+        self.loaded_modules["HTTP"] = server_mod
+
+        # 12. Universal AI, Tensor, Neural & Autonomous Agent Subsystem
+        from star_sdk.ai import create_ai_module
+        ai_mod = create_ai_module()
+        self.loaded_modules["AI"] = ai_mod
+        self.loaded_modules["Tensor"] = ai_mod
+        self.loaded_modules["Neural"] = ai_mod
+        self.loaded_modules["Agent"] = ai_mod
+
     def load_module(self, name_or_path: str, is_file: bool, location: Optional[SourceLocation] = None) -> StarModule:
         # Check stdlib and preloaded modules
         if not is_file and name_or_path in self.loaded_modules:
