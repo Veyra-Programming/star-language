@@ -1878,5 +1878,3020 @@
     "description": "Mean Squared Error (MSE) and cross-entropy loss",
     "path": "modules/ai/loss_functions.star",
     "version": "1.0.0"
+  },
+  {
+    "name": "ui/date_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Calendar date selection dialog and input field",
+    "path": "modules/ui/date_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/time_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Clock face and 24h/12h time selector widget",
+    "path": "modules/ui/time_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/date_range_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dual calendar date span and range selector",
+    "path": "modules/ui/date_range_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/color_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hex, RGB, HSL and gradient interactive color picker",
+    "path": "modules/ui/color_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/color_palette_wheel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Circular color spectrum wheel and hue slider",
+    "path": "modules/ui/color_palette_wheel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rich_text_editor",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "WYSIWYG formatted text editor with bold, italic, lists",
+    "path": "modules/ui/rich_text_editor.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/markdown_editor",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Split-pane markdown source editor with live preview",
+    "path": "modules/ui/markdown_editor.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/code_editor",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Syntax-highlighted code editor with line numbering",
+    "path": "modules/ui/code_editor.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/slider_range",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dual-thumb min/max range slider component",
+    "path": "modules/ui/slider_range.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/slider_stepped",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Discrete stepped numeric slider with tick marks",
+    "path": "modules/ui/slider_stepped.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tag_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Chip-based tag entry with auto-suggestion and chip removal",
+    "path": "modules/ui/tag_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/file_uploader",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Drag-and-drop multi-file upload zone with progress bars",
+    "path": "modules/ui/file_uploader.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/file_drop_zone",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dashed border drag-and-drop file receiver with MIME filter",
+    "path": "modules/ui/file_drop_zone.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/signature_pad",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Touch and mouse digital signature capture canvas",
+    "path": "modules/ui/signature_pad.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/otp_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Auto-advancing segmented 4-to-6 digit OTP/PIN input",
+    "path": "modules/ui/otp_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pin_code_field",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Secure masked PIN entry field with biometric icon",
+    "path": "modules/ui/pin_code_field.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rating_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive 5-star or custom icon rating selector",
+    "path": "modules/ui/rating_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/autocomplete",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Typeahead autocomplete suggestions dropdown",
+    "path": "modules/ui/autocomplete.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/masked_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Formatted input mask for phone numbers, SSN, and cards",
+    "path": "modules/ui/masked_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/phone_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "International telephone number input with country flag",
+    "path": "modules/ui/phone_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/currency_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Real-time formatted monetary amount input with currency symbol",
+    "path": "modules/ui/currency_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/credit_card_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Smart card number formatter with auto card brand detection",
+    "path": "modules/ui/credit_card_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/checkbox_group",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Grouped tri-state checkbox list with select-all",
+    "path": "modules/ui/checkbox_group.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/radio_group",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Grouped single-selection radio button list with custom styling",
+    "path": "modules/ui/radio_group.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/switch_toggle",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated iOS and Material style toggle switch",
+    "path": "modules/ui/switch_toggle.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/stepper_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Incremental numeric +/- stepper with min/max bounds",
+    "path": "modules/ui/stepper_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/cascader",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hierarchical multi-level cascaded dropdown selector",
+    "path": "modules/ui/cascader.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/transfer_list",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dual-column shuttle box transfer list with move buttons",
+    "path": "modules/ui/transfer_list.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tree_select",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hierarchical tree-view dropdown selector with search",
+    "path": "modules/ui/tree_select.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/mentions_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "@mention and #hashtag suggestion popover input",
+    "path": "modules/ui/mentions_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/password_strength",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dynamic password security meter with rule checkmarks",
+    "path": "modules/ui/password_strength.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/search_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Full-featured search bar with voice input icon and clear button",
+    "path": "modules/ui/search_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/filter_panel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Collapsible multi-criteria filter builder panel",
+    "path": "modules/ui/filter_panel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/multi_select",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Searchable multi-selection dropdown with chip tags",
+    "path": "modules/ui/multi_select.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dropdown_select",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Standard customizable dropdown picker with icons",
+    "path": "modules/ui/dropdown_select.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/combo_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hybrid text input and dropdown select combo box",
+    "path": "modules/ui/combo_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/segmented_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "iOS-style pill segmented control with sliding indicator",
+    "path": "modules/ui/segmented_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/wheel_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Scrollable 3D drum wheel picker for dates and lists",
+    "path": "modules/ui/wheel_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/time_duration_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hours, minutes, seconds duration timer picker",
+    "path": "modules/ui/time_duration_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/quantity_selector",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "E-commerce shopping cart item quantity adjuster",
+    "path": "modules/ui/quantity_selector.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/search_filter_chips",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Horizontal scrollable filter chips with active toggles",
+    "path": "modules/ui/search_filter_chips.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/boolean_toggle_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Visual card with integrated switch and description",
+    "path": "modules/ui/boolean_toggle_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/inline_edit_field",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Click-to-edit inline text field with save/cancel icons",
+    "path": "modules/ui/inline_edit_field.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/expandable_search",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Collapsed search icon expanding into full search bar",
+    "path": "modules/ui/expandable_search.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/geo_location_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Address autocomplete and GPS location capture field",
+    "path": "modules/ui/geo_location_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dimension_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Width, height, depth 3D dimension input with unit toggle",
+    "path": "modules/ui/dimension_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/ip_address_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Segmented IPv4 and IPv6 network address field",
+    "path": "modules/ui/ip_address_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/url_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Validated web URL input with protocol prefix pill",
+    "path": "modules/ui/url_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/json_input_validator",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Live JSON syntax highlighting and validation editor",
+    "path": "modules/ui/json_input_validator.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/regex_tester_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pattern tester input with live match highlighting",
+    "path": "modules/ui/regex_tester_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/unit_converter_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dual-field imperial to metric live converter input",
+    "path": "modules/ui/unit_converter_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/percentage_slider",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Continuous 0-100% percentage slider with colored track",
+    "path": "modules/ui/percentage_slider.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/color_swatch_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Grid of clickable predefined brand color swatches",
+    "path": "modules/ui/color_swatch_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/key_recorder_input",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hotkey and keyboard shortcut recorder field",
+    "path": "modules/ui/key_recorder_input.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/text_counter_area",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multiline textarea with live character countdown",
+    "path": "modules/ui/text_counter_area.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sidebar_nav",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Collapsible modern vertical sidebar navigation",
+    "path": "modules/ui/sidebar_nav.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/app_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Top application bar with navigation icon, title, and action buttons",
+    "path": "modules/ui/app_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/bottom_navigation",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Mobile bottom tab bar with animated icon switching",
+    "path": "modules/ui/bottom_navigation.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tab_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Horizontal sliding tab bar with indicator underline",
+    "path": "modules/ui/tab_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/breadcrumb_trail",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hierarchical path breadcrumbs with chevron separators",
+    "path": "modules/ui/breadcrumb_trail.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pagination_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Numbered page switcher with previous/next and jump-to",
+    "path": "modules/ui/pagination_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/drawer_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Slide-out navigation drawer with user profile header",
+    "path": "modules/ui/drawer_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/floating_action_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Expandable floating action button (FAB) speed dial",
+    "path": "modules/ui/floating_action_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/mega_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-column desktop mega menu dropdown with categorized links",
+    "path": "modules/ui/mega_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/context_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Right-click contextual popup menu with divider groups",
+    "path": "modules/ui/context_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/stepper_nav",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Step-by-step wizard navigation with completed badges",
+    "path": "modules/ui/stepper_nav.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dock_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "macOS-style floating dock bar with magnification effect",
+    "path": "modules/ui/dock_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tree_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Collapsible folder and file hierarchy tree view",
+    "path": "modules/ui/tree_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/accordion_nav",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-section vertical accordion with smooth expand/collapse",
+    "path": "modules/ui/accordion_nav.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/collapsible_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Nested multi-level dropdown menu tree",
+    "path": "modules/ui/collapsible_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rail_navigation",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Compact vertical icon rail for desktop dashboards",
+    "path": "modules/ui/rail_navigation.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sub_navigation_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Secondary horizontal sub-nav for deep page routes",
+    "path": "modules/ui/sub_navigation_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/page_header",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Standardized page header with title, subtitle, and breadcrumbs",
+    "path": "modules/ui/page_header.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/command_palette",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Keyboard-driven Cmd+K / Ctrl+K search and action launcher",
+    "path": "modules/ui/command_palette.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/spotlight_search",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Floating modal overlay for global application searching",
+    "path": "modules/ui/spotlight_search.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/anchor_nav",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Sticky on-page table-of-contents anchor scroll navigation",
+    "path": "modules/ui/anchor_nav.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tab_strip",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Browser-style draggable and closeable tab strip",
+    "path": "modules/ui/tab_strip.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/jump_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Quick-jump floating index for alphabetical lists",
+    "path": "modules/ui/jump_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/bottom_sheet_nav",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Swipeable bottom navigation sheet for mobile viewports",
+    "path": "modules/ui/bottom_sheet_nav.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/hamburger_button",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated morphing hamburger-to-close icon button",
+    "path": "modules/ui/hamburger_button.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/back_to_top_button",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Smooth scroll-to-top floating button with progress ring",
+    "path": "modules/ui/back_to_top_button.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/infinite_breadcrumbs",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Auto-collapsing long breadcrumb path with ellipsis menu",
+    "path": "modules/ui/infinite_breadcrumbs.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/segmented_tabs",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pill-shaped segmented tabs for dashboard views",
+    "path": "modules/ui/segmented_tabs.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/horizontal_scroll_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Touch-friendly edge-fading horizontal scroll menu",
+    "path": "modules/ui/horizontal_scroll_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/vertical_steps",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Vertical checkout and onboarding progress step tracker",
+    "path": "modules/ui/vertical_steps.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/action_sheet",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "iOS-style modal action sheet with cancel button",
+    "path": "modules/ui/action_sheet.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/popup_bubble_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pointing bubble menu positioned relative to trigger element",
+    "path": "modules/ui/popup_bubble_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/navigation_pill",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Floating navigation capsule with glassmorphism blur",
+    "path": "modules/ui/navigation_pill.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/quick_links_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Compact quick-access toolbar for tools and shortcuts",
+    "path": "modules/ui/quick_links_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/offcanvas_panel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Full-height offcanvas sliding panel from left/right/top/bottom",
+    "path": "modules/ui/offcanvas_panel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/split_button_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Primary action button with secondary dropdown arrow",
+    "path": "modules/ui/split_button_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tab_carousel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Swipeable tabbed container with touch gestures",
+    "path": "modules/ui/tab_carousel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/nested_accordion",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Deeply nested multi-level expandable disclosure panels",
+    "path": "modules/ui/nested_accordion.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sticky_nav_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Top navigation bar that sticks on scroll with blur backdrop",
+    "path": "modules/ui/sticky_nav_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/swipeable_nav_tabs",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Touch swipe tabs with haptic feedback integration",
+    "path": "modules/ui/swipeable_nav_tabs.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/header_search_combo",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Unified logo, global search, and user profile header",
+    "path": "modules/ui/header_search_combo.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/radial_menu",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Circular pie menu expanding around mouse cursor",
+    "path": "modules/ui/radial_menu.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/footer_nav_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-column site footer with link sections and copyright",
+    "path": "modules/ui/footer_nav_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/status_bar_hud",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Miniature system status and connectivity HUD strip",
+    "path": "modules/ui/status_bar_hud.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/page_indicator_dots",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pagination dot indicator with active pill animation",
+    "path": "modules/ui/page_indicator_dots.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/data_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "High-performance sorting, filtering, and selectable data table",
+    "path": "modules/ui/data_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/virtual_list",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Virtualized list renderer for 100,000+ items with zero lag",
+    "path": "modules/ui/virtual_list.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/infinite_scroll_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Auto-fetching infinite scroll container with load trigger",
+    "path": "modules/ui/infinite_scroll_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tree_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hierarchical expandable tree data table with indent guides",
+    "path": "modules/ui/tree_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pivot_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-dimensional pivot matrix with row/column groupings",
+    "path": "modules/ui/pivot_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/timeline_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Vertical event timeline with dates, icons, and status badges",
+    "path": "modules/ui/timeline_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/calendar_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Monthly, weekly, and daily interactive calendar schedule grid",
+    "path": "modules/ui/calendar_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/kanban_board",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Drag-and-drop Kanban workflow board with swimlanes and cards",
+    "path": "modules/ui/kanban_board.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/gantt_chart",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Project management timeline chart with dependencies and milestones",
+    "path": "modules/ui/gantt_chart.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/matrix_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "N-by-N data matrix viewer with cell heatmap highlighting",
+    "path": "modules/ui/matrix_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/badge_pill",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Notification counter and status tag badge with dot variant",
+    "path": "modules/ui/badge_pill.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/avatar_group",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Overlapping circular user avatar group with counter overflow",
+    "path": "modules/ui/avatar_group.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chip_list",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Flowing list of interactive chips with delete and select states",
+    "path": "modules/ui/chip_list.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/stat_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Executive metric KPI card with sparkline and percentage change",
+    "path": "modules/ui/stat_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/kpi_metric",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Key performance indicator display with goal progress bar",
+    "path": "modules/ui/kpi_metric.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/comparison_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Feature matrix comparison table with checkmarks and tooltips",
+    "path": "modules/ui/comparison_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pricing_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Tiered subscription pricing cards with monthly/yearly toggle",
+    "path": "modules/ui/pricing_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/feed_stream",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Social activity feed stream with avatar, timestamp, and actions",
+    "path": "modules/ui/feed_stream.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/masonry_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pinterest-style dynamic multi-column masonry card grid",
+    "path": "modules/ui/masonry_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/carousel_slider",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Touch swipeable media carousel with autoplay and arrows",
+    "path": "modules/ui/carousel_slider.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/card_deck",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Responsive deck of cards with consistent equal heights",
+    "path": "modules/ui/card_deck.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/waterfall_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dynamic cascading waterfall layout for variable height cards",
+    "path": "modules/ui/waterfall_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/key_value_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Clean two-column property-value inspector table",
+    "path": "modules/ui/key_value_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/status_pill_badge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Rounded status indicator with animated pulsing dot",
+    "path": "modules/ui/status_pill_badge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/user_profile_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Comprehensive user profile card with avatar, stats, bio",
+    "path": "modules/ui/user_profile_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/empty_state_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Illustrated empty state with call-to-action button",
+    "path": "modules/ui/empty_state_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/accordion_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Data table where rows expand into detailed nested views",
+    "path": "modules/ui/accordion_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/column_toggle_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Data table with dynamic column visibility selector",
+    "path": "modules/ui/column_toggle_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/exportable_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Data table with one-click CSV and JSON download buttons",
+    "path": "modules/ui/exportable_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/filterable_cards",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Grid of cards filterable by category and search keyword",
+    "path": "modules/ui/filterable_cards.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/leaderboard_table",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Ranked gaming and sales leaderboard with trophy badges",
+    "path": "modules/ui/leaderboard_table.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/audit_log_viewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Security and system event audit log with diff inspector",
+    "path": "modules/ui/audit_log_viewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/file_browser_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Grid and list file manager with file type icons and sizes",
+    "path": "modules/ui/file_browser_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/comment_thread",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Nested hierarchical discussion comment thread with replies",
+    "path": "modules/ui/comment_thread.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/changelog_list",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Software version changelog list with release badges",
+    "path": "modules/ui/changelog_list.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/faq_accordion",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Frequently asked questions accordion with search highlight",
+    "path": "modules/ui/faq_accordion.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/shopping_cart_list",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "E-commerce shopping bag list with thumbnail, price, delete",
+    "path": "modules/ui/shopping_cart_list.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/order_summary_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Checkout order receipt card with tax, shipping, total",
+    "path": "modules/ui/order_summary_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/invoice_display",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Professional invoice document view with line items and total",
+    "path": "modules/ui/invoice_display.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/review_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Customer testimonial and review card with star rating and verified badge",
+    "path": "modules/ui/review_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/media_list_item",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Media item with thumbnail, title, description, and metadata",
+    "path": "modules/ui/media_list_item.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rank_badge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Gamified gold, silver, bronze ranking badge with ribbon",
+    "path": "modules/ui/rank_badge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/code_snippet_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Syntax-highlighted code snippet card with copy button",
+    "path": "modules/ui/code_snippet_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/property_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Visual grid of product specifications and technical details",
+    "path": "modules/ui/property_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/activity_heatmap",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "GitHub-style calendar contribution activity heatmap",
+    "path": "modules/ui/activity_heatmap.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_line",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Smooth curved and stepped multi-series line chart",
+    "path": "modules/ui/chart_line.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Vertical grouped and stacked multi-column bar chart",
+    "path": "modules/ui/chart_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_horizontal_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Horizontal ranked bar chart with value labels",
+    "path": "modules/ui/chart_horizontal_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_pie",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-segment circular pie chart with hover explode effect",
+    "path": "modules/ui/chart_pie.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_donut",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Ring donut chart with centered aggregate total display",
+    "path": "modules/ui/chart_donut.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_area",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Gradient-filled multi-series area chart",
+    "path": "modules/ui/chart_area.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_scatter",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-variable 2D scatter plot with trendline",
+    "path": "modules/ui/chart_scatter.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_bubble",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Three-dimensional data bubble chart with variable radiuses",
+    "path": "modules/ui/chart_bubble.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_radar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Spiderweb radar chart for multi-dimensional performance",
+    "path": "modules/ui/chart_radar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_candlestick",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Financial stock candlestick chart with high/low/open/close",
+    "path": "modules/ui/chart_candlestick.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_gauge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Semi-circular radial needle gauge with threshold color bands",
+    "path": "modules/ui/chart_gauge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_funnel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Sales and conversion funnel pipeline visualization",
+    "path": "modules/ui/chart_funnel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_treemap",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hierarchical nested rectangle treemap chart",
+    "path": "modules/ui/chart_treemap.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_heatmap",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "2D color density heatmap matrix for intensity analysis",
+    "path": "modules/ui/chart_heatmap.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_sankey",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Flow diagram showing energy, traffic, and volume transfers",
+    "path": "modules/ui/chart_sankey.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_sparkline",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Miniature inline trend chart with min/max highlight dots",
+    "path": "modules/ui/chart_sparkline.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_waterfall",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Positive and negative financial waterfall cumulative chart",
+    "path": "modules/ui/chart_waterfall.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_polar_area",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Polar area chart with equal-angle variable-radius sectors",
+    "path": "modules/ui/chart_polar_area.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_pyramid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Population and hierarchical demographic pyramid chart",
+    "path": "modules/ui/chart_pyramid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/chart_bullet",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Performance target versus actual metric bullet chart",
+    "path": "modules/ui/chart_bullet.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/progress_ring",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Circular SVG progress ring with percentage readout",
+    "path": "modules/ui/progress_ring.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/progress_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Linear animated progress bar with gradient and striped styles",
+    "path": "modules/ui/progress_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/activity_gauge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Apple Watch-style concentric circular fitness rings",
+    "path": "modules/ui/activity_gauge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/speedometer_gauge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Automotive-style high-precision dial speedometer",
+    "path": "modules/ui/speedometer_gauge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/step_progress",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-phase linear step progress tracker with checkmarks",
+    "path": "modules/ui/step_progress.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/liquid_fill_gauge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated wave liquid fill water droplet gauge",
+    "path": "modules/ui/liquid_fill_gauge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/meter_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hardware storage and battery meter bar with critical levels",
+    "path": "modules/ui/meter_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/range_gauge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Min-max range gauge with colored safe/warning/critical zones",
+    "path": "modules/ui/range_gauge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/network_graph",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Node-link relational network topology graph with force physics",
+    "path": "modules/ui/network_graph.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sunburst_chart",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-level radial hierarchical sunburst diagram",
+    "path": "modules/ui/sunburst_chart.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/venn_diagram",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Two-set and three-set overlapping Venn diagram",
+    "path": "modules/ui/venn_diagram.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/timeline_chart",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Horizontal chronological Gantt and milestone chart",
+    "path": "modules/ui/timeline_chart.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/box_plot",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Statistical five-number summary box and whisker plot",
+    "path": "modules/ui/box_plot.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/violin_plot",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Statistical kernel density violin plot with quartiles",
+    "path": "modules/ui/violin_plot.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/word_cloud",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Frequency-weighted semantic word cloud layout",
+    "path": "modules/ui/word_cloud.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/density_contour",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "2D elevation and mathematical density contour plot",
+    "path": "modules/ui/density_contour.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/multi_axis_chart",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dual left-right Y-axis chart combining line and bar data",
+    "path": "modules/ui/multi_axis_chart.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/candlestick_mini",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Miniature trading chart preview for watchlists",
+    "path": "modules/ui/candlestick_mini.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/metric_counter_clock",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Digital 7-segment LED style numeric counter clock",
+    "path": "modules/ui/metric_counter_clock.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/radial_bar_chart",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Concentric multi-colored radial bar chart",
+    "path": "modules/ui/radial_bar_chart.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/modal_dialog",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Centered pop-up modal dialog with backdrop blur and escape key",
+    "path": "modules/ui/modal_dialog.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/bottom_sheet",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Swipeable mobile bottom modal sheet with grab handle",
+    "path": "modules/ui/bottom_sheet.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/toast_notification",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Stackable non-blocking toast notifications (success, error, info)",
+    "path": "modules/ui/toast_notification.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/snackbar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Material bottom snackbar notice with action button",
+    "path": "modules/ui/snackbar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/alert_banner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Prominent alert banner with icon and close button",
+    "path": "modules/ui/alert_banner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/popover_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Rich contextual popover anchored to a trigger element",
+    "path": "modules/ui/popover_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tooltip_balloon",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Hover and focus tooltip balloon with directional arrow",
+    "path": "modules/ui/tooltip_balloon.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/confirm_dialog",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Destructive action confirmation dialog with confirm/cancel",
+    "path": "modules/ui/confirm_dialog.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/drawer_sheet",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Side-sliding drawer panel for details and forms",
+    "path": "modules/ui/drawer_sheet.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/banner_notice",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Full-width persistent top notification banner",
+    "path": "modules/ui/banner_notice.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/badge_ribbon",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Corner diagonal ribbon badge (New, Sale, Pro, Beta)",
+    "path": "modules/ui/badge_ribbon.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/loading_spinner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Modern rotating ring and dual-ring loading spinner",
+    "path": "modules/ui/loading_spinner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/skeleton_loader",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Placeholder wireframe skeleton loader with shimmer pulse",
+    "path": "modules/ui/skeleton_loader.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/shimmer_effect",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Moving gradient shimmer highlight for loading states",
+    "path": "modules/ui/shimmer_effect.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/empty_state_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Illustrated empty state with action button",
+    "path": "modules/ui/empty_state_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/error_boundary_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Graceful error boundary fallback card with stack trace",
+    "path": "modules/ui/error_boundary_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/splash_screen",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Initial application loading splash view with logo fade",
+    "path": "modules/ui/splash_screen.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/walkthrough_tour",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-step interactive feature tour overlay with spotlights",
+    "path": "modules/ui/walkthrough_tour.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/hint_pointer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated pulsating arrow pointer highlighting new features",
+    "path": "modules/ui/hint_pointer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pulse_indicator",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Glowing radar pulse dot indicator for live updates",
+    "path": "modules/ui/pulse_indicator.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/progress_dialog",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Modal progress dialog for long-running operations",
+    "path": "modules/ui/progress_dialog.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/countdown_timer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Visual countdown timer with flip clock animation",
+    "path": "modules/ui/countdown_timer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/confetti_celebration",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Full-screen particle confetti explosion for achievements",
+    "path": "modules/ui/confetti_celebration.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/notification_badge",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated bouncing notification badge with counter",
+    "path": "modules/ui/notification_badge.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/copy_tooltip",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Click-to-copy button with 'Copied!' temporary tooltip",
+    "path": "modules/ui/copy_tooltip.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/undo_snackbar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Action notification with 5-second undo button",
+    "path": "modules/ui/undo_snackbar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rate_app_dialog",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Star rating prompt dialog asking for user feedback",
+    "path": "modules/ui/rate_app_dialog.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/cookie_consent_banner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "GDPR and privacy compliant cookie consent banner",
+    "path": "modules/ui/cookie_consent_banner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/version_update_dialog",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Software update prompt with release notes and update CTA",
+    "path": "modules/ui/version_update_dialog.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/session_timeout_warning",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Inactivity warning modal with session extension countdown",
+    "path": "modules/ui/session_timeout_warning.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/network_offline_banner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Red sticky banner warning when internet drops",
+    "path": "modules/ui/network_offline_banner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/watermark_overlay",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Diagonal text and image security watermark overlay",
+    "path": "modules/ui/watermark_overlay.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/blur_overlay",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Frosted glass backdrop blur modal blocker",
+    "path": "modules/ui/blur_overlay.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/progress_hud",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Centered semi-transparent activity HUD with spinner",
+    "path": "modules/ui/progress_hud.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/toast_stack_manager",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-notification queue manager with auto-dismiss",
+    "path": "modules/ui/toast_stack_manager.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/split_pane",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Resizable horizontal and vertical split divider view",
+    "path": "modules/ui/split_pane.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/resizable_panel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Resizable side and bottom docking panels",
+    "path": "modules/ui/resizable_panel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/responsive_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "12-column responsive flex and grid container with breakpoints",
+    "path": "modules/ui/responsive_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/aspect_ratio_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Fixed 16:9, 4:3, 1:1 aspect ratio constraint container",
+    "path": "modules/ui/aspect_ratio_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sticky_header",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Scrollable container with sticky section headers",
+    "path": "modules/ui/sticky_header.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/card_expandable",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Card that smoothly animates and unfolds to reveal details",
+    "path": "modules/ui/card_expandable.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/glass_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Frosted glassmorphism container with backdrop blur filter",
+    "path": "modules/ui/glass_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/neumorphic_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Soft extruded neumorphic container with dual drop shadows",
+    "path": "modules/ui/neumorphic_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/divider_fancy",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Decorative divider with centered text, icon, or gradient",
+    "path": "modules/ui/divider_fancy.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/scroll_container",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Customizable scroll view with custom styled scrollbars",
+    "path": "modules/ui/scroll_container.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/snap_scroller",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Touch snap scroll container for horizontal cards",
+    "path": "modules/ui/snap_scroller.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/parallax_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-layer depth parallax scroll container",
+    "path": "modules/ui/parallax_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/hero_banner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Full-width visual hero banner with title, CTA, and background",
+    "path": "modules/ui/hero_banner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/media_object",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Traditional media object layout (left image, right body)",
+    "path": "modules/ui/media_object.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/spacer_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Flexible and fixed layout spacer widget",
+    "path": "modules/ui/spacer_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/stack_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Layered Z-index overlapping stack container",
+    "path": "modules/ui/stack_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/wrap_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Flexible wrap layout that flows children onto new lines",
+    "path": "modules/ui/wrap_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dashboard_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Configurable widget grid with drag-and-drop rearrangement",
+    "path": "modules/ui/dashboard_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dockable_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Professional multi-dock IDE and workspace layout",
+    "path": "modules/ui/dockable_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/masonry_flow",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dynamic Pinterest-style vertical column flow",
+    "path": "modules/ui/masonry_flow.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/tile_grid",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Uniform square tile grid for app launchers and galleries",
+    "path": "modules/ui/tile_grid.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/center_container",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Perfect horizontal and vertical centering wrapper",
+    "path": "modules/ui/center_container.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/constrained_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Min/max width and height constraint enforcement box",
+    "path": "modules/ui/constrained_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/fitted_box",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Container that scales and fits child widget proportionally",
+    "path": "modules/ui/fitted_box.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/safe_area_container",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Mobile notch and home-bar safe area padding container",
+    "path": "modules/ui/safe_area_container.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/card_flip_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "3D double-sided flipping card with front and back faces",
+    "path": "modules/ui/card_flip_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/perspective_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "3D tilt card that tracks mouse hover tilt angle",
+    "path": "modules/ui/perspective_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/collapsible_panel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Expandable header panel with toggle chevron",
+    "path": "modules/ui/collapsible_panel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sticky_footer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Viewport layout where footer always sticks to bottom",
+    "path": "modules/ui/sticky_footer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/two_column_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Standard content plus sidebar layout",
+    "path": "modules/ui/two_column_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/three_column_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Left navigation, center content, right sidebar layout",
+    "path": "modules/ui/three_column_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/holy_grail_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Classic header, 3-column body, and footer layout",
+    "path": "modules/ui/holy_grail_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/card_stack_swipe",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Tinder-style swipeable card deck with left/right dismiss",
+    "path": "modules/ui/card_stack_swipe.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/drawer_layout",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Standard desktop split-screen drawer and canvas layout",
+    "path": "modules/ui/drawer_layout.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/grid_list_toggle",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Toggleable container switching between grid and list views",
+    "path": "modules/ui/grid_list_toggle.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/video_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Responsive HTML5 and native video player with custom controls",
+    "path": "modules/ui/video_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/audio_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Audio playback bar with play/pause, scrub bar, and duration",
+    "path": "modules/ui/audio_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/image_gallery",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-thumbnail image gallery with full-screen lightbox",
+    "path": "modules/ui/image_gallery.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/image_cropper",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive circular and rectangular image crop tool",
+    "path": "modules/ui/image_cropper.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/lightbox_viewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Fullscreen modal image and video viewer with zoom/pan",
+    "path": "modules/ui/lightbox_viewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/audio_visualizer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Real-time frequency bar and wave audio visualizer",
+    "path": "modules/ui/audio_visualizer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/waveform_display",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Sound wave visualization with clickable timeline scrubbing",
+    "path": "modules/ui/waveform_display.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pdf_viewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Embedded PDF document viewer with page navigation and zoom",
+    "path": "modules/ui/pdf_viewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/qr_code_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Dynamic QR code renderer generated from text or URL",
+    "path": "modules/ui/qr_code_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/barcode_display",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "UPC, EAN, and Code128 barcode generator view",
+    "path": "modules/ui/barcode_display.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/camera_viewfinder",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Camera stream preview with capture button and shutter flash",
+    "path": "modules/ui/camera_viewfinder.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/lottie_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Vector animation player for Lottie JSON animations",
+    "path": "modules/ui/lottie_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rive_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive vector state machine player for Rive assets",
+    "path": "modules/ui/rive_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/media_controls_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Universal playback control bar with volume and speed",
+    "path": "modules/ui/media_controls_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/image_comparison_slider",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Before-and-after image comparison slider",
+    "path": "modules/ui/image_comparison_slider.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/avatar_editor",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Circular avatar upload, reposition, and zoom editor",
+    "path": "modules/ui/avatar_editor.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/audio_playlist",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Music and podcast playlist manager with queue sorting",
+    "path": "modules/ui/audio_playlist.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/video_pip_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Picture-in-picture floating mini video player",
+    "path": "modules/ui/video_pip_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/image_magnifier",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "E-commerce product image zoom lens magnifier",
+    "path": "modules/ui/image_magnifier.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/pan_zoom_viewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pinch-to-zoom and pan container for high-res images",
+    "path": "modules/ui/pan_zoom_viewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/svg_canvas_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Scalable Vector Graphics (SVG) interactive path viewer",
+    "path": "modules/ui/svg_canvas_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/gif_player",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated GIF player with pause, loop, and frame controls",
+    "path": "modules/ui/gif_player.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/subtitles_overlay",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Synchronized closed captions and video subtitles overlay",
+    "path": "modules/ui/subtitles_overlay.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sound_effect_button",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive button with integrated WebAudio click sound",
+    "path": "modules/ui/sound_effect_button.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/video_playlist_carousel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Video thumbnail playlist with active indicator",
+    "path": "modules/ui/video_playlist_carousel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/voice_recorder_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Voice memo recording interface with animated microphone",
+    "path": "modules/ui/voice_recorder_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/aspect_ratio_image",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Progressive image loader with placeholder blur",
+    "path": "modules/ui/aspect_ratio_image.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/lazy_image_loader",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Intersection-observer powered lazy image loader",
+    "path": "modules/ui/lazy_image_loader.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/icon_font_viewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive searchable icon font glyph inspector",
+    "path": "modules/ui/icon_font_viewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/media_duration_scrubber",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "High-precision video scrubbing timeline with thumbnails",
+    "path": "modules/ui/media_duration_scrubber.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/particle_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive background particle network with mouse physics",
+    "path": "modules/ui/particle_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/confetti_cannon",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Celebratory confetti particle burst physics emitter",
+    "path": "modules/ui/confetti_cannon.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/canvas_painter",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Freehand drawing and painting canvas with brush sizes",
+    "path": "modules/ui/canvas_painter.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/gl_viewport",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "WebGL / WebGPU 3D viewport canvas for shaders and meshes",
+    "path": "modules/ui/gl_viewport.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/joystick_controller",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Virtual touch analog joystick for mobile gaming",
+    "path": "modules/ui/joystick_controller.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dpad_controller",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "4-way and 8-way directional pad controller",
+    "path": "modules/ui/dpad_controller.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/game_hud",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "In-game heads-up display with health bar, score, and ammo",
+    "path": "modules/ui/game_hud.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/physics_playground",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "2D rigid-body physics simulation container",
+    "path": "modules/ui/physics_playground.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/scratch_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive lottery scratch-off card with coin sound",
+    "path": "modules/ui/scratch_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/sound_effects_panel",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Soundboard panel with clickable audio pads",
+    "path": "modules/ui/sound_effects_panel.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/gradient_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated shifting mesh gradient background",
+    "path": "modules/ui/gradient_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/starfield_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "3D warp-speed starfield animation canvas",
+    "path": "modules/ui/starfield_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/fireworks_display",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Automated and interactive fireworks explosion canvas",
+    "path": "modules/ui/fireworks_display.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/rain_snow_emitter",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Weather rain and snowfall particle effect overlay",
+    "path": "modules/ui/rain_snow_emitter.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/neon_glow_card",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Glowing neon cyberpunk card with border animations",
+    "path": "modules/ui/neon_glow_card.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/matrix_rain_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Digital green Matrix code stream animation",
+    "path": "modules/ui/matrix_rain_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/retro_crt_shader",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Retro CRT monitor curvature and scanline overlay",
+    "path": "modules/ui/retro_crt_shader.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/flip_clock_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Vintage mechanical split-flap display for time/stats",
+    "path": "modules/ui/flip_clock_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/dice_roller_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "3D rolling dice simulator with random roll physics",
+    "path": "modules/ui/dice_roller_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/slot_machine_spinner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Casino-style slot machine spinning reel component",
+    "path": "modules/ui/slot_machine_spinner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/card_shuffle_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Animated poker and trading card deck shuffler",
+    "path": "modules/ui/card_shuffle_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/radar_sweep_canvas",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Rotating circular radar sweep line with blips",
+    "path": "modules/ui/radar_sweep_canvas.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/smoke_fog_emitter",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Atmospheric drifting smoke and fog particle canvas",
+    "path": "modules/ui/smoke_fog_emitter.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/bubble_pop_game",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive floating bubble popping mini-game",
+    "path": "modules/ui/bubble_pop_game.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/mini_map_viewport",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Real-time navigation minimap with player indicator",
+    "path": "modules/ui/mini_map_viewport.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/theme_dark_light",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "One-click dark mode and light mode toggle switch with auto-detect",
+    "path": "modules/ui/theme_dark_light.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/theme_customizer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Live theme editor with primary color, radius, and font pickers",
+    "path": "modules/ui/theme_customizer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/contrast_checker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "WCAG accessibility contrast ratio validator and color tester",
+    "path": "modules/ui/contrast_checker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/font_picker",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Google Fonts and system typography preview and selection picker",
+    "path": "modules/ui/font_picker.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/icon_pack_material",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Comprehensive Google Material Symbols and Icons pack",
+    "path": "modules/ui/icon_pack_material.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/icon_pack_lucide",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Modern, beautiful Lucide vector icon pack",
+    "path": "modules/ui/icon_pack_lucide.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/icon_pack_feather",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Simply beautiful open-source Feather icon pack",
+    "path": "modules/ui/icon_pack_feather.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/icon_pack_fontawesome",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Complete Font Awesome vector icons library",
+    "path": "modules/ui/icon_pack_fontawesome.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/keyboard_shortcuts_modal",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Pop-up cheat sheet dialog of available hotkeys",
+    "path": "modules/ui/keyboard_shortcuts_modal.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/print_stylesheet",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Print-optimized layout and CSS formatter for reports",
+    "path": "modules/ui/print_stylesheet.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/i18n_locale_switcher",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-language flag and locale dropdown switcher",
+    "path": "modules/ui/i18n_locale_switcher.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/accessibility_toolbar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Accessibility menu (font resize, high contrast, dyslexia font)",
+    "path": "modules/ui/accessibility_toolbar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/css_grid_builder",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Visual interactive CSS grid template generator",
+    "path": "modules/ui/css_grid_builder.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/box_shadow_generator",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Visual drop-shadow and elevation tuner with preview",
+    "path": "modules/ui/box_shadow_generator.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/border_radius_tuner",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Interactive 8-point border radius shaper",
+    "path": "modules/ui/border_radius_tuner.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/color_gradient_generator",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Multi-stop linear and radial gradient builder",
+    "path": "modules/ui/color_gradient_generator.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/device_frame_previewer",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Realistic iPhone, iPad, Android, and MacBook device mockups",
+    "path": "modules/ui/device_frame_previewer.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/orientation_lock_helper",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Mobile landscape/portrait orientation prompt overlay",
+    "path": "modules/ui/orientation_lock_helper.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/reading_progress_bar",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Top edge reading progress bar tracking page scroll depth",
+    "path": "modules/ui/reading_progress_bar.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/fullscreen_toggle",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "One-click HTML5 fullscreen toggle button with icon change",
+    "path": "modules/ui/fullscreen_toggle.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/zoom_pan_container",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Google Maps-style canvas zoom, pan, and reset controls",
+    "path": "modules/ui/zoom_pan_container.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/virtual_keyboard",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "On-screen touch keyboard for kiosks and accessibility",
+    "path": "modules/ui/virtual_keyboard.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/clipboard_copy_button",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Click-to-copy button with checkmark feedback",
+    "path": "modules/ui/clipboard_copy_button.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/time_ago_display",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "Relative '5 minutes ago' reactive timestamp display",
+    "path": "modules/ui/time_ago_display.star",
+    "author": "Star Core Team",
+    "license": "MIT"
+  },
+  {
+    "name": "ui/currency_formatter_view",
+    "category": "ui",
+    "version": "1.0.0",
+    "description": "International multi-currency live conversion display",
+    "path": "modules/ui/currency_formatter_view.star",
+    "author": "Star Core Team",
+    "license": "MIT"
   }
 ]
