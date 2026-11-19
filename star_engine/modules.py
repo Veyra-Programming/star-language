@@ -242,6 +242,14 @@ class ModuleManager:
         self.loaded_modules["Neural"] = ai_mod
         self.loaded_modules["Agent"] = ai_mod
 
+        # 13. OmniEngine 2.0 GN (Universal Execution, Parallel Fibers & Compute Grid)
+        from star_sdk.omni import create_omni_module, create_fiber_module, create_grid_module
+        omni_mod = create_omni_module()
+        self.loaded_modules["Omni"] = omni_mod
+        self.loaded_modules["Fiber"] = create_fiber_module()
+        self.loaded_modules["Grid"] = create_grid_module()
+        self.loaded_modules["JIT"] = omni_mod
+
     def load_module(self, name_or_path: str, is_file: bool, location: Optional[SourceLocation] = None) -> StarModule:
         # Check stdlib and preloaded modules
         if not is_file and name_or_path in self.loaded_modules:

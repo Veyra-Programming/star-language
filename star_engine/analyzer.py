@@ -72,7 +72,8 @@ class SemanticAnalyzer:
         BUILTIN_NAMES = (
             "show", "type", "len", "str", "num", "Math", "Time", "String", "IO", "System",
             "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer",
-            "panic", "fail"
+            "panic", "fail", "Server", "HTTP", "AI", "Tensor", "Neural", "Agent",
+            "Omni", "Fiber", "Grid", "JIT"
         )
         for b in BUILTIN_NAMES:
             global_scope.define(b, is_constant=True, type_annotation=None, location=program.location)
@@ -87,7 +88,8 @@ class SemanticAnalyzer:
         BUILTIN_NAMES = (
             "show", "type", "len", "str", "num", "Math", "Time", "String", "IO", "System",
             "say", "trim", "uppercase", "lowercase", "seal_hash", "now_ms", "Integer",
-            "panic", "fail"
+            "panic", "fail", "Server", "HTTP", "AI", "Tensor", "Neural", "Agent",
+            "Omni", "Fiber", "Grid", "JIT"
         )
         for name, sym in scope.symbols.items():
             if not sym.is_used and not name.startswith("_") and name not in BUILTIN_NAMES:

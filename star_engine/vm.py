@@ -21,9 +21,10 @@ from star_engine.errors import (
 
 
 class VMFunction(StarValue):
-    def __init__(self, ir_function: IRFunction, closure_env: Environment):
+    def __init__(self, ir_function: IRFunction, closure_env: Environment, module: Optional[IRModule] = None):
         self.ir_function = ir_function
         self.closure_env = closure_env
+        self.module = module
 
     @property
     def type_name(self) -> str:
@@ -35,12 +36,30 @@ class VMFunction(StarValue):
     def __repr__(self) -> str:
         return self.to_string()
 
+    def call(self, args: List[StarValue]) -> StarValue:
+        env = Environment(parent=self.closure_env)
+        for i, param in enumerate(self.ir_function.parameters):
+            val = args[i] if i < len(args) else StarNull()
+            env.define(param, val, is_constant=False)
+        frame = CallFrame(self.ir_function.instructions, env)
+        mod = self.module or IRModule(name="subcall", instructions=[])
+        vm = StarVM(mod)
+        vm.frames = [frame]
+        return vm.run()
+
+    def __call__(self, *args) -> Any:
+        from star_engine.types import to_star_value, from_star_value
+        star_args = [to_star_value(a) for a in args]
+        res = self.call(star_args)
+        return from_star_value(res)
+
 
 class VMMethod(StarValue):
-    def __init__(self, instance: "VMInstance", ir_method: IRFunction, closure_env: Environment):
+    def __init__(self, instance: "VMInstance", ir_method: IRFunction, closure_env: Environment, module: Optional[IRModule] = None):
         self.instance = instance
         self.ir_method = ir_method
         self.closure_env = closure_env
+        self.module = module
 
     @property
     def type_name(self) -> str:
@@ -51,6 +70,24 @@ class VMMethod(StarValue):
 
     def __repr__(self) -> str:
         return self.to_string()
+
+    def call(self, args: List[StarValue]) -> StarValue:
+        env = Environment(parent=self.closure_env)
+        env.define("self", self.instance, is_constant=True)
+        for i, param in enumerate(self.ir_method.parameters):
+            val = args[i] if i < len(args) else StarNull()
+            env.define(param, val, is_constant=False)
+        frame = CallFrame(self.ir_method.instructions, env)
+        mod = self.module or IRModule(name="subcall", instructions=[])
+        vm = StarVM(mod)
+        vm.frames = [frame]
+        return vm.run()
+
+    def __call__(self, *args) -> Any:
+        from star_engine.types import to_star_value, from_star_value
+        star_args = [to_star_value(a) for a in args]
+        res = self.call(star_args)
+        return from_star_value(res)
 
 
 class VMClass(StarValue):
@@ -239,8 +276,9 @@ class StarVM:
             return interp.execute(stmt, env)
 
     def run(self) -> StarValue:
-        main_frame = CallFrame(self.module.instructions, self.global_env)
-        self.frames = [main_frame]
+        if not self.frames:
+            main_frame = CallFrame(self.module.instructions, self.global_env)
+            self.frames = [main_frame]
         self.stack = []
 
         last_val: StarValue = StarNull()
@@ -569,7 +607,7 @@ class StarVM:
                 elif op == OpCode.MAKE_FUNCTION:
                     name = self.module.constants[inst.operands[0]]
                     ir_fn = self.module.functions[name]
-                    fn_obj = VMFunction(ir_fn, frame.env)
+                    fn_obj = VMFunction(ir_fn, frame.env, module=self.module)
                     frame.env.define(name, fn_obj, is_constant=False)
                     push_to_stack = (len(inst.operands) > 1 and inst.operands[1] == 1) or name.startswith("__anon_fn_")
                     if push_to_stack:
