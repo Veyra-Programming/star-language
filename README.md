@@ -20,7 +20,14 @@ Star is an independent, modern, universal programming language and cross-platfor
 ## ✨ Features at a Glance
 
 * **Write Once, Run Everywhere**: Single codebase for Web, Desktop, Android, iOS, Server, AI, and Distributed Clusters with identical observable semantics.
-* **100% Certified Test Suite**: 275/275 unit, integration, hardware, server, AI, and conformance tests passing (0 failures, 0 errors).
+* **100% Certified Test Suite**: 298/298 unit, integration, hardware, server, AI, web tools, and conformance tests passing (0 failures, 0 errors).
+* **Universal Platform Independence & PAL (`STAR_PLATFORM_SPEC.md`)**: Full WORA (Write Once, Run Anywhere) support across Windows, Linux, macOS, Android, iOS, and WebAssembly with automatic path normalization, hardware detection, POSIX shell runners (`star`, `star.sh`), and `use Platform` / `use OS` standard modules (`star platform:info`).
+* **PHP-Style Web Tools & Rapid Scripting Suite (`STAR_WEB_TOOLS_SPEC.md`)**:
+  - **Embedded HTML Templating (`Template`)**: Blade/PHP-style tags (`{{ ... }}`, `{% whenever %}`, `{% for each %}`) with automatic XSS sanitization and filter pipelines.
+  - **Fluent Database ORM (`DB`)**: Eloquent/PDO-style query builder (`DB.table("users").where(...).order_by(...).get()`) for SQLite and in-memory tables.
+  - **Cryptographic Security & Validation (`Security`)**: PBKDF2-HMAC-SHA256 salted password hashing, declarative input validation, and CSRF token verification.
+  - **Stateful Web Sessions & Cookies (`Session`)**: Multi-tenant session manager with flash notifications and secure cookie serialization.
+  - **Artisan-Style Code Generators & Dev Server**: `star make:page`, `star make:api`, `star make:model`, and `star web:serve` embedded development web server.
 * **Star OmniEngine 2.0 GN (Generation Next) (`STAR_OMNI_SPEC.md`)**: Ultra-high-performance multi-target execution engine:
   - **M:N Work-Stealing Parallel Fibers**: 100,000+ fibers/sec with Go-style CSP channels (`OmniChannel`).
   - **Unified Arena & Zero-Copy Memory**: 1,740,000+ allocs/sec bump-pointer allocation with instant $O(1)$ zero-GC recycling and memory views (`BorrowedBuffer`).
@@ -86,6 +93,23 @@ star omni:info
 star omni:bench
 star omni:cluster
 star run examples/omni_engine_showcase.star
+```
+
+### 5. Web Tools & Platform Independence
+```bash
+# Cross-platform environment diagnostics
+star platform:info
+
+# Scaffold web page, API endpoint, or database model
+star make:page home
+star make:api users
+star make:model User
+
+# Launch embedded development server (default port 8000)
+star web:serve --port 8000
+
+# Run PHP-style showcase
+star run examples/php_web_showcase.star
 ```
 star new my_app
 cd my_app

@@ -65,6 +65,12 @@ def print_help():
     print("  star omni:info                      Display OmniEngine 2.0 GN, JIT & Fiber Scheduler diagnostics")
     print("  star omni:bench                     Benchmark JIT speedup, M:N Fibers & Arena memory throughput")
     print("  star omni:cluster                   Display distributed Global Network (GN) cluster topology")
+    print("\nWeb Tools & Platform Independence Commands:")
+    print("  star platform:info                  Display cross-platform runtime & PAL diagnostic report")
+    print("  star make:page <name>               Scaffold a PHP-style Star HTML web view (.star.html)")
+    print("  star make:api <name>                Scaffold a REST API endpoint route in routes/")
+    print("  star make:model <name>              Scaffold a database data model in models/")
+    print("  star web:serve [--port 8000]        Launch PHP-style embedded development web server")
     print("  star natural [\"prompt\"]             Translate real English sentence to Star UI & Backend")
     print("  star natural --ui [\"prompt\"]        Generate declarative Star UI component code")
     print("  star natural --backend [\"prompt\"]   Generate Star zero-loss backend & ledger code")
@@ -1389,6 +1395,89 @@ def main(args: List[str] = None):
             print(f"{n['node_id']:<18} {n['address']:<18} {n['status']:<10} {n['load_score']:<8} {caps}")
         print("=" * 72)
         return 0
+
+    if cmd in ("platform:info", "platform"):
+        from star_engine.platform import Platform
+        info = Platform.platform_info()
+        print("=" * 72)
+        print("🌐 STAR UNIVERSAL PLATFORM INDEPENDENCE (PAL) DIAGNOSTICS")
+        print("=" * 72)
+        print(f"Operating System:     {info['os'].upper()} ({info['platform_release']})")
+        print(f"CPU Architecture:     {info['arch'].upper()} ({'64-bit' if info['is_64bit'] else '32-bit'})")
+        print(f"Byte Endianness:      {info['endian'].capitalize()}-Endian")
+        print(f"Hardware CPU Cores:   {info['cpus']} Cores Detected")
+        print(f"Python Runtime:       v{info['python_version']}")
+        print(f"Path Separator:       '{info['path_sep']}' (Universal normalization active)")
+        print(f"User Home Directory:  {info['home_dir']}")
+        print(f"System Temp Dir:      {info['temp_dir']}")
+        print(f"Working Directory:    {info['cwd']}")
+        print("=" * 72)
+        print("Supported Targets:    ✓ Windows · Linux · macOS · Android · iOS · WASM")
+        print("Standard Modules:     use Platform · use OS")
+        print("=" * 72)
+        return 0
+
+    if cmd == "make:page":
+        from star_engine.web_tools.generators import WebGenerators
+        name = args[1] if len(args) > 1 else "index"
+        try:
+            path = WebGenerators.make_page(name)
+            print(f"✓ Scaffolding successful: '{path}' created.")
+            return 0
+        except Exception as e:
+            print(f"Error: {e}", file=sys.stderr)
+            return 1
+
+    if cmd == "make:api":
+        from star_engine.web_tools.generators import WebGenerators
+        name = args[1] if len(args) > 1 else "users"
+        try:
+            path = WebGenerators.make_api(name)
+            print(f"✓ REST API route created: '{path}'")
+            return 0
+        except Exception as e:
+            print(f"Error: {e}", file=sys.stderr)
+            return 1
+
+    if cmd == "make:model":
+        from star_engine.web_tools.generators import WebGenerators
+        name = args[1] if len(args) > 1 else "User"
+        try:
+            path = WebGenerators.make_model(name)
+            print(f"✓ Database model created: '{path}'")
+            return 0
+        except Exception as e:
+            print(f"Error: {e}", file=sys.stderr)
+            return 1
+
+    if cmd == "web:serve":
+        from star_engine.hyperflow.server import ServerApp
+        port = 8000
+        for i, a in enumerate(args):
+            if a in ("--port", "-p") and i + 1 < len(args):
+                port = int(args[i + 1])
+        app = ServerApp("StarWebServer", port=port)
+        from star_engine.web_tools.template import TemplateEngine
+        engine = TemplateEngine()
+        
+        @app.get("/")
+        def index_handler(req, res):
+            if os.path.exists("views/index.star.html"):
+                html_out = engine.render_file("views/index.star.html", {"title": "Star Web Server", "heading": "Welcome to Star", "message": "PHP-style web development on Star", "items": ["Fast", "Platform Independent", "Reactive"]})
+                res.html(html_out)
+            else:
+                res.html("<h1>⚡ Star Embedded Web Server</h1><p>Run <code>star make:page index</code> to create a template.</p>")
+
+        print("=" * 72)
+        print(f"⚡ STAR EMBEDDED DEVELOPMENT WEB SERVER (PHP-style)")
+        print(f"🔗 Local URL: http://localhost:{port}/")
+        print("=" * 72)
+        try:
+            app.listen(port=port)
+            return 0
+        except KeyboardInterrupt:
+            print("\n✓ Star Web Server stopped.")
+            return 0
 
     if cmd in ("check", "lint"):
         if len(args) < 2:

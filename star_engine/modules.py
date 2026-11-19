@@ -250,6 +250,23 @@ class ModuleManager:
         self.loaded_modules["Grid"] = create_grid_module()
         self.loaded_modules["JIT"] = omni_mod
 
+        # 14. Universal Platform Abstraction Layer (PAL) — Platform Independence
+        from star_sdk.platform import create_platform_module, create_os_module
+        plat_mod = create_platform_module()
+        self.loaded_modules["Platform"] = plat_mod
+        self.loaded_modules["OS"] = create_os_module()
+
+        # 15. PHP-style Web Tools & Modern Scripting Suite
+        from star_sdk.web import (
+            create_web_module, create_db_module, create_template_module,
+            create_security_module, create_session_module
+        )
+        self.loaded_modules["Web"] = create_web_module()
+        self.loaded_modules["DB"] = create_db_module()
+        self.loaded_modules["Template"] = create_template_module()
+        self.loaded_modules["Security"] = create_security_module()
+        self.loaded_modules["Session"] = create_session_module()
+
     def load_module(self, name_or_path: str, is_file: bool, location: Optional[SourceLocation] = None) -> StarModule:
         # Check stdlib and preloaded modules
         if not is_file and name_or_path in self.loaded_modules:

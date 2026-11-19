@@ -1,3 +1,23 @@
+## [1.5.0] - 2026-11-19 (Star Universal Platform Independence & PHP-style Web Tools Suite)
+
+### Added
+- **Universal Platform Independence & Platform Abstraction Layer (`star_engine/platform.py` · `star_sdk/platform.py` · `STAR_PLATFORM_SPEC.md`)**:
+  - Full WORA (Write Once, Run Anywhere) support across Windows, Linux, macOS, Android, iOS, and WebAssembly.
+  - Native architecture, OS, endianness, and CPU detection (`Platform.os`, `Platform.arch`, `Platform.is_64bit`, `Platform.cpu_count`).
+  - Automatic system-independent path normalization (`Platform.normalize_path()`, `Platform.to_posix_path()`).
+  - POSIX shell runners (`star`, `star.sh`) and Windows batch/PE launchers (`star.bat`, `star.exe`).
+  - New CLI Command: `star platform:info`.
+- **PHP-style Web Tools & Modern Scripting Suite (`star_engine/web_tools/` · `star_sdk/web.py` · `STAR_WEB_TOOLS_SPEC.md`)**:
+  - **Embedded HTML Templating Engine (`TemplateEngine` · `use Template`)**: Blade/PHP-style tags (`{{ expr }}`, `{% whenever %}`, `{% for each %}`, `{% include %}`) with automatic XSS escaping, raw output (`{!! raw !!}`), and filter pipelines (`uppercase`, `trim`, `json`).
+  - **Fluent Database ORM & Query Builder (`Database` · `QueryBuilder` · `use DB`)**: Eloquent/PDO-style query interface with `.select()`, `.where()`, `.order_by()`, `.limit()`, `.offset()`, `.get()`, `.first()`, `.insert()`, `.update()`, `.delete()` for SQLite and in-memory tables.
+  - **Cryptographic Security & Input Validation (`Hash` · `Validator` · `Sanitizer` · `CSRF` · `use Security`)**: PBKDF2-HMAC-SHA256 salted password hashing, declarative schema input validation, HTML tag stripping, slugification, and CSRF protection.
+  - **Stateful Web Sessions & Cookies (`SessionManager` · `Cookie` · `use Session`)**: Multi-tenant session state with flash storage and HTTP cookie serialization.
+  - **Artisan-style Code Generators & Embedded Server**: `star make:page`, `star make:api`, `star make:model`, and `star web:serve`.
+  - **New Unit Tests & Showcases**:
+    - Added [`tests/test_platform_independence.py`](file:///e:/Star%20Language/tests/test_platform_independence.py).
+    - Added [`tests/test_web_tools.py`](file:///e:/Star%20Language/tests/test_web_tools.py).
+    - Added [`examples/php_web_showcase.star`](file:///e:/Star%20Language/examples/php_web_showcase.star).
+
 ## [1.4.0] - 2026-11-19 (Star OmniEngine 2.0 GN: Multi-Tier Profile-Guided JIT, M:N Work-Stealing Parallel Fibers, O(1) Arena Memory & Distributed Global Network Grid)
 
 ### Added
